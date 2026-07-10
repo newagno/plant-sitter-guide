@@ -29,7 +29,9 @@ for p in plants:
     cards_html += f"""
       <article class="group relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-[2.5rem] border border-white/5 shadow-2xl overflow-hidden hover:-translate-y-2 hover:bg-white/10 transition-all duration-500">
         <div class="relative w-full h-64 shrink-0 overflow-hidden">
-          <img src="./assets/images/{p['img']}" alt="{p['name']}" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer group-hover:scale-105 transition-transform duration-700">
+          <button type="button" aria-label="Збільшити фото {p['name']}" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-105 transition-transform duration-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
+            <img src="./assets/images/{p['img']}" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover">
+          </button>
           <div class="absolute inset-0 bg-gradient-to-t from-[#0b130e] via-[#0b130e]/40 to-transparent pointer-events-none"></div>
           <div class="absolute top-5 right-5 z-10">
             <span class="{p['b_color']} backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-medium tracking-wider uppercase shadow-xl">
@@ -86,7 +88,7 @@ html_content = f"""<!DOCTYPE html>
           </div>
           <div>
             <div class="text-[10px] text-stone-500 font-medium tracking-widest uppercase mb-0.5">До повернення</div>
-            <div id="countdown" class="text-lg font-bold text-stone-200 font-serif tracking-wide">...</div>
+            <div id="countdown" class="text-lg font-bold text-stone-200 font-serif tracking-wide" aria-live="polite">…</div>
           </div>
         </div>
       </div>
@@ -164,33 +166,52 @@ html_content = f"""<!DOCTYPE html>
     </div>
   </main>
 
-  <div id="zoomModal" class="fixed inset-0 z-50 flex items-center justify-center bg-[#0b130e]/95 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-300">
-    <img id="zoomImage" src="" alt="Zoomed" class="max-w-[90vw] max-h-[90vh] object-contain rounded-3xl shadow-2xl scale-95 transition-transform duration-300">
+  <div id="zoomModal" role="dialog" aria-modal="true" aria-label="Збільшене зображення" tabindex="-1" class="fixed inset-0 z-50 flex items-center justify-center bg-[#0b130e]/95 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-300">
+    <button type="button" id="closeModalBtn" aria-label="Закрити" class="absolute top-6 right-6 text-stone-400 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded-full p-2">
+      <svg class="w-8 h-8 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    </button>
+    <img id="zoomImage" src="" alt="" width="1200" height="800" class="max-w-[90vw] max-h-[90vh] object-contain rounded-3xl shadow-2xl scale-95 transition-transform duration-300">
   </div>
 
   <script>
     const zoomTriggers = document.querySelectorAll('.zoom-trigger');
     const zoomModal = document.getElementById('zoomModal');
     const zoomImage = document.getElementById('zoomImage');
+    const closeModalBtn = document.getElementById('closeModalBtn');
     
-    zoomTriggers.forEach(img => {{
-      img.addEventListener('pointerdown', (e) => {{
-        zoomImage.src = e.target.src;
-        zoomModal.classList.remove('opacity-0', 'pointer-events-none');
-        zoomImage.classList.replace('scale-95', 'scale-100');
-        e.target.setPointerCapture(e.pointerId);
+    let lastFocusedElement;
+
+    const openModal = (src) => {{
+      lastFocusedElement = document.activeElement;
+      zoomImage.src = src;
+      zoomModal.classList.remove('opacity-0', 'pointer-events-none');
+      zoomImage.classList.replace('scale-95', 'scale-100');
+      zoomModal.focus();
+    }};
+
+    const closeModal = () => {{
+      zoomModal.classList.add('opacity-0', 'pointer-events-none');
+      zoomImage.classList.replace('scale-100', 'scale-95');
+      if (lastFocusedElement) lastFocusedElement.focus();
+    }};
+
+    zoomTriggers.forEach(btn => {{
+      btn.addEventListener('click', (e) => {{
+        const img = e.currentTarget.querySelector('img');
+        if (img) openModal(img.src);
       }});
-      
-      img.addEventListener('pointerup', (e) => {{
-        zoomModal.classList.add('opacity-0', 'pointer-events-none');
-        zoomImage.classList.replace('scale-100', 'scale-95');
-        e.target.releasePointerCapture(e.pointerId);
-      }});
-      
-      img.addEventListener('pointerleave', (e) => {{
-        zoomModal.classList.add('opacity-0', 'pointer-events-none');
-        zoomImage.classList.replace('scale-100', 'scale-95');
-      }});
+    }});
+
+    zoomModal.addEventListener('click', (e) => {{
+      if (e.target === zoomModal || e.target === closeModalBtn) {{
+        closeModal();
+      }}
+    }});
+
+    document.addEventListener('keydown', (e) => {{
+      if (e.key === 'Escape' && !zoomModal.classList.contains('pointer-events-none')) {{
+        closeModal();
+      }}
     }});
 
     let timerInterval;
