@@ -869,6 +869,11 @@
     </div>
   </main>
 
+  <!-- Zoom Modal -->
+  <div id="zoomModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+    <img id="zoomImage" src="" alt="Zoomed" class="max-w-[90vw] max-h-[90vh] object-contain rounded-2xl shadow-2xl scale-95 transition-transform duration-300">
+  </div>
+
   <!-- Scripts -->
 <script>
     // Zoom Modal Interaction
@@ -907,7 +912,7 @@
 
       if (diff <= 0) {
         el.innerHTML = "Господар повернувся!";
-        el.classList.replace("text-stone-100", "text-emerald-400");
+        el.classList.replace("text-white/95", "text-emerald-400");
         clearInterval(timerInterval);
         return;
       }
