@@ -3,880 +3,662 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plant Sitter Guide | Urban Jungle</title>
+  <title>Plant Sitter Guide | Midnight Greenhouse</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50,10 C50,10 20,40 20,70 C20,86.5 33.5,100 50,100 C66.5,100 80,86.5 80,70 C80,40 50,10 50,10 Z' fill='%234ade80'/></svg>">
-  <link href="./output.css?v=3" rel="stylesheet">
+  <link href="./output.css?v=5" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-<body class="bg-[#13201A] text-white/90 font-sans min-h-screen antialiased selection:bg-emerald-900/50">
+<body class="bg-[#0b130e] text-stone-300 font-sans min-h-screen antialiased selection:bg-emerald-900/50 relative">
 
-  <!-- Header Section -->
-  <header class="container mx-auto px-4 pt-16 pb-8 max-w-screen-xl">
-    <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+  <!-- Ambient Glow -->
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-emerald-900/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+
+  <header class="container mx-auto px-6 pt-20 pb-12 max-w-screen-2xl">
+    <div class="flex flex-col lg:flex-row justify-between items-start gap-12">
       
-      <!-- Title & Timer -->
-      <div class="space-y-6">
+      <div class="space-y-8">
         <div>
-          <h1 class="text-4xl md:text-5xl font-serif font-bold text-white/95 tracking-tight mb-2">Plant Sitter Guide</h1>
-          <p class="text-white/60 font-serif italic text-lg">Зелений куточок, що потребує твоєї уваги</p>
+          <h1 class="text-5xl md:text-6xl font-serif font-bold text-stone-100 tracking-tight mb-3">Plant Sitter Guide</h1>
+          <p class="text-stone-500 font-serif italic text-xl">Зелений куточок, що потребує твоєї уваги</p>
         </div>
         
-        <div class="inline-flex items-center gap-4 bg-white/5 backdrop-blur-xl border border-white/10 px-5 py-3 rounded-2xl shadow-lg">
-          <div class="w-10 h-10 rounded-full bg-emerald-900/40 border border-emerald-500/30 flex items-center justify-center">
+        <div class="inline-flex items-center gap-4 bg-white/5 backdrop-blur-xl border border-white/10 px-6 py-3 rounded-full shadow-2xl">
+          <div class="w-10 h-10 rounded-full bg-emerald-900/30 border border-emerald-500/20 flex items-center justify-center">
             <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </div>
           <div>
-            <div class="text-xs text-white/50 font-medium tracking-wider uppercase mb-0.5">До повернення</div>
-            <div id="countdown" class="text-lg font-bold text-white/95 font-serif tracking-wide">...</div>
+            <div class="text-[10px] text-stone-500 font-medium tracking-widest uppercase mb-0.5">До повернення</div>
+            <div id="countdown" class="text-lg font-bold text-stone-200 font-serif tracking-wide">...</div>
           </div>
         </div>
       </div>
       
-      <!-- Alerts -->
-      <div class="flex flex-col gap-4 w-full md:w-auto max-w-md">
-        <!-- Alert 1 -->
-        <div class="flex gap-4 bg-white/5 border border-red-500/30 p-4 rounded-2xl shadow-xl backdrop-blur-2xl">
-          <div class="shrink-0 mt-0.5">
-            <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full lg:w-3/5">
+        <div class="flex gap-4 bg-white/5 border border-rose-500/20 p-5 rounded-3xl shadow-xl backdrop-blur-2xl">
+          <div class="shrink-0 mt-1">
+            <svg class="w-5 h-5 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
           </div>
           <div>
-            <div class="font-bold text-sm tracking-wide text-red-400 mb-1 font-serif">ПОТРЕБУЮТЬ ПОЛИВУ</div>
-            <div class="text-xs text-white/70 leading-relaxed font-sans">Zibrov, Beneficiary, Emma Stone, Mariposa, Малюк</div>
+            <div class="font-bold text-xs tracking-widest text-rose-400 mb-1.5 font-serif uppercase">Потребують поливу</div>
+            <div class="text-xs text-stone-400 leading-relaxed font-sans">Zibrov, Beneficiary, Emma Stone, Mariposa, Малюк</div>
           </div>
         </div>
         
-        <!-- Alert 2 -->
-        <div class="flex gap-4 bg-white/5 border border-amber-500/30 p-4 rounded-2xl shadow-xl backdrop-blur-2xl">
-          <div class="shrink-0 mt-0.5">
-            <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <div class="flex gap-4 bg-white/5 border border-sky-500/20 p-5 rounded-3xl shadow-xl backdrop-blur-2xl">
+          <div class="shrink-0 mt-1">
+            <svg class="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </div>
           <div>
-            <div class="font-bold text-sm tracking-wide text-amber-400 mb-1 font-serif">ЯК ПОЛИВАТИ</div>
-            <div class="text-xs text-white/70 leading-relaxed font-sans">Лий повільно, зачекай поки вийде в піддон, обов'язково злий зайву через 30 хв.</div>
+            <div class="font-bold text-xs tracking-widest text-sky-400 mb-1.5 font-serif uppercase">Як поливати</div>
+            <div class="text-xs text-stone-400 leading-relaxed font-sans">Лий повільно, зачекай поки вийде в піддон, злий зайву через 30 хв.</div>
           </div>
         </div>
         
-        <!-- Alert 3 -->
-        <div class="flex gap-4 bg-white/5 border border-emerald-500/30 p-4 rounded-2xl shadow-xl backdrop-blur-2xl">
-          <div class="shrink-0 mt-0.5">
-            <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <div class="flex gap-4 bg-white/5 border border-stone-500/20 p-5 rounded-3xl shadow-xl backdrop-blur-2xl">
+          <div class="shrink-0 mt-1">
+            <svg class="w-5 h-5 text-stone-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </div>
           <div>
-            <div class="font-bold text-sm tracking-wide text-emerald-400 mb-1 font-serif">НЕ ПОЛИВАТИ</div>
-            <div class="text-xs text-white/70 leading-relaxed font-sans">Кактуси, Юка, Церопегія, Розсада + 6 судочків.</div>
+            <div class="font-bold text-xs tracking-widest text-stone-400 mb-1.5 font-serif uppercase">Не поливати</div>
+            <div class="text-xs text-stone-400 leading-relaxed font-sans">Кактуси, Юка, Церопегія.</div>
           </div>
         </div>
 
-        <!-- Alert 4 -->
-        <div class="flex gap-4 bg-white/5 border border-pink-500/30 p-4 rounded-2xl shadow-xl backdrop-blur-2xl">
-          <div class="shrink-0 mt-0.5">
-            <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+        <div class="flex gap-4 bg-white/5 border border-emerald-500/20 p-5 rounded-3xl shadow-xl backdrop-blur-2xl">
+          <div class="shrink-0 mt-1">
+            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
           </div>
           <div>
-            <div class="font-bold text-sm tracking-wide text-pink-400 mb-1 font-serif">ГОЛОВНЕ ПРАВИЛО</div>
-            <div class="text-xs text-white/70 leading-relaxed font-sans">Перед виходом обов'язково зробити кожній рослині «утю-тю»!</div>
+            <div class="font-bold text-xs tracking-widest text-emerald-400 mb-1.5 font-serif uppercase">Головне правило</div>
+            <div class="text-xs text-stone-400 leading-relaxed font-sans">Перед виходом зробити кожній рослині «утю-тю»!</div>
           </div>
         </div>
       </div>
     </div>
   </header>
 
-  <main class="container mx-auto px-4 py-12 max-w-screen-xl">
+  <main class="container mx-auto px-6 py-12 max-w-screen-2xl">
     
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
 
-      <article class="relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl shadow-black/40 overflow-hidden group hover:bg-white/10 transition-colors duration-300">
-        
-        <!-- Image with Gradient Mask -->
-        <div class="relative w-full h-56 shrink-0">
-          <img src="./assets/images/Yucca.jpg" alt="Paula" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer">
-          <div class="absolute inset-0 bg-gradient-to-t from-[#13201A] via-[#13201A]/40 to-transparent pointer-events-none"></div>
-          
-          <!-- Badge -->
-          <div class="absolute top-4 right-4 z-10">
-            <span class="bg-[#1e6b35] text-white/95 text-[10px] px-2.5 py-1.5 rounded-lg font-medium tracking-wide shadow-lg border border-white/10 backdrop-blur-md">
+      <article class="group relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-[2.5rem] border border-white/5 shadow-2xl overflow-hidden hover:-translate-y-2 hover:bg-white/10 transition-all duration-500">
+        <div class="relative w-full h-64 shrink-0 overflow-hidden">
+          <img src="./assets/images/Yucca.jpg" alt="Paula" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b130e] via-[#0b130e]/40 to-transparent pointer-events-none"></div>
+          <div class="absolute top-5 right-5 z-10">
+            <span class="text-stone-300 bg-stone-500/10 border-stone-500/20 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-medium tracking-wider uppercase shadow-xl">
               ✅ НЕ поливати
             </span>
           </div>
         </div>
-
-        <!-- Content -->
-        <div class="flex flex-col flex-1 p-5 pt-2 relative z-10">
+        <div class="flex flex-col flex-1 p-7 pt-2 relative z-10">
           <div class="mb-4">
-            <h3 class="text-white/95 font-serif font-bold text-xl leading-tight mb-1">Paula</h3>
-            <p class="text-xs text-white/50 italic font-serif">Yucca elephantipes</p>
+            <h3 class="text-stone-100 font-serif font-bold text-2xl tracking-tight mb-1">Paula</h3>
+            <p class="text-xs text-stone-500 italic font-serif tracking-wide">Yucca elephantipes</p>
           </div>
-          
-          <div class="text-sm text-white/70 font-sans leading-relaxed flex-1 mb-4">
+          <div class="text-sm text-stone-400 font-sans leading-relaxed flex-1 mb-6">
             Нічого не робити. Юка витримає 3–4 тижні без поливу.
           </div>
-          
-          <!-- Footer -->
-          <div class="mt-auto pt-4 border-t border-white/10">
-            <span class="text-[11px] text-white/40 font-medium flex items-center gap-2 uppercase tracking-wider">
+          <div class="mt-auto pt-4 border-t border-white/5">
+            <span class="text-[10px] text-stone-500 font-medium flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Підлога
             </span>
           </div>
         </div>
       </article>
-
-      <article class="relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl shadow-black/40 overflow-hidden group hover:bg-white/10 transition-colors duration-300">
-        
-        <!-- Image with Gradient Mask -->
-        <div class="relative w-full h-56 shrink-0">
-          <img src="./assets/images/adansonii1.jpg" alt="Lantimos" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer">
-          <div class="absolute inset-0 bg-gradient-to-t from-[#13201A] via-[#13201A]/40 to-transparent pointer-events-none"></div>
-          
-          <!-- Badge -->
-          <div class="absolute top-4 right-4 z-10">
-            <span class="bg-[#1e4b6b] text-white/95 text-[10px] px-2.5 py-1.5 rounded-lg font-medium tracking-wide shadow-lg border border-white/10 backdrop-blur-md">
+      <article class="group relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-[2.5rem] border border-white/5 shadow-2xl overflow-hidden hover:-translate-y-2 hover:bg-white/10 transition-all duration-500">
+        <div class="relative w-full h-64 shrink-0 overflow-hidden">
+          <img src="./assets/images/adansonii1.jpg" alt="Lantimos" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b130e] via-[#0b130e]/40 to-transparent pointer-events-none"></div>
+          <div class="absolute top-5 right-5 z-10">
+            <span class="text-sky-300 bg-sky-500/10 border-sky-500/20 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-medium tracking-wider uppercase shadow-xl">
               💧 Полив на 10-й день
             </span>
           </div>
         </div>
-
-        <!-- Content -->
-        <div class="flex flex-col flex-1 p-5 pt-2 relative z-10">
+        <div class="flex flex-col flex-1 p-7 pt-2 relative z-10">
           <div class="mb-4">
-            <h3 class="text-white/95 font-serif font-bold text-xl leading-tight mb-1">Lantimos</h3>
-            <p class="text-xs text-white/50 italic font-serif">Monstera adansonii</p>
+            <h3 class="text-stone-100 font-serif font-bold text-2xl tracking-tight mb-1">Lantimos</h3>
+            <p class="text-xs text-stone-500 italic font-serif tracking-wide">Monstera adansonii</p>
           </div>
-          
-          <div class="text-sm text-white/70 font-sans leading-relaxed flex-1 mb-4">
+          <div class="text-sm text-stone-400 font-sans leading-relaxed flex-1 mb-6">
             Викупати в душі, полити рясно.
           </div>
-          
-          <!-- Footer -->
-          <div class="mt-auto pt-4 border-t border-white/10">
-            <span class="text-[11px] text-white/40 font-medium flex items-center gap-2 uppercase tracking-wider">
+          <div class="mt-auto pt-4 border-t border-white/5">
+            <span class="text-[10px] text-stone-500 font-medium flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Підлога
             </span>
           </div>
         </div>
       </article>
-
-      <article class="relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl shadow-black/40 overflow-hidden group hover:bg-white/10 transition-colors duration-300">
-        
-        <!-- Image with Gradient Mask -->
-        <div class="relative w-full h-56 shrink-0">
-          <img src="./assets/images/Seedlings.jpg" alt="Розсада + 6 судочків" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer">
-          <div class="absolute inset-0 bg-gradient-to-t from-[#13201A] via-[#13201A]/40 to-transparent pointer-events-none"></div>
-          
-          <!-- Badge -->
-          <div class="absolute top-4 right-4 z-10">
-            <span class="bg-[#1e6b35] text-white/95 text-[10px] px-2.5 py-1.5 rounded-lg font-medium tracking-wide shadow-lg border border-white/10 backdrop-blur-md">
-              ✅ НЕ поливати
+      <article class="group relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-[2.5rem] border border-white/5 shadow-2xl overflow-hidden hover:-translate-y-2 hover:bg-white/10 transition-all duration-500">
+        <div class="relative w-full h-64 shrink-0 overflow-hidden">
+          <img src="./assets/images/Seedlings.jpg" alt="Розсада + 6 судочків" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b130e] via-[#0b130e]/40 to-transparent pointer-events-none"></div>
+          <div class="absolute top-5 right-5 z-10">
+            <span class="text-rose-300 bg-rose-500/10 border-rose-500/20 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-medium tracking-wider uppercase shadow-xl">
+              ❗ Полив кожні 2–3 дні
             </span>
           </div>
         </div>
-
-        <!-- Content -->
-        <div class="flex flex-col flex-1 p-5 pt-2 relative z-10">
+        <div class="flex flex-col flex-1 p-7 pt-2 relative z-10">
           <div class="mb-4">
-            <h3 class="text-white/95 font-serif font-bold text-xl leading-tight mb-1">Розсада + 6 судочків</h3>
-            <p class="text-xs text-white/50 italic font-serif">Сіянці / живці</p>
+            <h3 class="text-stone-100 font-serif font-bold text-2xl tracking-tight mb-1">Розсада + 6 судочків</h3>
+            <p class="text-xs text-stone-500 italic font-serif tracking-wide">Сіянці / живці</p>
           </div>
-          
-          <div class="text-sm text-white/70 font-sans leading-relaxed flex-1 mb-4">
-            Не поливати.
+          <div class="text-sm text-stone-400 font-sans leading-relaxed flex-1 mb-6">
+            Маленькі молоді рослини — сохнуть швидко. Перевіряй землю: якщо суха на дотик — полий. Трохи, рівномірно. Якщо накриті плівкою — не знімай плівку, просто зволожуй якщо земля суха.
           </div>
-          
-          <!-- Footer -->
-          <div class="mt-auto pt-4 border-t border-white/10">
-            <span class="text-[11px] text-white/40 font-medium flex items-center gap-2 uppercase tracking-wider">
+          <div class="mt-auto pt-4 border-t border-white/5">
+            <span class="text-[10px] text-stone-500 font-medium flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Підлога
             </span>
           </div>
         </div>
       </article>
-
-      <article class="relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl shadow-black/40 overflow-hidden group hover:bg-white/10 transition-colors duration-300">
-        
-        <!-- Image with Gradient Mask -->
-        <div class="relative w-full h-56 shrink-0">
-          <img src="./assets/images/Platycerium.jpg" alt="Beneficiary" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer">
-          <div class="absolute inset-0 bg-gradient-to-t from-[#13201A] via-[#13201A]/40 to-transparent pointer-events-none"></div>
-          
-          <!-- Badge -->
-          <div class="absolute top-4 right-4 z-10">
-            <span class="bg-[#6b1e1e] text-white/95 text-[10px] px-2.5 py-1.5 rounded-lg font-medium tracking-wide shadow-lg border border-white/10 backdrop-blur-md">
+      <article class="group relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-[2.5rem] border border-white/5 shadow-2xl overflow-hidden hover:-translate-y-2 hover:bg-white/10 transition-all duration-500">
+        <div class="relative w-full h-64 shrink-0 overflow-hidden">
+          <img src="./assets/images/Platycerium.jpg" alt="Beneficiary" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b130e] via-[#0b130e]/40 to-transparent pointer-events-none"></div>
+          <div class="absolute top-5 right-5 z-10">
+            <span class="text-rose-300 bg-rose-500/10 border-rose-500/20 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-medium tracking-wider uppercase shadow-xl">
               ❗ Полив на 7-й день
             </span>
           </div>
         </div>
-
-        <!-- Content -->
-        <div class="flex flex-col flex-1 p-5 pt-2 relative z-10">
+        <div class="flex flex-col flex-1 p-7 pt-2 relative z-10">
           <div class="mb-4">
-            <h3 class="text-white/95 font-serif font-bold text-xl leading-tight mb-1">Beneficiary</h3>
-            <p class="text-xs text-white/50 italic font-serif">Platycerium bifurcatum</p>
+            <h3 class="text-stone-100 font-serif font-bold text-2xl tracking-tight mb-1">Beneficiary</h3>
+            <p class="text-xs text-stone-500 italic font-serif tracking-wide">Platycerium bifurcatum</p>
           </div>
-          
-          <div class="text-sm text-white/70 font-sans leading-relaxed flex-1 mb-4">
+          <div class="text-sm text-stone-400 font-sans leading-relaxed flex-1 mb-6">
             Я заматаю основу у плівку, щоб довше зберігав вологу в корінні, перевірити, якшо під плівкою буде з'являтися пліснява, зняти її і замочити рослину у відрі. Оприскати листя якшо не треба буде купати.
           </div>
-          
-          <!-- Footer -->
-          <div class="mt-auto pt-4 border-t border-white/10">
-            <span class="text-[11px] text-white/40 font-medium flex items-center gap-2 uppercase tracking-wider">
+          <div class="mt-auto pt-4 border-t border-white/5">
+            <span class="text-[10px] text-stone-500 font-medium flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Стіна
             </span>
           </div>
         </div>
       </article>
-
-      <article class="relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl shadow-black/40 overflow-hidden group hover:bg-white/10 transition-colors duration-300">
-        
-        <!-- Image with Gradient Mask -->
-        <div class="relative w-full h-56 shrink-0">
-          <img src="./assets/images/Epipremnum.jpg" alt="Andriy" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer">
-          <div class="absolute inset-0 bg-gradient-to-t from-[#13201A] via-[#13201A]/40 to-transparent pointer-events-none"></div>
-          
-          <!-- Badge -->
-          <div class="absolute top-4 right-4 z-10">
-            <span class="bg-[#1e4b6b] text-white/95 text-[10px] px-2.5 py-1.5 rounded-lg font-medium tracking-wide shadow-lg border border-white/10 backdrop-blur-md">
+      <article class="group relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-[2.5rem] border border-white/5 shadow-2xl overflow-hidden hover:-translate-y-2 hover:bg-white/10 transition-all duration-500">
+        <div class="relative w-full h-64 shrink-0 overflow-hidden">
+          <img src="./assets/images/Epipremnum.jpg" alt="Andriy" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b130e] via-[#0b130e]/40 to-transparent pointer-events-none"></div>
+          <div class="absolute top-5 right-5 z-10">
+            <span class="text-sky-300 bg-sky-500/10 border-sky-500/20 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-medium tracking-wider uppercase shadow-xl">
               💧 Полив на 10-й день
             </span>
           </div>
         </div>
-
-        <!-- Content -->
-        <div class="flex flex-col flex-1 p-5 pt-2 relative z-10">
+        <div class="flex flex-col flex-1 p-7 pt-2 relative z-10">
           <div class="mb-4">
-            <h3 class="text-white/95 font-serif font-bold text-xl leading-tight mb-1">Andriy</h3>
-            <p class="text-xs text-white/50 italic font-serif">Epipremnum + Хлорофітум</p>
+            <h3 class="text-stone-100 font-serif font-bold text-2xl tracking-tight mb-1">Andriy</h3>
+            <p class="text-xs text-stone-500 italic font-serif tracking-wide">Epipremnum + Хлорофітум</p>
           </div>
-          
-          <div class="text-sm text-white/70 font-sans leading-relaxed flex-1 mb-4">
+          <div class="text-sm text-stone-400 font-sans leading-relaxed flex-1 mb-6">
             Полити помірно. Обидві рослини витривалі, переживуть якщо трохи запізнитись. Обережно може политись через край вода.
           </div>
-          
-          <!-- Footer -->
-          <div class="mt-auto pt-4 border-t border-white/10">
-            <span class="text-[11px] text-white/40 font-medium flex items-center gap-2 uppercase tracking-wider">
+          <div class="mt-auto pt-4 border-t border-white/5">
+            <span class="text-[10px] text-stone-500 font-medium flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Стіна
             </span>
           </div>
         </div>
       </article>
-
-      <article class="relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl shadow-black/40 overflow-hidden group hover:bg-white/10 transition-colors duration-300">
-        
-        <!-- Image with Gradient Mask -->
-        <div class="relative w-full h-56 shrink-0">
-          <img src="./assets/images/Philodendron.jpg" alt="Галя" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer">
-          <div class="absolute inset-0 bg-gradient-to-t from-[#13201A] via-[#13201A]/40 to-transparent pointer-events-none"></div>
-          
-          <!-- Badge -->
-          <div class="absolute top-4 right-4 z-10">
-            <span class="bg-[#1e4b6b] text-white/95 text-[10px] px-2.5 py-1.5 rounded-lg font-medium tracking-wide shadow-lg border border-white/10 backdrop-blur-md">
+      <article class="group relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-[2.5rem] border border-white/5 shadow-2xl overflow-hidden hover:-translate-y-2 hover:bg-white/10 transition-all duration-500">
+        <div class="relative w-full h-64 shrink-0 overflow-hidden">
+          <img src="./assets/images/Philodendron.jpg" alt="Галя" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b130e] via-[#0b130e]/40 to-transparent pointer-events-none"></div>
+          <div class="absolute top-5 right-5 z-10">
+            <span class="text-sky-300 bg-sky-500/10 border-sky-500/20 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-medium tracking-wider uppercase shadow-xl">
               💧 Полив на 10-й день
             </span>
           </div>
         </div>
-
-        <!-- Content -->
-        <div class="flex flex-col flex-1 p-5 pt-2 relative z-10">
+        <div class="flex flex-col flex-1 p-7 pt-2 relative z-10">
           <div class="mb-4">
-            <h3 class="text-white/95 font-serif font-bold text-xl leading-tight mb-1">Галя</h3>
-            <p class="text-xs text-white/50 italic font-serif">Philodendron hederaceum</p>
+            <h3 class="text-stone-100 font-serif font-bold text-2xl tracking-tight mb-1">Галя</h3>
+            <p class="text-xs text-stone-500 italic font-serif tracking-wide">Philodendron hederaceum</p>
           </div>
-          
-          <div class="text-sm text-white/70 font-sans leading-relaxed flex-1 mb-4">
+          <div class="text-sm text-stone-400 font-sans leading-relaxed flex-1 mb-6">
             Полити помірно, можна скупати в душі. Якщо листя злегка поникло — нічого страшного, після поливу одразу відновиться.
           </div>
-          
-          <!-- Footer -->
-          <div class="mt-auto pt-4 border-t border-white/10">
-            <span class="text-[11px] text-white/40 font-medium flex items-center gap-2 uppercase tracking-wider">
+          <div class="mt-auto pt-4 border-t border-white/5">
+            <span class="text-[10px] text-stone-500 font-medium flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Стіна
             </span>
           </div>
         </div>
       </article>
-
-      <article class="relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl shadow-black/40 overflow-hidden group hover:bg-white/10 transition-colors duration-300">
-        
-        <!-- Image with Gradient Mask -->
-        <div class="relative w-full h-56 shrink-0">
-          <img src="./assets/images/Thai_Constellation.jpg" alt="Radu Jude" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer">
-          <div class="absolute inset-0 bg-gradient-to-t from-[#13201A] via-[#13201A]/40 to-transparent pointer-events-none"></div>
-          
-          <!-- Badge -->
-          <div class="absolute top-4 right-4 z-10">
-            <span class="bg-[#1e4b6b] text-white/95 text-[10px] px-2.5 py-1.5 rounded-lg font-medium tracking-wide shadow-lg border border-white/10 backdrop-blur-md">
+      <article class="group relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-[2.5rem] border border-white/5 shadow-2xl overflow-hidden hover:-translate-y-2 hover:bg-white/10 transition-all duration-500">
+        <div class="relative w-full h-64 shrink-0 overflow-hidden">
+          <img src="./assets/images/Thai_Constellation.jpg" alt="Radu Jude" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b130e] via-[#0b130e]/40 to-transparent pointer-events-none"></div>
+          <div class="absolute top-5 right-5 z-10">
+            <span class="text-sky-300 bg-sky-500/10 border-sky-500/20 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-medium tracking-wider uppercase shadow-xl">
               💧 Полив на 10-й день
             </span>
           </div>
         </div>
-
-        <!-- Content -->
-        <div class="flex flex-col flex-1 p-5 pt-2 relative z-10">
+        <div class="flex flex-col flex-1 p-7 pt-2 relative z-10">
           <div class="mb-4">
-            <h3 class="text-white/95 font-serif font-bold text-xl leading-tight mb-1">Radu Jude</h3>
-            <p class="text-xs text-white/50 italic font-serif">Monstera Thai Constellation</p>
+            <h3 class="text-stone-100 font-serif font-bold text-2xl tracking-tight mb-1">Radu Jude</h3>
+            <p class="text-xs text-stone-500 italic font-serif tracking-wide">Monstera Thai Constellation</p>
           </div>
-          
-          <div class="text-sm text-white/70 font-sans leading-relaxed flex-1 mb-4">
+          <div class="text-sm text-stone-400 font-sans leading-relaxed flex-1 mb-6">
             Викупати в душі, гарно намочити мох в пластиковій підримці.
           </div>
-          
-          <!-- Footer -->
-          <div class="mt-auto pt-4 border-t border-white/10">
-            <span class="text-[11px] text-white/40 font-medium flex items-center gap-2 uppercase tracking-wider">
+          <div class="mt-auto pt-4 border-t border-white/5">
+            <span class="text-[10px] text-stone-500 font-medium flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Етажерка 1
             </span>
           </div>
         </div>
       </article>
-
-      <article class="relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl shadow-black/40 overflow-hidden group hover:bg-white/10 transition-colors duration-300">
-        
-        <!-- Image with Gradient Mask -->
-        <div class="relative w-full h-56 shrink-0">
-          <img src="./assets/images/Gardenia.jpg" alt="Zibrov" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer">
-          <div class="absolute inset-0 bg-gradient-to-t from-[#13201A] via-[#13201A]/40 to-transparent pointer-events-none"></div>
-          
-          <!-- Badge -->
-          <div class="absolute top-4 right-4 z-10">
-            <span class="bg-[#6b1e1e] text-white/95 text-[10px] px-2.5 py-1.5 rounded-lg font-medium tracking-wide shadow-lg border border-white/10 backdrop-blur-md">
+      <article class="group relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-[2.5rem] border border-white/5 shadow-2xl overflow-hidden hover:-translate-y-2 hover:bg-white/10 transition-all duration-500">
+        <div class="relative w-full h-64 shrink-0 overflow-hidden">
+          <img src="./assets/images/Gardenia.jpg" alt="Zibrov" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b130e] via-[#0b130e]/40 to-transparent pointer-events-none"></div>
+          <div class="absolute top-5 right-5 z-10">
+            <span class="text-rose-300 bg-rose-500/10 border-rose-500/20 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-medium tracking-wider uppercase shadow-xl">
               ❗ Полив на 7-й день
             </span>
           </div>
         </div>
-
-        <!-- Content -->
-        <div class="flex flex-col flex-1 p-5 pt-2 relative z-10">
+        <div class="flex flex-col flex-1 p-7 pt-2 relative z-10">
           <div class="mb-4">
-            <h3 class="text-white/95 font-serif font-bold text-xl leading-tight mb-1">Zibrov</h3>
-            <p class="text-xs text-white/50 italic font-serif">Gardenia jasminoides</p>
+            <h3 class="text-stone-100 font-serif font-bold text-2xl tracking-tight mb-1">Zibrov</h3>
+            <p class="text-xs text-stone-500 italic font-serif tracking-wide">Gardenia jasminoides</p>
           </div>
-          
-          <div class="text-sm text-white/70 font-sans leading-relaxed flex-1 mb-4">
+          <div class="text-sm text-stone-400 font-sans leading-relaxed flex-1 mb-6">
             Гарденія дуже вибаглива. Полити рясно на 7-й день. Вода — кімнатна, не холодна. Після поливу злий воду з піддону через 30 хв. НЕ мочи листя і квіти.
           </div>
-          
-          <!-- Footer -->
-          <div class="mt-auto pt-4 border-t border-white/10">
-            <span class="text-[11px] text-white/40 font-medium flex items-center gap-2 uppercase tracking-wider">
+          <div class="mt-auto pt-4 border-t border-white/5">
+            <span class="text-[10px] text-stone-500 font-medium flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Етажерка 1
             </span>
           </div>
         </div>
       </article>
-
-      <article class="relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl shadow-black/40 overflow-hidden group hover:bg-white/10 transition-colors duration-300">
-        
-        <!-- Image with Gradient Mask -->
-        <div class="relative w-full h-56 shrink-0">
-          <img src="./assets/images/Begonia.jpg" alt="Emma Stone" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer">
-          <div class="absolute inset-0 bg-gradient-to-t from-[#13201A] via-[#13201A]/40 to-transparent pointer-events-none"></div>
-          
-          <!-- Badge -->
-          <div class="absolute top-4 right-4 z-10">
-            <span class="bg-[#6b1e1e] text-white/95 text-[10px] px-2.5 py-1.5 rounded-lg font-medium tracking-wide shadow-lg border border-white/10 backdrop-blur-md">
+      <article class="group relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-[2.5rem] border border-white/5 shadow-2xl overflow-hidden hover:-translate-y-2 hover:bg-white/10 transition-all duration-500">
+        <div class="relative w-full h-64 shrink-0 overflow-hidden">
+          <img src="./assets/images/Begonia.jpg" alt="Emma Stone" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b130e] via-[#0b130e]/40 to-transparent pointer-events-none"></div>
+          <div class="absolute top-5 right-5 z-10">
+            <span class="text-rose-300 bg-rose-500/10 border-rose-500/20 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-medium tracking-wider uppercase shadow-xl">
               ❗ Полив на 7-й день
             </span>
           </div>
         </div>
-
-        <!-- Content -->
-        <div class="flex flex-col flex-1 p-5 pt-2 relative z-10">
+        <div class="flex flex-col flex-1 p-7 pt-2 relative z-10">
           <div class="mb-4">
-            <h3 class="text-white/95 font-serif font-bold text-xl leading-tight mb-1">Emma Stone</h3>
-            <p class="text-xs text-white/50 italic font-serif">Begonia maculata</p>
+            <h3 class="text-stone-100 font-serif font-bold text-2xl tracking-tight mb-1">Emma Stone</h3>
+            <p class="text-xs text-stone-500 italic font-serif tracking-wide">Begonia maculata</p>
           </div>
-          
-          <div class="text-sm text-white/70 font-sans leading-relaxed flex-1 mb-4">
+          <div class="text-sm text-stone-400 font-sans leading-relaxed flex-1 mb-6">
             Полити рясно але акуратно, на ній немає листків.
           </div>
-          
-          <!-- Footer -->
-          <div class="mt-auto pt-4 border-t border-white/10">
-            <span class="text-[11px] text-white/40 font-medium flex items-center gap-2 uppercase tracking-wider">
+          <div class="mt-auto pt-4 border-t border-white/5">
+            <span class="text-[10px] text-stone-500 font-medium flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Етажерка 1
             </span>
           </div>
         </div>
       </article>
-
-      <article class="relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl shadow-black/40 overflow-hidden group hover:bg-white/10 transition-colors duration-300">
-        
-        <!-- Image with Gradient Mask -->
-        <div class="relative w-full h-56 shrink-0">
-          <img src="./assets/images/Maranta.jpg" alt="Mariposa" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer">
-          <div class="absolute inset-0 bg-gradient-to-t from-[#13201A] via-[#13201A]/40 to-transparent pointer-events-none"></div>
-          
-          <!-- Badge -->
-          <div class="absolute top-4 right-4 z-10">
-            <span class="bg-[#6b1e1e] text-white/95 text-[10px] px-2.5 py-1.5 rounded-lg font-medium tracking-wide shadow-lg border border-white/10 backdrop-blur-md">
+      <article class="group relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-[2.5rem] border border-white/5 shadow-2xl overflow-hidden hover:-translate-y-2 hover:bg-white/10 transition-all duration-500">
+        <div class="relative w-full h-64 shrink-0 overflow-hidden">
+          <img src="./assets/images/Maranta.jpg" alt="Mariposa" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b130e] via-[#0b130e]/40 to-transparent pointer-events-none"></div>
+          <div class="absolute top-5 right-5 z-10">
+            <span class="text-rose-300 bg-rose-500/10 border-rose-500/20 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-medium tracking-wider uppercase shadow-xl">
               ❗ Полив на 7-й день
             </span>
           </div>
         </div>
-
-        <!-- Content -->
-        <div class="flex flex-col flex-1 p-5 pt-2 relative z-10">
+        <div class="flex flex-col flex-1 p-7 pt-2 relative z-10">
           <div class="mb-4">
-            <h3 class="text-white/95 font-serif font-bold text-xl leading-tight mb-1">Mariposa</h3>
-            <p class="text-xs text-white/50 italic font-serif">Maranta leuconeura</p>
+            <h3 class="text-stone-100 font-serif font-bold text-2xl tracking-tight mb-1">Mariposa</h3>
+            <p class="text-xs text-stone-500 italic font-serif tracking-wide">Maranta leuconeura</p>
           </div>
-          
-          <div class="text-sm text-white/70 font-sans leading-relaxed flex-1 mb-4">
+          <div class="text-sm text-stone-400 font-sans leading-relaxed flex-1 mb-6">
             Полити рівномірно. Дуже любить вологу.
           </div>
-          
-          <!-- Footer -->
-          <div class="mt-auto pt-4 border-t border-white/10">
-            <span class="text-[11px] text-white/40 font-medium flex items-center gap-2 uppercase tracking-wider">
+          <div class="mt-auto pt-4 border-t border-white/5">
+            <span class="text-[10px] text-stone-500 font-medium flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Етажерка 1
             </span>
           </div>
         </div>
       </article>
-
-      <article class="relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl shadow-black/40 overflow-hidden group hover:bg-white/10 transition-colors duration-300">
-        
-        <!-- Image with Gradient Mask -->
-        <div class="relative w-full h-56 shrink-0">
-          <img src="./assets/images/pumila.jpg" alt="Малюк" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer">
-          <div class="absolute inset-0 bg-gradient-to-t from-[#13201A] via-[#13201A]/40 to-transparent pointer-events-none"></div>
-          
-          <!-- Badge -->
-          <div class="absolute top-4 right-4 z-10">
-            <span class="bg-[#6b1e1e] text-white/95 text-[10px] px-2.5 py-1.5 rounded-lg font-medium tracking-wide shadow-lg border border-white/10 backdrop-blur-md">
+      <article class="group relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-[2.5rem] border border-white/5 shadow-2xl overflow-hidden hover:-translate-y-2 hover:bg-white/10 transition-all duration-500">
+        <div class="relative w-full h-64 shrink-0 overflow-hidden">
+          <img src="./assets/images/pumila.jpg" alt="Малюк" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b130e] via-[#0b130e]/40 to-transparent pointer-events-none"></div>
+          <div class="absolute top-5 right-5 z-10">
+            <span class="text-rose-300 bg-rose-500/10 border-rose-500/20 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-medium tracking-wider uppercase shadow-xl">
               ❗ Полив на 7-й день
             </span>
           </div>
         </div>
-
-        <!-- Content -->
-        <div class="flex flex-col flex-1 p-5 pt-2 relative z-10">
+        <div class="flex flex-col flex-1 p-7 pt-2 relative z-10">
           <div class="mb-4">
-            <h3 class="text-white/95 font-serif font-bold text-xl leading-tight mb-1">Малюк</h3>
-            <p class="text-xs text-white/50 italic font-serif">Ficus pumila</p>
+            <h3 class="text-stone-100 font-serif font-bold text-2xl tracking-tight mb-1">Малюк</h3>
+            <p class="text-xs text-stone-500 italic font-serif tracking-wide">Ficus pumila</p>
           </div>
-          
-          <div class="text-sm text-white/70 font-sans leading-relaxed flex-1 mb-4">
+          <div class="text-sm text-stone-400 font-sans leading-relaxed flex-1 mb-6">
             Полити рясно. Земля має бути злегка вологою завжди.
           </div>
-          
-          <!-- Footer -->
-          <div class="mt-auto pt-4 border-t border-white/10">
-            <span class="text-[11px] text-white/40 font-medium flex items-center gap-2 uppercase tracking-wider">
+          <div class="mt-auto pt-4 border-t border-white/5">
+            <span class="text-[10px] text-stone-500 font-medium flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Етажерка 1
             </span>
           </div>
         </div>
       </article>
-
-      <article class="relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl shadow-black/40 overflow-hidden group hover:bg-white/10 transition-colors duration-300">
-        
-        <!-- Image with Gradient Mask -->
-        <div class="relative w-full h-56 shrink-0">
-          <img src="./assets/images/Chamaedorea.jpg" alt="Dora" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer">
-          <div class="absolute inset-0 bg-gradient-to-t from-[#13201A] via-[#13201A]/40 to-transparent pointer-events-none"></div>
-          
-          <!-- Badge -->
-          <div class="absolute top-4 right-4 z-10">
-            <span class="bg-[#1e4b6b] text-white/95 text-[10px] px-2.5 py-1.5 rounded-lg font-medium tracking-wide shadow-lg border border-white/10 backdrop-blur-md">
+      <article class="group relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-[2.5rem] border border-white/5 shadow-2xl overflow-hidden hover:-translate-y-2 hover:bg-white/10 transition-all duration-500">
+        <div class="relative w-full h-64 shrink-0 overflow-hidden">
+          <img src="./assets/images/Chamaedorea.jpg" alt="Dora" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b130e] via-[#0b130e]/40 to-transparent pointer-events-none"></div>
+          <div class="absolute top-5 right-5 z-10">
+            <span class="text-sky-300 bg-sky-500/10 border-sky-500/20 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-medium tracking-wider uppercase shadow-xl">
               💧 Полив на 10-й день
             </span>
           </div>
         </div>
-
-        <!-- Content -->
-        <div class="flex flex-col flex-1 p-5 pt-2 relative z-10">
+        <div class="flex flex-col flex-1 p-7 pt-2 relative z-10">
           <div class="mb-4">
-            <h3 class="text-white/95 font-serif font-bold text-xl leading-tight mb-1">Dora</h3>
-            <p class="text-xs text-white/50 italic font-serif">Chamaedorea elegans</p>
+            <h3 class="text-stone-100 font-serif font-bold text-2xl tracking-tight mb-1">Dora</h3>
+            <p class="text-xs text-stone-500 italic font-serif tracking-wide">Chamaedorea elegans</p>
           </div>
-          
-          <div class="text-sm text-white/70 font-sans leading-relaxed flex-1 mb-4">
+          <div class="text-sm text-stone-400 font-sans leading-relaxed flex-1 mb-6">
             Полити помірно. Пальма витривала, не паніку якщо кінчики листя трохи пожовкнуть.
           </div>
-          
-          <!-- Footer -->
-          <div class="mt-auto pt-4 border-t border-white/10">
-            <span class="text-[11px] text-white/40 font-medium flex items-center gap-2 uppercase tracking-wider">
+          <div class="mt-auto pt-4 border-t border-white/5">
+            <span class="text-[10px] text-stone-500 font-medium flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Етажерка 1
             </span>
           </div>
         </div>
       </article>
-
-      <article class="relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl shadow-black/40 overflow-hidden group hover:bg-white/10 transition-colors duration-300">
-        
-        <!-- Image with Gradient Mask -->
-        <div class="relative w-full h-56 shrink-0">
-          <img src="./assets/images/Chlorophytum.jpg" alt="Sheldon J. Plankton" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer">
-          <div class="absolute inset-0 bg-gradient-to-t from-[#13201A] via-[#13201A]/40 to-transparent pointer-events-none"></div>
-          
-          <!-- Badge -->
-          <div class="absolute top-4 right-4 z-10">
-            <span class="bg-[#1e4b6b] text-white/95 text-[10px] px-2.5 py-1.5 rounded-lg font-medium tracking-wide shadow-lg border border-white/10 backdrop-blur-md">
+      <article class="group relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-[2.5rem] border border-white/5 shadow-2xl overflow-hidden hover:-translate-y-2 hover:bg-white/10 transition-all duration-500">
+        <div class="relative w-full h-64 shrink-0 overflow-hidden">
+          <img src="./assets/images/Chlorophytum.jpg" alt="Sheldon J. Plankton" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b130e] via-[#0b130e]/40 to-transparent pointer-events-none"></div>
+          <div class="absolute top-5 right-5 z-10">
+            <span class="text-sky-300 bg-sky-500/10 border-sky-500/20 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-medium tracking-wider uppercase shadow-xl">
               💧 Полив на 10-й день
             </span>
           </div>
         </div>
-
-        <!-- Content -->
-        <div class="flex flex-col flex-1 p-5 pt-2 relative z-10">
+        <div class="flex flex-col flex-1 p-7 pt-2 relative z-10">
           <div class="mb-4">
-            <h3 class="text-white/95 font-serif font-bold text-xl leading-tight mb-1">Sheldon J. Plankton</h3>
-            <p class="text-xs text-white/50 italic font-serif">Chlorophytum comosum</p>
+            <h3 class="text-stone-100 font-serif font-bold text-2xl tracking-tight mb-1">Sheldon J. Plankton</h3>
+            <p class="text-xs text-stone-500 italic font-serif tracking-wide">Chlorophytum comosum</p>
           </div>
-          
-          <div class="text-sm text-white/70 font-sans leading-relaxed flex-1 mb-4">
+          <div class="text-sm text-stone-400 font-sans leading-relaxed flex-1 mb-6">
             Додати води за необхідності.
           </div>
-          
-          <!-- Footer -->
-          <div class="mt-auto pt-4 border-t border-white/10">
-            <span class="text-[11px] text-white/40 font-medium flex items-center gap-2 uppercase tracking-wider">
+          <div class="mt-auto pt-4 border-t border-white/5">
+            <span class="text-[10px] text-stone-500 font-medium flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Етажерка 1
             </span>
           </div>
         </div>
       </article>
-
-      <article class="relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl shadow-black/40 overflow-hidden group hover:bg-white/10 transition-colors duration-300">
-        
-        <!-- Image with Gradient Mask -->
-        <div class="relative w-full h-56 shrink-0">
-          <img src="./assets/images/Gasteria.jpg" alt="Без імені (Сукулент)" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer">
-          <div class="absolute inset-0 bg-gradient-to-t from-[#13201A] via-[#13201A]/40 to-transparent pointer-events-none"></div>
-          
-          <!-- Badge -->
-          <div class="absolute top-4 right-4 z-10">
-            <span class="bg-[#1e6b35] text-white/95 text-[10px] px-2.5 py-1.5 rounded-lg font-medium tracking-wide shadow-lg border border-white/10 backdrop-blur-md">
+      <article class="group relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-[2.5rem] border border-white/5 shadow-2xl overflow-hidden hover:-translate-y-2 hover:bg-white/10 transition-all duration-500">
+        <div class="relative w-full h-64 shrink-0 overflow-hidden">
+          <img src="./assets/images/Gasteria.jpg" alt="Без імені (Сукулент)" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b130e] via-[#0b130e]/40 to-transparent pointer-events-none"></div>
+          <div class="absolute top-5 right-5 z-10">
+            <span class="text-stone-300 bg-stone-500/10 border-stone-500/20 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-medium tracking-wider uppercase shadow-xl">
               ✅ НЕ поливати
             </span>
           </div>
         </div>
-
-        <!-- Content -->
-        <div class="flex flex-col flex-1 p-5 pt-2 relative z-10">
+        <div class="flex flex-col flex-1 p-7 pt-2 relative z-10">
           <div class="mb-4">
-            <h3 class="text-white/95 font-serif font-bold text-xl leading-tight mb-1">Без імені (Сукулент)</h3>
-            <p class="text-xs text-white/50 italic font-serif">Gasteria carinata</p>
+            <h3 class="text-stone-100 font-serif font-bold text-2xl tracking-tight mb-1">Без імені (Сукулент)</h3>
+            <p class="text-xs text-stone-500 italic font-serif tracking-wide">Gasteria carinata</p>
           </div>
-          
-          <div class="text-sm text-white/70 font-sans leading-relaxed flex-1 mb-4">
+          <div class="text-sm text-stone-400 font-sans leading-relaxed flex-1 mb-6">
             Нічого не робити. Сукулент — 3 тижні без поливу норма.
           </div>
-          
-          <!-- Footer -->
-          <div class="mt-auto pt-4 border-t border-white/10">
-            <span class="text-[11px] text-white/40 font-medium flex items-center gap-2 uppercase tracking-wider">
+          <div class="mt-auto pt-4 border-t border-white/5">
+            <span class="text-[10px] text-stone-500 font-medium flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Етажерка 1
             </span>
           </div>
         </div>
       </article>
-
-      <article class="relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl shadow-black/40 overflow-hidden group hover:bg-white/10 transition-colors duration-300">
-        
-        <!-- Image with Gradient Mask -->
-        <div class="relative w-full h-56 shrink-0">
-          <img src="./assets/images/benjamina.jpg" alt="Хачік" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer">
-          <div class="absolute inset-0 bg-gradient-to-t from-[#13201A] via-[#13201A]/40 to-transparent pointer-events-none"></div>
-          
-          <!-- Badge -->
-          <div class="absolute top-4 right-4 z-10">
-            <span class="bg-[#1e4b6b] text-white/95 text-[10px] px-2.5 py-1.5 rounded-lg font-medium tracking-wide shadow-lg border border-white/10 backdrop-blur-md">
+      <article class="group relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-[2.5rem] border border-white/5 shadow-2xl overflow-hidden hover:-translate-y-2 hover:bg-white/10 transition-all duration-500">
+        <div class="relative w-full h-64 shrink-0 overflow-hidden">
+          <img src="./assets/images/benjamina.jpg" alt="Хачік" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b130e] via-[#0b130e]/40 to-transparent pointer-events-none"></div>
+          <div class="absolute top-5 right-5 z-10">
+            <span class="text-sky-300 bg-sky-500/10 border-sky-500/20 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-medium tracking-wider uppercase shadow-xl">
               💧 Полив на 10-й день
             </span>
           </div>
         </div>
-
-        <!-- Content -->
-        <div class="flex flex-col flex-1 p-5 pt-2 relative z-10">
+        <div class="flex flex-col flex-1 p-7 pt-2 relative z-10">
           <div class="mb-4">
-            <h3 class="text-white/95 font-serif font-bold text-xl leading-tight mb-1">Хачік</h3>
-            <p class="text-xs text-white/50 italic font-serif">Ficus benjamina</p>
+            <h3 class="text-stone-100 font-serif font-bold text-2xl tracking-tight mb-1">Хачік</h3>
+            <p class="text-xs text-stone-500 italic font-serif tracking-wide">Ficus benjamina</p>
           </div>
-          
-          <div class="text-sm text-white/70 font-sans leading-relaxed flex-1 mb-4">
+          <div class="text-sm text-stone-400 font-sans leading-relaxed flex-1 mb-6">
             Фікус скидає листя якщо його перемістити. Стоїть там де стоїть — не чіпати. Полити на 10-й день звичайно.
           </div>
-          
-          <!-- Footer -->
-          <div class="mt-auto pt-4 border-t border-white/10">
-            <span class="text-[11px] text-white/40 font-medium flex items-center gap-2 uppercase tracking-wider">
+          <div class="mt-auto pt-4 border-t border-white/5">
+            <span class="text-[10px] text-stone-500 font-medium flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Тумбочка
             </span>
           </div>
         </div>
       </article>
-
-      <article class="relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl shadow-black/40 overflow-hidden group hover:bg-white/10 transition-colors duration-300">
-        
-        <!-- Image with Gradient Mask -->
-        <div class="relative w-full h-56 shrink-0">
-          <img src="./assets/images/Tradescantia.jpg" alt="Без імені (Традесканція)" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer">
-          <div class="absolute inset-0 bg-gradient-to-t from-[#13201A] via-[#13201A]/40 to-transparent pointer-events-none"></div>
-          
-          <!-- Badge -->
-          <div class="absolute top-4 right-4 z-10">
-            <span class="bg-[#1e4b6b] text-white/95 text-[10px] px-2.5 py-1.5 rounded-lg font-medium tracking-wide shadow-lg border border-white/10 backdrop-blur-md">
+      <article class="group relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-[2.5rem] border border-white/5 shadow-2xl overflow-hidden hover:-translate-y-2 hover:bg-white/10 transition-all duration-500">
+        <div class="relative w-full h-64 shrink-0 overflow-hidden">
+          <img src="./assets/images/Tradescantia.jpg" alt="Без імені (Традесканція)" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b130e] via-[#0b130e]/40 to-transparent pointer-events-none"></div>
+          <div class="absolute top-5 right-5 z-10">
+            <span class="text-sky-300 bg-sky-500/10 border-sky-500/20 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-medium tracking-wider uppercase shadow-xl">
               💧 Полив на 7-й день
             </span>
           </div>
         </div>
-
-        <!-- Content -->
-        <div class="flex flex-col flex-1 p-5 pt-2 relative z-10">
+        <div class="flex flex-col flex-1 p-7 pt-2 relative z-10">
           <div class="mb-4">
-            <h3 class="text-white/95 font-serif font-bold text-xl leading-tight mb-1">Без імені (Традесканція)</h3>
-            <p class="text-xs text-white/50 italic font-serif">Tradescantia</p>
+            <h3 class="text-stone-100 font-serif font-bold text-2xl tracking-tight mb-1">Без імені (Традесканція)</h3>
+            <p class="text-xs text-stone-500 italic font-serif tracking-wide">Tradescantia</p>
           </div>
-          
-          <div class="text-sm text-white/70 font-sans leading-relaxed flex-1 mb-4">
+          <div class="text-sm text-stone-400 font-sans leading-relaxed flex-1 mb-6">
             Полити помірно. Якщо листя злегка поникло — це ознака спраги, полий.
           </div>
-          
-          <!-- Footer -->
-          <div class="mt-auto pt-4 border-t border-white/10">
-            <span class="text-[11px] text-white/40 font-medium flex items-center gap-2 uppercase tracking-wider">
+          <div class="mt-auto pt-4 border-t border-white/5">
+            <span class="text-[10px] text-stone-500 font-medium flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Тумбочка
             </span>
           </div>
         </div>
       </article>
-
-      <article class="relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl shadow-black/40 overflow-hidden group hover:bg-white/10 transition-colors duration-300">
-        
-        <!-- Image with Gradient Mask -->
-        <div class="relative w-full h-56 shrink-0">
-          <img src="./assets/images/Cleistocactus.jpg" alt="Зайчик" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer">
-          <div class="absolute inset-0 bg-gradient-to-t from-[#13201A] via-[#13201A]/40 to-transparent pointer-events-none"></div>
-          
-          <!-- Badge -->
-          <div class="absolute top-4 right-4 z-10">
-            <span class="bg-[#1e6b35] text-white/95 text-[10px] px-2.5 py-1.5 rounded-lg font-medium tracking-wide shadow-lg border border-white/10 backdrop-blur-md">
+      <article class="group relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-[2.5rem] border border-white/5 shadow-2xl overflow-hidden hover:-translate-y-2 hover:bg-white/10 transition-all duration-500">
+        <div class="relative w-full h-64 shrink-0 overflow-hidden">
+          <img src="./assets/images/Cleistocactus.jpg" alt="Зайчик" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b130e] via-[#0b130e]/40 to-transparent pointer-events-none"></div>
+          <div class="absolute top-5 right-5 z-10">
+            <span class="text-stone-300 bg-stone-500/10 border-stone-500/20 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-medium tracking-wider uppercase shadow-xl">
               ✅ НЕ поливати
             </span>
           </div>
         </div>
-
-        <!-- Content -->
-        <div class="flex flex-col flex-1 p-5 pt-2 relative z-10">
+        <div class="flex flex-col flex-1 p-7 pt-2 relative z-10">
           <div class="mb-4">
-            <h3 class="text-white/95 font-serif font-bold text-xl leading-tight mb-1">Зайчик</h3>
-            <p class="text-xs text-white/50 italic font-serif">Cleistocactus strausii</p>
+            <h3 class="text-stone-100 font-serif font-bold text-2xl tracking-tight mb-1">Зайчик</h3>
+            <p class="text-xs text-stone-500 italic font-serif tracking-wide">Cleistocactus strausii</p>
           </div>
-          
-          <div class="text-sm text-white/70 font-sans leading-relaxed flex-1 mb-4">
+          <div class="text-sm text-stone-400 font-sans leading-relaxed flex-1 mb-6">
             Нічого не робити. Кактус — 1 місяць без поливу норма.
           </div>
-          
-          <!-- Footer -->
-          <div class="mt-auto pt-4 border-t border-white/10">
-            <span class="text-[11px] text-white/40 font-medium flex items-center gap-2 uppercase tracking-wider">
+          <div class="mt-auto pt-4 border-t border-white/5">
+            <span class="text-[10px] text-stone-500 font-medium flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Тумбочка
             </span>
           </div>
         </div>
       </article>
-
-      <article class="relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl shadow-black/40 overflow-hidden group hover:bg-white/10 transition-colors duration-300">
-        
-        <!-- Image with Gradient Mask -->
-        <div class="relative w-full h-56 shrink-0">
-          <img src="./assets/images/Ceropegia.jpg" alt="Marusia Bohuslavka" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer">
-          <div class="absolute inset-0 bg-gradient-to-t from-[#13201A] via-[#13201A]/40 to-transparent pointer-events-none"></div>
-          
-          <!-- Badge -->
-          <div class="absolute top-4 right-4 z-10">
-            <span class="bg-[#1e6b35] text-white/95 text-[10px] px-2.5 py-1.5 rounded-lg font-medium tracking-wide shadow-lg border border-white/10 backdrop-blur-md">
+      <article class="group relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-[2.5rem] border border-white/5 shadow-2xl overflow-hidden hover:-translate-y-2 hover:bg-white/10 transition-all duration-500">
+        <div class="relative w-full h-64 shrink-0 overflow-hidden">
+          <img src="./assets/images/Ceropegia.jpg" alt="Marusia Bohuslavka" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b130e] via-[#0b130e]/40 to-transparent pointer-events-none"></div>
+          <div class="absolute top-5 right-5 z-10">
+            <span class="text-stone-300 bg-stone-500/10 border-stone-500/20 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-medium tracking-wider uppercase shadow-xl">
               ✅ НЕ поливати
             </span>
           </div>
         </div>
-
-        <!-- Content -->
-        <div class="flex flex-col flex-1 p-5 pt-2 relative z-10">
+        <div class="flex flex-col flex-1 p-7 pt-2 relative z-10">
           <div class="mb-4">
-            <h3 class="text-white/95 font-serif font-bold text-xl leading-tight mb-1">Marusia Bohuslavka</h3>
-            <p class="text-xs text-white/50 italic font-serif">Ceropegia woodii</p>
+            <h3 class="text-stone-100 font-serif font-bold text-2xl tracking-tight mb-1">Marusia Bohuslavka</h3>
+            <p class="text-xs text-stone-500 italic font-serif tracking-wide">Ceropegia woodii</p>
           </div>
-          
-          <div class="text-sm text-white/70 font-sans leading-relaxed flex-1 mb-4">
+          <div class="text-sm text-stone-400 font-sans leading-relaxed flex-1 mb-6">
             Нічого не робити. Витримає без поливу.
           </div>
-          
-          <!-- Footer -->
-          <div class="mt-auto pt-4 border-t border-white/10">
-            <span class="text-[11px] text-white/40 font-medium flex items-center gap-2 uppercase tracking-wider">
+          <div class="mt-auto pt-4 border-t border-white/5">
+            <span class="text-[10px] text-stone-500 font-medium flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Вікно
             </span>
           </div>
         </div>
       </article>
-
-      <article class="relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl shadow-black/40 overflow-hidden group hover:bg-white/10 transition-colors duration-300">
-        
-        <!-- Image with Gradient Mask -->
-        <div class="relative w-full h-56 shrink-0">
-          <img src="./assets/images/deliciosa.jpg" alt="Lynch" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer">
-          <div class="absolute inset-0 bg-gradient-to-t from-[#13201A] via-[#13201A]/40 to-transparent pointer-events-none"></div>
-          
-          <!-- Badge -->
-          <div class="absolute top-4 right-4 z-10">
-            <span class="bg-[#1e4b6b] text-white/95 text-[10px] px-2.5 py-1.5 rounded-lg font-medium tracking-wide shadow-lg border border-white/10 backdrop-blur-md">
+      <article class="group relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-[2.5rem] border border-white/5 shadow-2xl overflow-hidden hover:-translate-y-2 hover:bg-white/10 transition-all duration-500">
+        <div class="relative w-full h-64 shrink-0 overflow-hidden">
+          <img src="./assets/images/deliciosa.jpg" alt="Lynch" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b130e] via-[#0b130e]/40 to-transparent pointer-events-none"></div>
+          <div class="absolute top-5 right-5 z-10">
+            <span class="text-sky-300 bg-sky-500/10 border-sky-500/20 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-medium tracking-wider uppercase shadow-xl">
               💧 Полив на 10-й день
             </span>
           </div>
         </div>
-
-        <!-- Content -->
-        <div class="flex flex-col flex-1 p-5 pt-2 relative z-10">
+        <div class="flex flex-col flex-1 p-7 pt-2 relative z-10">
           <div class="mb-4">
-            <h3 class="text-white/95 font-serif font-bold text-xl leading-tight mb-1">Lynch</h3>
-            <p class="text-xs text-white/50 italic font-serif">Monstera deliciosa</p>
+            <h3 class="text-stone-100 font-serif font-bold text-2xl tracking-tight mb-1">Lynch</h3>
+            <p class="text-xs text-stone-500 italic font-serif tracking-wide">Monstera deliciosa</p>
           </div>
-          
-          <div class="text-sm text-white/70 font-sans leading-relaxed flex-1 mb-4">
+          <div class="text-sm text-stone-400 font-sans leading-relaxed flex-1 mb-6">
             Викупати в душі, гарно намочити мох в пластиковій підримці.
           </div>
-          
-          <!-- Footer -->
-          <div class="mt-auto pt-4 border-t border-white/10">
-            <span class="text-[11px] text-white/40 font-medium flex items-center gap-2 uppercase tracking-wider">
+          <div class="mt-auto pt-4 border-t border-white/5">
+            <span class="text-[10px] text-stone-500 font-medium flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Етажерка 2
             </span>
           </div>
         </div>
       </article>
-
-      <article class="relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl shadow-black/40 overflow-hidden group hover:bg-white/10 transition-colors duration-300">
-        
-        <!-- Image with Gradient Mask -->
-        <div class="relative w-full h-56 shrink-0">
-          <img src="./assets/images/Mammillaria.jpg" alt="Без імені" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer">
-          <div class="absolute inset-0 bg-gradient-to-t from-[#13201A] via-[#13201A]/40 to-transparent pointer-events-none"></div>
-          
-          <!-- Badge -->
-          <div class="absolute top-4 right-4 z-10">
-            <span class="bg-[#1e6b35] text-white/95 text-[10px] px-2.5 py-1.5 rounded-lg font-medium tracking-wide shadow-lg border border-white/10 backdrop-blur-md">
+      <article class="group relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-[2.5rem] border border-white/5 shadow-2xl overflow-hidden hover:-translate-y-2 hover:bg-white/10 transition-all duration-500">
+        <div class="relative w-full h-64 shrink-0 overflow-hidden">
+          <img src="./assets/images/Mammillaria.jpg" alt="Без імені" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b130e] via-[#0b130e]/40 to-transparent pointer-events-none"></div>
+          <div class="absolute top-5 right-5 z-10">
+            <span class="text-stone-300 bg-stone-500/10 border-stone-500/20 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-medium tracking-wider uppercase shadow-xl">
               ✅ НЕ поливати
             </span>
           </div>
         </div>
-
-        <!-- Content -->
-        <div class="flex flex-col flex-1 p-5 pt-2 relative z-10">
+        <div class="flex flex-col flex-1 p-7 pt-2 relative z-10">
           <div class="mb-4">
-            <h3 class="text-white/95 font-serif font-bold text-xl leading-tight mb-1">Без імені</h3>
-            <p class="text-xs text-white/50 italic font-serif">Mammillaria hahniana</p>
+            <h3 class="text-stone-100 font-serif font-bold text-2xl tracking-tight mb-1">Без імені</h3>
+            <p class="text-xs text-stone-500 italic font-serif tracking-wide">Mammillaria hahniana</p>
           </div>
-          
-          <div class="text-sm text-white/70 font-sans leading-relaxed flex-1 mb-4">
+          <div class="text-sm text-stone-400 font-sans leading-relaxed flex-1 mb-6">
             Кактус. Нічого не робити.
           </div>
-          
-          <!-- Footer -->
-          <div class="mt-auto pt-4 border-t border-white/10">
-            <span class="text-[11px] text-white/40 font-medium flex items-center gap-2 uppercase tracking-wider">
+          <div class="mt-auto pt-4 border-t border-white/5">
+            <span class="text-[10px] text-stone-500 font-medium flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Етажерка 2
             </span>
           </div>
         </div>
       </article>
-
-      <article class="relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl shadow-black/40 overflow-hidden group hover:bg-white/10 transition-colors duration-300">
-        
-        <!-- Image with Gradient Mask -->
-        <div class="relative w-full h-56 shrink-0">
-          <img src="./assets/images/adansonii2.jpg" alt="Без імені" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer">
-          <div class="absolute inset-0 bg-gradient-to-t from-[#13201A] via-[#13201A]/40 to-transparent pointer-events-none"></div>
-          
-          <!-- Badge -->
-          <div class="absolute top-4 right-4 z-10">
-            <span class="bg-[#1e4b6b] text-white/95 text-[10px] px-2.5 py-1.5 rounded-lg font-medium tracking-wide shadow-lg border border-white/10 backdrop-blur-md">
+      <article class="group relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-[2.5rem] border border-white/5 shadow-2xl overflow-hidden hover:-translate-y-2 hover:bg-white/10 transition-all duration-500">
+        <div class="relative w-full h-64 shrink-0 overflow-hidden">
+          <img src="./assets/images/adansonii2.jpg" alt="Без імені" loading="lazy" decoding="async" class="w-full h-full object-cover zoom-trigger cursor-pointer group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b130e] via-[#0b130e]/40 to-transparent pointer-events-none"></div>
+          <div class="absolute top-5 right-5 z-10">
+            <span class="text-sky-300 bg-sky-500/10 border-sky-500/20 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-medium tracking-wider uppercase shadow-xl">
               💧 Полив на 10-й день
             </span>
           </div>
         </div>
-
-        <!-- Content -->
-        <div class="flex flex-col flex-1 p-5 pt-2 relative z-10">
+        <div class="flex flex-col flex-1 p-7 pt-2 relative z-10">
           <div class="mb-4">
-            <h3 class="text-white/95 font-serif font-bold text-xl leading-tight mb-1">Без імені</h3>
-            <p class="text-xs text-white/50 italic font-serif">Monstera adansonii (glass)</p>
+            <h3 class="text-stone-100 font-serif font-bold text-2xl tracking-tight mb-1">Без імені</h3>
+            <p class="text-xs text-stone-500 italic font-serif tracking-wide">Monstera adansonii (glass)</p>
           </div>
-          
-          <div class="text-sm text-white/70 font-sans leading-relaxed flex-1 mb-4">
+          <div class="text-sm text-stone-400 font-sans leading-relaxed flex-1 mb-6">
             Полити обережно, не заливати водою. Скляний горщик — вода не так швидко іде. Не переливай.
           </div>
-          
-          <!-- Footer -->
-          <div class="mt-auto pt-4 border-t border-white/10">
-            <span class="text-[11px] text-white/40 font-medium flex items-center gap-2 uppercase tracking-wider">
+          <div class="mt-auto pt-4 border-t border-white/5">
+            <span class="text-[10px] text-stone-500 font-medium flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Тумбочка біля ліжка
             </span>
           </div>
         </div>
       </article>
-
     </div>
     
     <!-- Terrarium Banner -->
-    <div class="mt-20 relative bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[2rem] p-8 lg:p-12 shadow-2xl shadow-black/40 overflow-hidden">
-      <!-- Glow effect -->
-      <div class="absolute -top-32 -right-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="mt-24 relative bg-white/5 backdrop-blur-3xl border border-white/5 rounded-[3rem] p-10 lg:p-16 shadow-2xl shadow-black/50 overflow-hidden">
+      <div class="absolute -top-32 -right-32 w-[500px] h-[500px] bg-emerald-900/20 rounded-full blur-[80px] pointer-events-none"></div>
       
       <div class="relative z-10">
-        <h2 class="text-3xl font-serif font-bold text-white/95 mb-6 flex items-center gap-4">
-          <svg class="w-8 h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+        <h2 class="text-4xl font-serif font-bold text-stone-100 mb-8 flex items-center gap-5">
+          <svg class="w-10 h-10 text-emerald-500/80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
           Тераріуми — окрема категорія
         </h2>
-        <div class="grid md:grid-cols-2 gap-8 lg:gap-12 text-white/70 font-sans leading-relaxed">
-          <div>
-            <p class="mb-4">У квартирі є <strong class="text-white/95 font-medium">16 тераріумів</strong> — скляні посудини із закритими або напівзакритими кришками. Всередині живуть мох, папороть, солейролія та інші вологолюбні рослини.</p>
-            <p>Вони <strong class="text-white/95 font-medium">повністю автономні</strong> — всередині є свій мікроклімат і волога.</p>
+        <div class="grid md:grid-cols-2 gap-10 lg:gap-16 text-stone-400 font-sans leading-relaxed">
+          <div class="space-y-4 text-base">
+            <p>У квартирі є <strong class="text-stone-200 font-medium">16 тераріумів</strong> — скляні посудини із закритими або напівзакритими кришками. Всередині живуть мох, папороть, солейролія та інші вологолюбні рослини.</p>
+            <p>Вони <strong class="text-stone-200 font-medium">повністю автономні</strong> — всередині є свій мікроклімат і волога.</p>
           </div>
-          <div class="bg-red-500/10 border border-red-500/20 rounded-3xl p-6 backdrop-blur-sm">
-            <p class="text-red-400 font-bold font-serif text-xl mb-3 tracking-wide">🚫 НЕ відкривай, НЕ поливай, НЕ переставляй.</p>
-            <p class="text-sm text-white/70">Максимум що можна — ненадовго (2–3 хв) відкрити кришку для провітрювання якщо помітиш надмір конденсату на склі зсередини. Потім одразу щільно закрити.</p>
+          <div class="bg-rose-950/20 border border-rose-900/30 rounded-[2rem] p-8 backdrop-blur-md">
+            <p class="text-rose-400 font-serif italic text-2xl mb-4">🚫 НЕ відкривай, НЕ поливай, НЕ переставляй.</p>
+            <p class="text-sm text-stone-400">Максимум що можна — ненадовго (2–3 хв) відкрити кришку для провітрювання якщо помітиш надмір конденсату на склі зсередини. Потім одразу щільно закрити.</p>
           </div>
         </div>
       </div>
     </div>
   </main>
 
-  <!-- Zoom Modal -->
-  <div id="zoomModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
-    <img id="zoomImage" src="" alt="Zoomed" class="max-w-[90vw] max-h-[90vh] object-contain rounded-2xl shadow-2xl scale-95 transition-transform duration-300">
+  <div id="zoomModal" class="fixed inset-0 z-50 flex items-center justify-center bg-[#0b130e]/95 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-300">
+    <img id="zoomImage" src="" alt="Zoomed" class="max-w-[90vw] max-h-[90vh] object-contain rounded-3xl shadow-2xl scale-95 transition-transform duration-300">
   </div>
 
-  <!-- Scripts -->
-<script>
-    // Zoom Modal Interaction
+  <script>
     const zoomTriggers = document.querySelectorAll('.zoom-trigger');
     const zoomModal = document.getElementById('zoomModal');
     const zoomImage = document.getElementById('zoomImage');
@@ -901,7 +683,6 @@
       });
     });
 
-    // Countdown Timer
     let timerInterval;
     function updateCountdown() {
       const targetDate = new Date('2026-07-26T01:30:00+03:00');
@@ -912,7 +693,7 @@
 
       if (diff <= 0) {
         el.innerHTML = "Господар повернувся!";
-        el.classList.replace("text-white/95", "text-emerald-400");
+        el.classList.replace("text-stone-200", "text-emerald-400");
         clearInterval(timerInterval);
         return;
       }
