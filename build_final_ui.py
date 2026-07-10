@@ -29,28 +29,28 @@ for p in plants:
     cards_html += f"""
       <article class="group relative flex flex-col bg-[#FAFAF8] rounded-[2.5rem] border border-white/50 shadow-[0_20px_40px_rgba(20,50,30,0.06)] overflow-hidden hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(20,50,30,0.12)] transition-all duration-500">
         <div class="relative w-full h-64 shrink-0 overflow-hidden">
-          <button type="button" aria-label="Збільшити фото {{p['name']}}" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-105 transition-transform duration-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
-            <img src="./assets/images/{{p['img']}}" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover">
+          <button type="button" aria-label="Збільшити фото {p['name']}" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-105 transition-transform duration-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
+            <img src="./assets/images/{p['img']}" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover">
           </button>
           <div class="absolute inset-0 bg-gradient-to-t from-[#FAFAF8] via-[#FAFAF8]/20 to-transparent pointer-events-none z-10"></div>
           <div class="absolute top-5 right-5 z-30">
-            <span class="{{p['b_color']}} backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-sm">
-              {{p['badge']}}
+            <span class="{p['b_color']} backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-sm">
+              {p['badge']}
             </span>
           </div>
         </div>
         <div class="flex flex-col flex-1 px-8 pb-8 pt-2 relative z-30">
           <div class="mb-4">
-            <h3 class="text-[#1A2421] font-serif font-bold text-3xl tracking-tight mb-1">{{p['name']}}</h3>
-            <p class="text-xs text-[#6F8074] italic font-serif tracking-wide">{{p['latin']}}</p>
+            <h3 class="text-[#1A2421] font-serif font-bold text-3xl tracking-tight mb-1">{p['name']}</h3>
+            <p class="text-xs text-[#6F8074] italic font-serif tracking-wide">{p['latin']}</p>
           </div>
           <div class="text-sm text-[#4A5D4E] font-sans leading-relaxed flex-1 mb-6">
-            {{p['text']}}
+            {p['text']}
           </div>
           <div class="mt-auto pt-4 border-t border-[#E3E8E1]">
             <span class="text-[10px] text-[#6F8074] font-bold flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-              {{p['loc']}}
+              {p['loc']}
             </span>
           </div>
         </div>
