@@ -23,6 +23,11 @@
     --color-emerald-500: oklch(69.6% 0.17 162.48);
     --color-emerald-900: oklch(37.8% 0.077 168.94);
     --color-emerald-950: oklch(26.2% 0.051 172.552);
+    --color-pink-200: oklch(89.9% 0.061 343.231);
+    --color-pink-300: oklch(82.3% 0.12 346.018);
+    --color-pink-400: oklch(71.8% 0.202 349.761);
+    --color-pink-900: oklch(40.8% 0.153 2.432);
+    --color-pink-950: oklch(28.4% 0.109 3.907);
     --color-stone-100: oklch(97% 0.001 106.424);
     --color-stone-300: oklch(86.9% 0.005 56.366);
     --color-stone-500: oklch(55.3% 0.013 58.071);
@@ -434,6 +439,12 @@
       border-color: color-mix(in oklab, var(--color-emerald-900) 50%, transparent);
     }
   }
+  .border-pink-900\/50 {
+    border-color: color-mix(in srgb, oklch(40.8% 0.153 2.432) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-pink-900) 50%, transparent);
+    }
+  }
   .border-red-900\/30 {
     border-color: color-mix(in srgb, oklch(39.6% 0.141 25.723) 30%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -498,6 +509,12 @@
     background-color: color-mix(in srgb, oklch(26.2% 0.051 172.552) 40%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       background-color: color-mix(in oklab, var(--color-emerald-950) 40%, transparent);
+    }
+  }
+  .bg-pink-950\/40 {
+    background-color: color-mix(in srgb, oklch(28.4% 0.109 3.907) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-pink-950) 40%, transparent);
     }
   }
   .bg-red-950\/20 {
@@ -651,6 +668,18 @@
   }
   .text-emerald-500 {
     color: var(--color-emerald-500);
+  }
+  .text-pink-200 {
+    color: var(--color-pink-200);
+  }
+  .text-pink-300\/80 {
+    color: color-mix(in srgb, oklch(82.3% 0.12 346.018) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-pink-300) 80%, transparent);
+    }
+  }
+  .text-pink-400 {
+    color: var(--color-pink-400);
   }
   .text-red-200 {
     color: var(--color-red-200);
