@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Plant Sitter Guide | Urban Jungle</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
-  <link href="./output.css?v=6" rel="stylesheet">
+  <link href="./output.css?v=7" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -16,18 +16,141 @@
     .font-sans {
       font-family: 'Plus Jakarta Sans', sans-serif;
     }
+    :root {
+      color-scheme: light;
+    }
+    body {
+      background:
+        radial-gradient(circle at 14% 8%, rgba(255, 248, 207, 0.98), transparent 26rem),
+        radial-gradient(circle at 88% 4%, rgba(198, 232, 183, 0.62), transparent 34rem),
+        linear-gradient(135deg, #fff8df 0%, #eef5d8 44%, #dfeccd 100%);
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -20;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.32) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.25) 1px, transparent 1px);
+      background-size: 96px 96px;
+      mask-image: radial-gradient(circle at 48% 20%, black, transparent 72%);
+      opacity: .38;
+    }
+    .sun-room {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: -10;
+    }
+    .window-glow {
+      position: absolute;
+      top: -18rem;
+      right: -10rem;
+      width: min(74vw, 58rem);
+      height: min(74vw, 58rem);
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(255,251,213,.96) 0%, rgba(255,244,178,.55) 28%, rgba(255,255,255,0) 68%);
+      filter: blur(2px);
+    }
+    .rainbow-beam {
+      position: absolute;
+      height: 8rem;
+      width: 120vw;
+      left: -12vw;
+      transform: rotate(-23deg);
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(255,125,155,.18), rgba(255,208,105,.24), rgba(160,221,141,.22), rgba(106,209,224,.18), rgba(170,136,255,.16));
+      filter: blur(22px);
+      mix-blend-mode: multiply;
+    }
+    .rainbow-beam.one { top: 9rem; opacity: .95; }
+    .rainbow-beam.two { top: 34rem; left: -18vw; transform: rotate(-17deg); opacity: .58; }
+    .rainbow-beam.three { top: 62rem; transform: rotate(-29deg); opacity: .42; }
+    .crystal {
+      position: absolute;
+      top: 1.75rem;
+      width: 2.15rem;
+      height: 3.1rem;
+      border-radius: 1rem 1rem 1.6rem 1.6rem;
+      background: linear-gradient(145deg, rgba(255,255,255,.82), rgba(183,238,214,.38), rgba(255,205,226,.34));
+      box-shadow: inset 0 0 18px rgba(255,255,255,.9), 0 18px 38px rgba(69,108,75,.14);
+      transform: rotate(11deg);
+    }
+    .crystal::before {
+      content: "";
+      position: absolute;
+      top: -3.4rem;
+      left: 50%;
+      width: 1px;
+      height: 3.8rem;
+      background: rgba(104,126,96,.24);
+    }
+    .crystal.one { right: 7.5rem; }
+    .crystal.two { right: 12rem; top: 3rem; transform: rotate(-8deg) scale(.76); }
+    .crystal.three { right: 3.8rem; top: 4.4rem; transform: rotate(20deg) scale(.62); }
+    .leaf-haze {
+      position: absolute;
+      border-radius: 53% 47% 64% 36% / 42% 58% 39% 61%;
+      background: radial-gradient(circle at 35% 30%, rgba(73,132,77,.28), rgba(73,132,77,0) 68%);
+      filter: blur(18px);
+    }
+    .leaf-haze.left { width: 24rem; height: 34rem; left: -9rem; top: 12rem; transform: rotate(-18deg); }
+    .leaf-haze.right { width: 28rem; height: 28rem; right: -12rem; top: 42rem; transform: rotate(24deg); opacity: .68; }
+    .plant-card {
+      border-radius: 3.8rem 2.4rem 4.3rem 2.7rem;
+      backdrop-filter: blur(24px);
+    }
+    .plant-card:nth-child(3n+2) { border-radius: 2.6rem 4.1rem 2.9rem 4.4rem; }
+    .plant-card:nth-child(4n) { border-radius: 4.6rem 2.7rem 3.4rem 2.9rem; }
+    .plant-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      background: radial-gradient(circle at 22% 8%, rgba(255,255,255,.82), transparent 28%), linear-gradient(145deg, rgba(255,255,255,.42), transparent 44%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .plant-card > * { position: relative; z-index: 2; }
+    .care-note {
+      border-radius: 2.2rem 3.1rem 2.4rem 3.3rem;
+      box-shadow: 0 18px 48px rgba(47,78,48,.11), inset 0 1px 0 rgba(255,255,255,.86);
+    }
+    .care-note:nth-child(even) { border-radius: 3rem 2.1rem 3.4rem 2.3rem; }
+    @media (prefers-reduced-motion: no-preference) {
+      .plant-card { animation: breathe 7s ease-in-out infinite; }
+      .plant-card:nth-child(even) { animation-delay: -2.6s; }
+      .crystal { animation: glint 5.8s ease-in-out infinite; }
+      @keyframes breathe {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-3px); }
+      }
+      @keyframes glint {
+        0%, 100% { filter: brightness(1); }
+        45% { filter: brightness(1.24); }
+      }
+    }
   </style>
 </head>
-<body class="bg-[#C8D7C5] text-[#3B4D3E] font-sans min-h-screen antialiased selection:bg-emerald-200 relative">
+<body class="bg-[#F7F0DE] text-[#334937] font-sans min-h-screen antialiased selection:bg-emerald-200/70 relative overflow-x-hidden">
 
-  <!-- Sunlit Rainbow Prisms -->
-  <div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden mix-blend-color-burn opacity-45">
-    <div class="absolute top-[-10%] left-[10%] w-[150%] h-[200px] bg-gradient-to-r from-rose-400 via-amber-300 via-emerald-300 to-indigo-300 blur-[90px] -rotate-45 transform origin-top-left"></div>
-    <div class="absolute top-[40%] left-[-20%] w-[120%] h-[150px] bg-gradient-to-r from-red-300 via-yellow-200 via-green-300 to-purple-300 blur-[120px] -rotate-[35deg] transform origin-top-left opacity-70"></div>
-    <div class="absolute top-[70%] right-[-10%] w-[100%] h-[120px] bg-gradient-to-r from-pink-300 via-orange-200 via-cyan-300 to-blue-300 blur-[100px] -rotate-45 transform origin-top-right opacity-60"></div>
+  <!-- Sunlit Conservatory Atmosphere -->
+  <div class="sun-room" aria-hidden="true">
+    <div class="window-glow"></div>
+    <div class="rainbow-beam one"></div>
+    <div class="rainbow-beam two"></div>
+    <div class="rainbow-beam three"></div>
+    <div class="crystal one"></div>
+    <div class="crystal two"></div>
+    <div class="crystal three"></div>
+    <div class="leaf-haze left"></div>
+    <div class="leaf-haze right"></div>
   </div>
 
-  <header class="container mx-auto px-6 pt-20 pb-12 max-w-screen-2xl relative z-10">
+  <header class="container mx-auto px-6 pt-24 pb-16 max-w-screen-2xl relative z-10">
     <div class="flex flex-col lg:flex-row justify-between items-start gap-12">
       
       <div class="space-y-8">
@@ -36,7 +159,7 @@
           <p class="text-[#3B4D3E] font-serif italic text-2xl">Зелений куточок, що потребує твоєї уваги</p>
         </div>
         
-        <div class="inline-flex items-center gap-5 bg-white/70 backdrop-blur-xl border border-white/80 px-6 py-4 rounded-full shadow-lg">
+        <div class="inline-flex items-center gap-5 bg-white/72 backdrop-blur-2xl border border-white/90 px-6 py-4 rounded-full shadow-[0_20px_60px_rgba(58,88,52,0.14)]">
           <div class="w-12 h-12 rounded-full bg-emerald-100 border border-emerald-200 flex items-center justify-center">
             <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </div>
@@ -48,7 +171,7 @@
       </div>
       
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full lg:w-3/5">
-        <div class="flex gap-4 bg-white/70 border border-white p-5 rounded-[2rem] shadow-sm backdrop-blur-xl hover:shadow-md transition-shadow">
+        <div class="care-note flex gap-4 bg-white/72 border border-white/85 p-5 backdrop-blur-2xl hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(51,83,49,0.15)] transition-all duration-500">
           <div class="shrink-0 mt-1">
             <div class="bg-rose-100 p-2 rounded-full">
               <svg class="w-5 h-5 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
@@ -60,7 +183,7 @@
           </div>
         </div>
         
-        <div class="flex gap-4 bg-white/70 border border-white p-5 rounded-[2rem] shadow-sm backdrop-blur-xl hover:shadow-md transition-shadow">
+        <div class="care-note flex gap-4 bg-white/72 border border-white/85 p-5 backdrop-blur-2xl hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(51,83,49,0.15)] transition-all duration-500">
           <div class="shrink-0 mt-1">
             <div class="bg-sky-100 p-2 rounded-full">
               <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -72,7 +195,7 @@
           </div>
         </div>
         
-        <div class="flex gap-4 bg-white/70 border border-white p-5 rounded-[2rem] shadow-sm backdrop-blur-xl hover:shadow-md transition-shadow">
+        <div class="care-note flex gap-4 bg-white/72 border border-white/85 p-5 backdrop-blur-2xl hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(51,83,49,0.15)] transition-all duration-500">
           <div class="shrink-0 mt-1">
             <div class="bg-emerald-100 p-2 rounded-full">
               <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -84,7 +207,7 @@
           </div>
         </div>
 
-        <div class="flex gap-4 bg-white/70 border border-white p-5 rounded-[2rem] shadow-sm backdrop-blur-xl hover:shadow-md transition-shadow">
+        <div class="care-note flex gap-4 bg-white/72 border border-white/85 p-5 backdrop-blur-2xl hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(51,83,49,0.15)] transition-all duration-500">
           <div class="shrink-0 mt-1">
             <div class="bg-indigo-100 p-2 rounded-full">
               <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
@@ -99,592 +222,613 @@
     </div>
   </header>
 
-  <main class="container mx-auto px-6 py-12 max-w-screen-2xl relative z-10">
+  <main class="container mx-auto px-6 py-14 max-w-screen-2xl relative z-10">
     
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-14">
 
-      <article class="group relative flex flex-col bg-[#F1F6F0] rounded-[2.5rem] border border-white/50 shadow-[0_20px_40px_rgba(10,35,15,0.08)] overflow-hidden hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(10,35,15,0.14)] transition-all duration-500">
-        <div class="relative w-full h-64 shrink-0 overflow-hidden">
-          <button type="button" aria-label="Збільшити фото Paula" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-105 transition-transform duration-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
-            <img src="./assets/images/Yucca.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover">
+      <article class="plant-card group relative flex flex-col bg-[#FFFCF0]/88 border border-white/85 shadow-[0_30px_70px_rgba(42,73,42,0.13),inset_0_1px_0_rgba(255,255,255,0.9)] overflow-hidden hover:-translate-y-2 hover:rotate-[0.35deg] hover:shadow-[0_38px_90px_rgba(35,72,42,0.2),inset_0_1px_0_rgba(255,255,255,1)] transition-all duration-700">
+        <div class="relative m-3 mb-0 h-64 shrink-0 overflow-hidden rounded-[2.5rem_1.7rem_3rem_1.9rem] shadow-[inset_0_-40px_80px_rgba(245,238,213,0.22)]">
+          <button type="button" aria-label="Збільшити фото Paula" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-[1.035] transition-transform duration-[1200ms] focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
+            <img src="./assets/images/Yucca.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover saturate-[1.06] contrast-[1.02]">
           </button>
-          <div class="absolute inset-0 bg-gradient-to-t from-[#F1F6F0] via-[#F1F6F0]/20 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#FFFCF0] via-[#FFFCF0]/12 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_18%,rgba(255,250,218,0.34),transparent_32%),linear-gradient(120deg,rgba(255,255,255,0.16),transparent_40%)] pointer-events-none z-10"></div>
           <div class="absolute top-5 right-5 z-30">
-            <span class="text-emerald-700 bg-emerald-100 border-emerald-200/60 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-sm">
+            <span class="text-emerald-700 bg-emerald-100 border-emerald-200/60 backdrop-blur-xl border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-[0_10px_30px_rgba(37,74,43,0.12)]">
               ✅ НЕ поливати
             </span>
           </div>
         </div>
-        <div class="flex flex-col flex-1 px-8 pb-8 pt-2 relative z-30">
+        <div class="flex flex-col flex-1 px-8 pb-8 pt-5 relative z-30">
           <div class="mb-4">
-            <h3 class="text-[#092215] font-serif font-bold text-3xl tracking-tight mb-1">Paula</h3>
-            <p class="text-xs text-[#6F8074] italic font-serif tracking-wide">Yucca elephantipes</p>
+            <h3 class="text-[#102B18] font-serif font-bold text-3xl tracking-tight mb-1">Paula</h3>
+            <p class="text-xs text-[#72876B] italic font-serif tracking-wide">Yucca elephantipes</p>
           </div>
-          <div class="text-sm text-[#3B4D3E] font-sans leading-relaxed flex-1 mb-6">
+          <div class="text-sm text-[#334937] font-sans leading-relaxed flex-1 mb-6">
             Нічого не робити. Юка витримає 3–4 тижні без поливу.
           </div>
-          <div class="mt-auto pt-4 border-t border-[#D6E2D4]">
-            <span class="text-[10px] text-[#6F8074] font-bold flex items-center gap-2 uppercase tracking-widest">
+          <div class="mt-auto pt-4 border-t border-[#DCE8D2]/80">
+            <span class="text-[10px] text-[#6D8267] font-bold flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Підлога
             </span>
           </div>
         </div>
       </article>
-      <article class="group relative flex flex-col bg-[#F1F6F0] rounded-[2.5rem] border border-white/50 shadow-[0_20px_40px_rgba(10,35,15,0.08)] overflow-hidden hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(10,35,15,0.14)] transition-all duration-500">
-        <div class="relative w-full h-64 shrink-0 overflow-hidden">
-          <button type="button" aria-label="Збільшити фото Lantimos" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-105 transition-transform duration-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
-            <img src="./assets/images/adansonii1.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover">
+      <article class="plant-card group relative flex flex-col bg-[#FFFCF0]/88 border border-white/85 shadow-[0_30px_70px_rgba(42,73,42,0.13),inset_0_1px_0_rgba(255,255,255,0.9)] overflow-hidden hover:-translate-y-2 hover:rotate-[0.35deg] hover:shadow-[0_38px_90px_rgba(35,72,42,0.2),inset_0_1px_0_rgba(255,255,255,1)] transition-all duration-700">
+        <div class="relative m-3 mb-0 h-64 shrink-0 overflow-hidden rounded-[2.5rem_1.7rem_3rem_1.9rem] shadow-[inset_0_-40px_80px_rgba(245,238,213,0.22)]">
+          <button type="button" aria-label="Збільшити фото Lantimos" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-[1.035] transition-transform duration-[1200ms] focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
+            <img src="./assets/images/adansonii1.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover saturate-[1.06] contrast-[1.02]">
           </button>
-          <div class="absolute inset-0 bg-gradient-to-t from-[#F1F6F0] via-[#F1F6F0]/20 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#FFFCF0] via-[#FFFCF0]/12 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_18%,rgba(255,250,218,0.34),transparent_32%),linear-gradient(120deg,rgba(255,255,255,0.16),transparent_40%)] pointer-events-none z-10"></div>
           <div class="absolute top-5 right-5 z-30">
-            <span class="text-sky-700 bg-sky-100 border-sky-200/60 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-sm">
+            <span class="text-sky-700 bg-sky-100 border-sky-200/60 backdrop-blur-xl border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-[0_10px_30px_rgba(37,74,43,0.12)]">
               💧 Полив на 10-й день
             </span>
           </div>
         </div>
-        <div class="flex flex-col flex-1 px-8 pb-8 pt-2 relative z-30">
+        <div class="flex flex-col flex-1 px-8 pb-8 pt-5 relative z-30">
           <div class="mb-4">
-            <h3 class="text-[#092215] font-serif font-bold text-3xl tracking-tight mb-1">Lantimos</h3>
-            <p class="text-xs text-[#6F8074] italic font-serif tracking-wide">Monstera adansonii</p>
+            <h3 class="text-[#102B18] font-serif font-bold text-3xl tracking-tight mb-1">Lantimos</h3>
+            <p class="text-xs text-[#72876B] italic font-serif tracking-wide">Monstera adansonii</p>
           </div>
-          <div class="text-sm text-[#3B4D3E] font-sans leading-relaxed flex-1 mb-6">
+          <div class="text-sm text-[#334937] font-sans leading-relaxed flex-1 mb-6">
             Викупати в душі, політи рясно.
           </div>
-          <div class="mt-auto pt-4 border-t border-[#D6E2D4]">
-            <span class="text-[10px] text-[#6F8074] font-bold flex items-center gap-2 uppercase tracking-widest">
+          <div class="mt-auto pt-4 border-t border-[#DCE8D2]/80">
+            <span class="text-[10px] text-[#6D8267] font-bold flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Підлога
             </span>
           </div>
         </div>
       </article>
-      <article class="group relative flex flex-col bg-[#F1F6F0] rounded-[2.5rem] border border-white/50 shadow-[0_20px_40px_rgba(10,35,15,0.08)] overflow-hidden hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(10,35,15,0.14)] transition-all duration-500">
-        <div class="relative w-full h-64 shrink-0 overflow-hidden">
-          <button type="button" aria-label="Збільшити фото Розсада + 6 судочків" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-105 transition-transform duration-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
-            <img src="./assets/images/Seedlings.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover">
+      <article class="plant-card group relative flex flex-col bg-[#FFFCF0]/88 border border-white/85 shadow-[0_30px_70px_rgba(42,73,42,0.13),inset_0_1px_0_rgba(255,255,255,0.9)] overflow-hidden hover:-translate-y-2 hover:rotate-[0.35deg] hover:shadow-[0_38px_90px_rgba(35,72,42,0.2),inset_0_1px_0_rgba(255,255,255,1)] transition-all duration-700">
+        <div class="relative m-3 mb-0 h-64 shrink-0 overflow-hidden rounded-[2.5rem_1.7rem_3rem_1.9rem] shadow-[inset_0_-40px_80px_rgba(245,238,213,0.22)]">
+          <button type="button" aria-label="Збільшити фото Розсада + 6 судочків" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-[1.035] transition-transform duration-[1200ms] focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
+            <img src="./assets/images/Seedlings.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover saturate-[1.06] contrast-[1.02]">
           </button>
-          <div class="absolute inset-0 bg-gradient-to-t from-[#F1F6F0] via-[#F1F6F0]/20 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#FFFCF0] via-[#FFFCF0]/12 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_18%,rgba(255,250,218,0.34),transparent_32%),linear-gradient(120deg,rgba(255,255,255,0.16),transparent_40%)] pointer-events-none z-10"></div>
           <div class="absolute top-5 right-5 z-30">
-            <span class="text-emerald-700 bg-emerald-100 border-emerald-200/60 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-sm">
+            <span class="text-emerald-700 bg-emerald-100 border-emerald-200/60 backdrop-blur-xl border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-[0_10px_30px_rgba(37,74,43,0.12)]">
               ✅ НЕ поливати
             </span>
           </div>
         </div>
-        <div class="flex flex-col flex-1 px-8 pb-8 pt-2 relative z-30">
+        <div class="flex flex-col flex-1 px-8 pb-8 pt-5 relative z-30">
           <div class="mb-4">
-            <h3 class="text-[#092215] font-serif font-bold text-3xl tracking-tight mb-1">Розсада + 6 судочків</h3>
-            <p class="text-xs text-[#6F8074] italic font-serif tracking-wide">Сіянці / живці</p>
+            <h3 class="text-[#102B18] font-serif font-bold text-3xl tracking-tight mb-1">Розсада + 6 судочків</h3>
+            <p class="text-xs text-[#72876B] italic font-serif tracking-wide">Сіянці / живці</p>
           </div>
-          <div class="text-sm text-[#3B4D3E] font-sans leading-relaxed flex-1 mb-6">
+          <div class="text-sm text-[#334937] font-sans leading-relaxed flex-1 mb-6">
             Не чіпати їх.
           </div>
-          <div class="mt-auto pt-4 border-t border-[#D6E2D4]">
-            <span class="text-[10px] text-[#6F8074] font-bold flex items-center gap-2 uppercase tracking-widest">
+          <div class="mt-auto pt-4 border-t border-[#DCE8D2]/80">
+            <span class="text-[10px] text-[#6D8267] font-bold flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Підлога
             </span>
           </div>
         </div>
       </article>
-      <article class="group relative flex flex-col bg-[#F1F6F0] rounded-[2.5rem] border border-white/50 shadow-[0_20px_40px_rgba(10,35,15,0.08)] overflow-hidden hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(10,35,15,0.14)] transition-all duration-500">
-        <div class="relative w-full h-64 shrink-0 overflow-hidden">
-          <button type="button" aria-label="Збільшити фото Beneficiary" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-105 transition-transform duration-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
-            <img src="./assets/images/Platycerium.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover">
+      <article class="plant-card group relative flex flex-col bg-[#FFFCF0]/88 border border-white/85 shadow-[0_30px_70px_rgba(42,73,42,0.13),inset_0_1px_0_rgba(255,255,255,0.9)] overflow-hidden hover:-translate-y-2 hover:rotate-[0.35deg] hover:shadow-[0_38px_90px_rgba(35,72,42,0.2),inset_0_1px_0_rgba(255,255,255,1)] transition-all duration-700">
+        <div class="relative m-3 mb-0 h-64 shrink-0 overflow-hidden rounded-[2.5rem_1.7rem_3rem_1.9rem] shadow-[inset_0_-40px_80px_rgba(245,238,213,0.22)]">
+          <button type="button" aria-label="Збільшити фото Beneficiary" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-[1.035] transition-transform duration-[1200ms] focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
+            <img src="./assets/images/Platycerium.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover saturate-[1.06] contrast-[1.02]">
           </button>
-          <div class="absolute inset-0 bg-gradient-to-t from-[#F1F6F0] via-[#F1F6F0]/20 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#FFFCF0] via-[#FFFCF0]/12 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_18%,rgba(255,250,218,0.34),transparent_32%),linear-gradient(120deg,rgba(255,255,255,0.16),transparent_40%)] pointer-events-none z-10"></div>
           <div class="absolute top-5 right-5 z-30">
-            <span class="text-rose-700 bg-rose-100 border-rose-200/60 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-sm">
+            <span class="text-rose-700 bg-rose-100 border-rose-200/60 backdrop-blur-xl border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-[0_10px_30px_rgba(37,74,43,0.12)]">
               ❗ Полив на 7-й день
             </span>
           </div>
         </div>
-        <div class="flex flex-col flex-1 px-8 pb-8 pt-2 relative z-30">
+        <div class="flex flex-col flex-1 px-8 pb-8 pt-5 relative z-30">
           <div class="mb-4">
-            <h3 class="text-[#092215] font-serif font-bold text-3xl tracking-tight mb-1">Beneficiary</h3>
-            <p class="text-xs text-[#6F8074] italic font-serif tracking-wide">Platycerium bifurcatum</p>
+            <h3 class="text-[#102B18] font-serif font-bold text-3xl tracking-tight mb-1">Beneficiary</h3>
+            <p class="text-xs text-[#72876B] italic font-serif tracking-wide">Platycerium bifurcatum</p>
           </div>
-          <div class="text-sm text-[#3B4D3E] font-sans leading-relaxed flex-1 mb-6">
+          <div class="text-sm text-[#334937] font-sans leading-relaxed flex-1 mb-6">
             Я заматаю основу у плівку, щоб довше зберігав вологу в корінні, перевірити, якшо під плівкою буде з'являтися пліснява, зняти її і замочити рослину у відрі. Оприскати листя якшо не треба буде купати.
           </div>
-          <div class="mt-auto pt-4 border-t border-[#D6E2D4]">
-            <span class="text-[10px] text-[#6F8074] font-bold flex items-center gap-2 uppercase tracking-widest">
+          <div class="mt-auto pt-4 border-t border-[#DCE8D2]/80">
+            <span class="text-[10px] text-[#6D8267] font-bold flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Стіна
             </span>
           </div>
         </div>
       </article>
-      <article class="group relative flex flex-col bg-[#F1F6F0] rounded-[2.5rem] border border-white/50 shadow-[0_20px_40px_rgba(10,35,15,0.08)] overflow-hidden hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(10,35,15,0.14)] transition-all duration-500">
-        <div class="relative w-full h-64 shrink-0 overflow-hidden">
-          <button type="button" aria-label="Збільшити фото Andriy" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-105 transition-transform duration-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
-            <img src="./assets/images/Epipremnum.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover">
+      <article class="plant-card group relative flex flex-col bg-[#FFFCF0]/88 border border-white/85 shadow-[0_30px_70px_rgba(42,73,42,0.13),inset_0_1px_0_rgba(255,255,255,0.9)] overflow-hidden hover:-translate-y-2 hover:rotate-[0.35deg] hover:shadow-[0_38px_90px_rgba(35,72,42,0.2),inset_0_1px_0_rgba(255,255,255,1)] transition-all duration-700">
+        <div class="relative m-3 mb-0 h-64 shrink-0 overflow-hidden rounded-[2.5rem_1.7rem_3rem_1.9rem] shadow-[inset_0_-40px_80px_rgba(245,238,213,0.22)]">
+          <button type="button" aria-label="Збільшити фото Andriy" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-[1.035] transition-transform duration-[1200ms] focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
+            <img src="./assets/images/Epipremnum.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover saturate-[1.06] contrast-[1.02]">
           </button>
-          <div class="absolute inset-0 bg-gradient-to-t from-[#F1F6F0] via-[#F1F6F0]/20 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#FFFCF0] via-[#FFFCF0]/12 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_18%,rgba(255,250,218,0.34),transparent_32%),linear-gradient(120deg,rgba(255,255,255,0.16),transparent_40%)] pointer-events-none z-10"></div>
           <div class="absolute top-5 right-5 z-30">
-            <span class="text-sky-700 bg-sky-100 border-sky-200/60 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-sm">
+            <span class="text-sky-700 bg-sky-100 border-sky-200/60 backdrop-blur-xl border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-[0_10px_30px_rgba(37,74,43,0.12)]">
               💧 Полив на 10-й день
             </span>
           </div>
         </div>
-        <div class="flex flex-col flex-1 px-8 pb-8 pt-2 relative z-30">
+        <div class="flex flex-col flex-1 px-8 pb-8 pt-5 relative z-30">
           <div class="mb-4">
-            <h3 class="text-[#092215] font-serif font-bold text-3xl tracking-tight mb-1">Andriy</h3>
-            <p class="text-xs text-[#6F8074] italic font-serif tracking-wide">Epipremnum + Хлорофітум</p>
+            <h3 class="text-[#102B18] font-serif font-bold text-3xl tracking-tight mb-1">Andriy</h3>
+            <p class="text-xs text-[#72876B] italic font-serif tracking-wide">Epipremnum + Хлорофітум</p>
           </div>
-          <div class="text-sm text-[#3B4D3E] font-sans leading-relaxed flex-1 mb-6">
+          <div class="text-sm text-[#334937] font-sans leading-relaxed flex-1 mb-6">
             Полити помірно. Обидві рослини витривалі, переживуть якщо трохи запізнитись. Обережно може політись через край вода.
           </div>
-          <div class="mt-auto pt-4 border-t border-[#D6E2D4]">
-            <span class="text-[10px] text-[#6F8074] font-bold flex items-center gap-2 uppercase tracking-widest">
+          <div class="mt-auto pt-4 border-t border-[#DCE8D2]/80">
+            <span class="text-[10px] text-[#6D8267] font-bold flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Стіна
             </span>
           </div>
         </div>
       </article>
-      <article class="group relative flex flex-col bg-[#F1F6F0] rounded-[2.5rem] border border-white/50 shadow-[0_20px_40px_rgba(10,35,15,0.08)] overflow-hidden hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(10,35,15,0.14)] transition-all duration-500">
-        <div class="relative w-full h-64 shrink-0 overflow-hidden">
-          <button type="button" aria-label="Збільшити фото Галя" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-105 transition-transform duration-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
-            <img src="./assets/images/Philodendron.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover">
+      <article class="plant-card group relative flex flex-col bg-[#FFFCF0]/88 border border-white/85 shadow-[0_30px_70px_rgba(42,73,42,0.13),inset_0_1px_0_rgba(255,255,255,0.9)] overflow-hidden hover:-translate-y-2 hover:rotate-[0.35deg] hover:shadow-[0_38px_90px_rgba(35,72,42,0.2),inset_0_1px_0_rgba(255,255,255,1)] transition-all duration-700">
+        <div class="relative m-3 mb-0 h-64 shrink-0 overflow-hidden rounded-[2.5rem_1.7rem_3rem_1.9rem] shadow-[inset_0_-40px_80px_rgba(245,238,213,0.22)]">
+          <button type="button" aria-label="Збільшити фото Галя" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-[1.035] transition-transform duration-[1200ms] focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
+            <img src="./assets/images/Philodendron.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover saturate-[1.06] contrast-[1.02]">
           </button>
-          <div class="absolute inset-0 bg-gradient-to-t from-[#F1F6F0] via-[#F1F6F0]/20 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#FFFCF0] via-[#FFFCF0]/12 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_18%,rgba(255,250,218,0.34),transparent_32%),linear-gradient(120deg,rgba(255,255,255,0.16),transparent_40%)] pointer-events-none z-10"></div>
           <div class="absolute top-5 right-5 z-30">
-            <span class="text-sky-700 bg-sky-100 border-sky-200/60 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-sm">
+            <span class="text-sky-700 bg-sky-100 border-sky-200/60 backdrop-blur-xl border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-[0_10px_30px_rgba(37,74,43,0.12)]">
               💧 Полив на 10-й день
             </span>
           </div>
         </div>
-        <div class="flex flex-col flex-1 px-8 pb-8 pt-2 relative z-30">
+        <div class="flex flex-col flex-1 px-8 pb-8 pt-5 relative z-30">
           <div class="mb-4">
-            <h3 class="text-[#092215] font-serif font-bold text-3xl tracking-tight mb-1">Галя</h3>
-            <p class="text-xs text-[#6F8074] italic font-serif tracking-wide">Philodendron hederaceum</p>
+            <h3 class="text-[#102B18] font-serif font-bold text-3xl tracking-tight mb-1">Галя</h3>
+            <p class="text-xs text-[#72876B] italic font-serif tracking-wide">Philodendron hederaceum</p>
           </div>
-          <div class="text-sm text-[#3B4D3E] font-sans leading-relaxed flex-1 mb-6">
+          <div class="text-sm text-[#334937] font-sans leading-relaxed flex-1 mb-6">
             Полити помірно, можна скупати в душі. Якщо листя злегка поникло — нічого страшного, після поливу одразу відновиться.
           </div>
-          <div class="mt-auto pt-4 border-t border-[#D6E2D4]">
-            <span class="text-[10px] text-[#6F8074] font-bold flex items-center gap-2 uppercase tracking-widest">
+          <div class="mt-auto pt-4 border-t border-[#DCE8D2]/80">
+            <span class="text-[10px] text-[#6D8267] font-bold flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Стіна
             </span>
           </div>
         </div>
       </article>
-      <article class="group relative flex flex-col bg-[#F1F6F0] rounded-[2.5rem] border border-white/50 shadow-[0_20px_40px_rgba(10,35,15,0.08)] overflow-hidden hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(10,35,15,0.14)] transition-all duration-500">
-        <div class="relative w-full h-64 shrink-0 overflow-hidden">
-          <button type="button" aria-label="Збільшити фото Radu Jude" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-105 transition-transform duration-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
-            <img src="./assets/images/Thai_Constellation.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover">
+      <article class="plant-card group relative flex flex-col bg-[#FFFCF0]/88 border border-white/85 shadow-[0_30px_70px_rgba(42,73,42,0.13),inset_0_1px_0_rgba(255,255,255,0.9)] overflow-hidden hover:-translate-y-2 hover:rotate-[0.35deg] hover:shadow-[0_38px_90px_rgba(35,72,42,0.2),inset_0_1px_0_rgba(255,255,255,1)] transition-all duration-700">
+        <div class="relative m-3 mb-0 h-64 shrink-0 overflow-hidden rounded-[2.5rem_1.7rem_3rem_1.9rem] shadow-[inset_0_-40px_80px_rgba(245,238,213,0.22)]">
+          <button type="button" aria-label="Збільшити фото Radu Jude" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-[1.035] transition-transform duration-[1200ms] focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
+            <img src="./assets/images/Thai_Constellation.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover saturate-[1.06] contrast-[1.02]">
           </button>
-          <div class="absolute inset-0 bg-gradient-to-t from-[#F1F6F0] via-[#F1F6F0]/20 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#FFFCF0] via-[#FFFCF0]/12 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_18%,rgba(255,250,218,0.34),transparent_32%),linear-gradient(120deg,rgba(255,255,255,0.16),transparent_40%)] pointer-events-none z-10"></div>
           <div class="absolute top-5 right-5 z-30">
-            <span class="text-sky-700 bg-sky-100 border-sky-200/60 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-sm">
+            <span class="text-sky-700 bg-sky-100 border-sky-200/60 backdrop-blur-xl border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-[0_10px_30px_rgba(37,74,43,0.12)]">
               💧 Полив на 10-й день
             </span>
           </div>
         </div>
-        <div class="flex flex-col flex-1 px-8 pb-8 pt-2 relative z-30">
+        <div class="flex flex-col flex-1 px-8 pb-8 pt-5 relative z-30">
           <div class="mb-4">
-            <h3 class="text-[#092215] font-serif font-bold text-3xl tracking-tight mb-1">Radu Jude</h3>
-            <p class="text-xs text-[#6F8074] italic font-serif tracking-wide">Monstera Thai Constellation</p>
+            <h3 class="text-[#102B18] font-serif font-bold text-3xl tracking-tight mb-1">Radu Jude</h3>
+            <p class="text-xs text-[#72876B] italic font-serif tracking-wide">Monstera Thai Constellation</p>
           </div>
-          <div class="text-sm text-[#3B4D3E] font-sans leading-relaxed flex-1 mb-6">
+          <div class="text-sm text-[#334937] font-sans leading-relaxed flex-1 mb-6">
             Викупати в душі, гарно намочити мох в пластиковій підримці.
           </div>
-          <div class="mt-auto pt-4 border-t border-[#D6E2D4]">
-            <span class="text-[10px] text-[#6F8074] font-bold flex items-center gap-2 uppercase tracking-widest">
+          <div class="mt-auto pt-4 border-t border-[#DCE8D2]/80">
+            <span class="text-[10px] text-[#6D8267] font-bold flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Етажерка 1
             </span>
           </div>
         </div>
       </article>
-      <article class="group relative flex flex-col bg-[#F1F6F0] rounded-[2.5rem] border border-white/50 shadow-[0_20px_40px_rgba(10,35,15,0.08)] overflow-hidden hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(10,35,15,0.14)] transition-all duration-500">
-        <div class="relative w-full h-64 shrink-0 overflow-hidden">
-          <button type="button" aria-label="Збільшити фото Zibrov" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-105 transition-transform duration-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
-            <img src="./assets/images/Gardenia.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover">
+      <article class="plant-card group relative flex flex-col bg-[#FFFCF0]/88 border border-white/85 shadow-[0_30px_70px_rgba(42,73,42,0.13),inset_0_1px_0_rgba(255,255,255,0.9)] overflow-hidden hover:-translate-y-2 hover:rotate-[0.35deg] hover:shadow-[0_38px_90px_rgba(35,72,42,0.2),inset_0_1px_0_rgba(255,255,255,1)] transition-all duration-700">
+        <div class="relative m-3 mb-0 h-64 shrink-0 overflow-hidden rounded-[2.5rem_1.7rem_3rem_1.9rem] shadow-[inset_0_-40px_80px_rgba(245,238,213,0.22)]">
+          <button type="button" aria-label="Збільшити фото Zibrov" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-[1.035] transition-transform duration-[1200ms] focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
+            <img src="./assets/images/Gardenia.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover saturate-[1.06] contrast-[1.02]">
           </button>
-          <div class="absolute inset-0 bg-gradient-to-t from-[#F1F6F0] via-[#F1F6F0]/20 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#FFFCF0] via-[#FFFCF0]/12 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_18%,rgba(255,250,218,0.34),transparent_32%),linear-gradient(120deg,rgba(255,255,255,0.16),transparent_40%)] pointer-events-none z-10"></div>
           <div class="absolute top-5 right-5 z-30">
-            <span class="text-rose-700 bg-rose-100 border-rose-200/60 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-sm">
+            <span class="text-rose-700 bg-rose-100 border-rose-200/60 backdrop-blur-xl border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-[0_10px_30px_rgba(37,74,43,0.12)]">
               ❗ Полив на 7-й день
             </span>
           </div>
         </div>
-        <div class="flex flex-col flex-1 px-8 pb-8 pt-2 relative z-30">
+        <div class="flex flex-col flex-1 px-8 pb-8 pt-5 relative z-30">
           <div class="mb-4">
-            <h3 class="text-[#092215] font-serif font-bold text-3xl tracking-tight mb-1">Zibrov</h3>
-            <p class="text-xs text-[#6F8074] italic font-serif tracking-wide">Gardenia jasminoides</p>
+            <h3 class="text-[#102B18] font-serif font-bold text-3xl tracking-tight mb-1">Zibrov</h3>
+            <p class="text-xs text-[#72876B] italic font-serif tracking-wide">Gardenia jasminoides</p>
           </div>
-          <div class="text-sm text-[#3B4D3E] font-sans leading-relaxed flex-1 mb-6">
+          <div class="text-sm text-[#334937] font-sans leading-relaxed flex-1 mb-6">
             Гарденія дуже вибаглива. Полити рясно на 7-й день. Вода — кімнатна, не холодна. Після поливу злий воду з піддону через 30 хв. НЕ мочи листя і квіти.
           </div>
-          <div class="mt-auto pt-4 border-t border-[#D6E2D4]">
-            <span class="text-[10px] text-[#6F8074] font-bold flex items-center gap-2 uppercase tracking-widest">
+          <div class="mt-auto pt-4 border-t border-[#DCE8D2]/80">
+            <span class="text-[10px] text-[#6D8267] font-bold flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Етажерка 1
             </span>
           </div>
         </div>
       </article>
-      <article class="group relative flex flex-col bg-[#F1F6F0] rounded-[2.5rem] border border-white/50 shadow-[0_20px_40px_rgba(10,35,15,0.08)] overflow-hidden hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(10,35,15,0.14)] transition-all duration-500">
-        <div class="relative w-full h-64 shrink-0 overflow-hidden">
-          <button type="button" aria-label="Збільшити фото Emma Stone" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-105 transition-transform duration-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
-            <img src="./assets/images/Begonia.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover">
+      <article class="plant-card group relative flex flex-col bg-[#FFFCF0]/88 border border-white/85 shadow-[0_30px_70px_rgba(42,73,42,0.13),inset_0_1px_0_rgba(255,255,255,0.9)] overflow-hidden hover:-translate-y-2 hover:rotate-[0.35deg] hover:shadow-[0_38px_90px_rgba(35,72,42,0.2),inset_0_1px_0_rgba(255,255,255,1)] transition-all duration-700">
+        <div class="relative m-3 mb-0 h-64 shrink-0 overflow-hidden rounded-[2.5rem_1.7rem_3rem_1.9rem] shadow-[inset_0_-40px_80px_rgba(245,238,213,0.22)]">
+          <button type="button" aria-label="Збільшити фото Emma Stone" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-[1.035] transition-transform duration-[1200ms] focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
+            <img src="./assets/images/Begonia.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover saturate-[1.06] contrast-[1.02]">
           </button>
-          <div class="absolute inset-0 bg-gradient-to-t from-[#F1F6F0] via-[#F1F6F0]/20 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#FFFCF0] via-[#FFFCF0]/12 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_18%,rgba(255,250,218,0.34),transparent_32%),linear-gradient(120deg,rgba(255,255,255,0.16),transparent_40%)] pointer-events-none z-10"></div>
           <div class="absolute top-5 right-5 z-30">
-            <span class="text-rose-700 bg-rose-100 border-rose-200/60 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-sm">
+            <span class="text-rose-700 bg-rose-100 border-rose-200/60 backdrop-blur-xl border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-[0_10px_30px_rgba(37,74,43,0.12)]">
               ❗ Полив на 7-й день
             </span>
           </div>
         </div>
-        <div class="flex flex-col flex-1 px-8 pb-8 pt-2 relative z-30">
+        <div class="flex flex-col flex-1 px-8 pb-8 pt-5 relative z-30">
           <div class="mb-4">
-            <h3 class="text-[#092215] font-serif font-bold text-3xl tracking-tight mb-1">Emma Stone</h3>
-            <p class="text-xs text-[#6F8074] italic font-serif tracking-wide">Begonia maculata</p>
+            <h3 class="text-[#102B18] font-serif font-bold text-3xl tracking-tight mb-1">Emma Stone</h3>
+            <p class="text-xs text-[#72876B] italic font-serif tracking-wide">Begonia maculata</p>
           </div>
-          <div class="text-sm text-[#3B4D3E] font-sans leading-relaxed flex-1 mb-6">
+          <div class="text-sm text-[#334937] font-sans leading-relaxed flex-1 mb-6">
             Полити рясно але акуратно, на ній немає листків.
           </div>
-          <div class="mt-auto pt-4 border-t border-[#D6E2D4]">
-            <span class="text-[10px] text-[#6F8074] font-bold flex items-center gap-2 uppercase tracking-widest">
+          <div class="mt-auto pt-4 border-t border-[#DCE8D2]/80">
+            <span class="text-[10px] text-[#6D8267] font-bold flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Етажерка 1
             </span>
           </div>
         </div>
       </article>
-      <article class="group relative flex flex-col bg-[#F1F6F0] rounded-[2.5rem] border border-white/50 shadow-[0_20px_40px_rgba(10,35,15,0.08)] overflow-hidden hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(10,35,15,0.14)] transition-all duration-500">
-        <div class="relative w-full h-64 shrink-0 overflow-hidden">
-          <button type="button" aria-label="Збільшити фото Mariposa" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-105 transition-transform duration-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
-            <img src="./assets/images/Maranta.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover">
+      <article class="plant-card group relative flex flex-col bg-[#FFFCF0]/88 border border-white/85 shadow-[0_30px_70px_rgba(42,73,42,0.13),inset_0_1px_0_rgba(255,255,255,0.9)] overflow-hidden hover:-translate-y-2 hover:rotate-[0.35deg] hover:shadow-[0_38px_90px_rgba(35,72,42,0.2),inset_0_1px_0_rgba(255,255,255,1)] transition-all duration-700">
+        <div class="relative m-3 mb-0 h-64 shrink-0 overflow-hidden rounded-[2.5rem_1.7rem_3rem_1.9rem] shadow-[inset_0_-40px_80px_rgba(245,238,213,0.22)]">
+          <button type="button" aria-label="Збільшити фото Mariposa" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-[1.035] transition-transform duration-[1200ms] focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
+            <img src="./assets/images/Maranta.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover saturate-[1.06] contrast-[1.02]">
           </button>
-          <div class="absolute inset-0 bg-gradient-to-t from-[#F1F6F0] via-[#F1F6F0]/20 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#FFFCF0] via-[#FFFCF0]/12 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_18%,rgba(255,250,218,0.34),transparent_32%),linear-gradient(120deg,rgba(255,255,255,0.16),transparent_40%)] pointer-events-none z-10"></div>
           <div class="absolute top-5 right-5 z-30">
-            <span class="text-rose-700 bg-rose-100 border-rose-200/60 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-sm">
+            <span class="text-rose-700 bg-rose-100 border-rose-200/60 backdrop-blur-xl border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-[0_10px_30px_rgba(37,74,43,0.12)]">
               ❗ Полив на 7-й день
             </span>
           </div>
         </div>
-        <div class="flex flex-col flex-1 px-8 pb-8 pt-2 relative z-30">
+        <div class="flex flex-col flex-1 px-8 pb-8 pt-5 relative z-30">
           <div class="mb-4">
-            <h3 class="text-[#092215] font-serif font-bold text-3xl tracking-tight mb-1">Mariposa</h3>
-            <p class="text-xs text-[#6F8074] italic font-serif tracking-wide">Maranta leuconeura</p>
+            <h3 class="text-[#102B18] font-serif font-bold text-3xl tracking-tight mb-1">Mariposa</h3>
+            <p class="text-xs text-[#72876B] italic font-serif tracking-wide">Maranta leuconeura</p>
           </div>
-          <div class="text-sm text-[#3B4D3E] font-sans leading-relaxed flex-1 mb-6">
+          <div class="text-sm text-[#334937] font-sans leading-relaxed flex-1 mb-6">
             Полити рівномірно. Дуже любить вологу.
           </div>
-          <div class="mt-auto pt-4 border-t border-[#D6E2D4]">
-            <span class="text-[10px] text-[#6F8074] font-bold flex items-center gap-2 uppercase tracking-widest">
+          <div class="mt-auto pt-4 border-t border-[#DCE8D2]/80">
+            <span class="text-[10px] text-[#6D8267] font-bold flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Етажерка 1
             </span>
           </div>
         </div>
       </article>
-      <article class="group relative flex flex-col bg-[#F1F6F0] rounded-[2.5rem] border border-white/50 shadow-[0_20px_40px_rgba(10,35,15,0.08)] overflow-hidden hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(10,35,15,0.14)] transition-all duration-500">
-        <div class="relative w-full h-64 shrink-0 overflow-hidden">
-          <button type="button" aria-label="Збільшити фото Малюк" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-105 transition-transform duration-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
-            <img src="./assets/images/pumila.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover">
+      <article class="plant-card group relative flex flex-col bg-[#FFFCF0]/88 border border-white/85 shadow-[0_30px_70px_rgba(42,73,42,0.13),inset_0_1px_0_rgba(255,255,255,0.9)] overflow-hidden hover:-translate-y-2 hover:rotate-[0.35deg] hover:shadow-[0_38px_90px_rgba(35,72,42,0.2),inset_0_1px_0_rgba(255,255,255,1)] transition-all duration-700">
+        <div class="relative m-3 mb-0 h-64 shrink-0 overflow-hidden rounded-[2.5rem_1.7rem_3rem_1.9rem] shadow-[inset_0_-40px_80px_rgba(245,238,213,0.22)]">
+          <button type="button" aria-label="Збільшити фото Малюк" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-[1.035] transition-transform duration-[1200ms] focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
+            <img src="./assets/images/pumila.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover saturate-[1.06] contrast-[1.02]">
           </button>
-          <div class="absolute inset-0 bg-gradient-to-t from-[#F1F6F0] via-[#F1F6F0]/20 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#FFFCF0] via-[#FFFCF0]/12 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_18%,rgba(255,250,218,0.34),transparent_32%),linear-gradient(120deg,rgba(255,255,255,0.16),transparent_40%)] pointer-events-none z-10"></div>
           <div class="absolute top-5 right-5 z-30">
-            <span class="text-rose-700 bg-rose-100 border-rose-200/60 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-sm">
+            <span class="text-rose-700 bg-rose-100 border-rose-200/60 backdrop-blur-xl border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-[0_10px_30px_rgba(37,74,43,0.12)]">
               ❗ Полив на 7-й день
             </span>
           </div>
         </div>
-        <div class="flex flex-col flex-1 px-8 pb-8 pt-2 relative z-30">
+        <div class="flex flex-col flex-1 px-8 pb-8 pt-5 relative z-30">
           <div class="mb-4">
-            <h3 class="text-[#092215] font-serif font-bold text-3xl tracking-tight mb-1">Малюк</h3>
-            <p class="text-xs text-[#6F8074] italic font-serif tracking-wide">Ficus pumila</p>
+            <h3 class="text-[#102B18] font-serif font-bold text-3xl tracking-tight mb-1">Малюк</h3>
+            <p class="text-xs text-[#72876B] italic font-serif tracking-wide">Ficus pumila</p>
           </div>
-          <div class="text-sm text-[#3B4D3E] font-sans leading-relaxed flex-1 mb-6">
+          <div class="text-sm text-[#334937] font-sans leading-relaxed flex-1 mb-6">
             Полити рясно. Земля має бути злегка вологою завжди.
           </div>
-          <div class="mt-auto pt-4 border-t border-[#D6E2D4]">
-            <span class="text-[10px] text-[#6F8074] font-bold flex items-center gap-2 uppercase tracking-widest">
+          <div class="mt-auto pt-4 border-t border-[#DCE8D2]/80">
+            <span class="text-[10px] text-[#6D8267] font-bold flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Етажерка 1
             </span>
           </div>
         </div>
       </article>
-      <article class="group relative flex flex-col bg-[#F1F6F0] rounded-[2.5rem] border border-white/50 shadow-[0_20px_40px_rgba(10,35,15,0.08)] overflow-hidden hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(10,35,15,0.14)] transition-all duration-500">
-        <div class="relative w-full h-64 shrink-0 overflow-hidden">
-          <button type="button" aria-label="Збільшити фото Dora" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-105 transition-transform duration-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
-            <img src="./assets/images/Chamaedorea.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover">
+      <article class="plant-card group relative flex flex-col bg-[#FFFCF0]/88 border border-white/85 shadow-[0_30px_70px_rgba(42,73,42,0.13),inset_0_1px_0_rgba(255,255,255,0.9)] overflow-hidden hover:-translate-y-2 hover:rotate-[0.35deg] hover:shadow-[0_38px_90px_rgba(35,72,42,0.2),inset_0_1px_0_rgba(255,255,255,1)] transition-all duration-700">
+        <div class="relative m-3 mb-0 h-64 shrink-0 overflow-hidden rounded-[2.5rem_1.7rem_3rem_1.9rem] shadow-[inset_0_-40px_80px_rgba(245,238,213,0.22)]">
+          <button type="button" aria-label="Збільшити фото Dora" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-[1.035] transition-transform duration-[1200ms] focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
+            <img src="./assets/images/Chamaedorea.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover saturate-[1.06] contrast-[1.02]">
           </button>
-          <div class="absolute inset-0 bg-gradient-to-t from-[#F1F6F0] via-[#F1F6F0]/20 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#FFFCF0] via-[#FFFCF0]/12 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_18%,rgba(255,250,218,0.34),transparent_32%),linear-gradient(120deg,rgba(255,255,255,0.16),transparent_40%)] pointer-events-none z-10"></div>
           <div class="absolute top-5 right-5 z-30">
-            <span class="text-sky-700 bg-sky-100 border-sky-200/60 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-sm">
+            <span class="text-sky-700 bg-sky-100 border-sky-200/60 backdrop-blur-xl border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-[0_10px_30px_rgba(37,74,43,0.12)]">
               💧 Полив на 10-й день
             </span>
           </div>
         </div>
-        <div class="flex flex-col flex-1 px-8 pb-8 pt-2 relative z-30">
+        <div class="flex flex-col flex-1 px-8 pb-8 pt-5 relative z-30">
           <div class="mb-4">
-            <h3 class="text-[#092215] font-serif font-bold text-3xl tracking-tight mb-1">Dora</h3>
-            <p class="text-xs text-[#6F8074] italic font-serif tracking-wide">Chamaedorea elegans</p>
+            <h3 class="text-[#102B18] font-serif font-bold text-3xl tracking-tight mb-1">Dora</h3>
+            <p class="text-xs text-[#72876B] italic font-serif tracking-wide">Chamaedorea elegans</p>
           </div>
-          <div class="text-sm text-[#3B4D3E] font-sans leading-relaxed flex-1 mb-6">
+          <div class="text-sm text-[#334937] font-sans leading-relaxed flex-1 mb-6">
             Полити помірно. Пальма витривала, не паніку якщо кінчики листя трохи пожовкнуть.
           </div>
-          <div class="mt-auto pt-4 border-t border-[#D6E2D4]">
-            <span class="text-[10px] text-[#6F8074] font-bold flex items-center gap-2 uppercase tracking-widest">
+          <div class="mt-auto pt-4 border-t border-[#DCE8D2]/80">
+            <span class="text-[10px] text-[#6D8267] font-bold flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Етажерка 1
             </span>
           </div>
         </div>
       </article>
-      <article class="group relative flex flex-col bg-[#F1F6F0] rounded-[2.5rem] border border-white/50 shadow-[0_20px_40px_rgba(10,35,15,0.08)] overflow-hidden hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(10,35,15,0.14)] transition-all duration-500">
-        <div class="relative w-full h-64 shrink-0 overflow-hidden">
-          <button type="button" aria-label="Збільшити фото Sheldon J. Plankton" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-105 transition-transform duration-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
-            <img src="./assets/images/Chlorophytum.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover">
+      <article class="plant-card group relative flex flex-col bg-[#FFFCF0]/88 border border-white/85 shadow-[0_30px_70px_rgba(42,73,42,0.13),inset_0_1px_0_rgba(255,255,255,0.9)] overflow-hidden hover:-translate-y-2 hover:rotate-[0.35deg] hover:shadow-[0_38px_90px_rgba(35,72,42,0.2),inset_0_1px_0_rgba(255,255,255,1)] transition-all duration-700">
+        <div class="relative m-3 mb-0 h-64 shrink-0 overflow-hidden rounded-[2.5rem_1.7rem_3rem_1.9rem] shadow-[inset_0_-40px_80px_rgba(245,238,213,0.22)]">
+          <button type="button" aria-label="Збільшити фото Sheldon J. Plankton" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-[1.035] transition-transform duration-[1200ms] focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
+            <img src="./assets/images/Chlorophytum.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover saturate-[1.06] contrast-[1.02]">
           </button>
-          <div class="absolute inset-0 bg-gradient-to-t from-[#F1F6F0] via-[#F1F6F0]/20 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#FFFCF0] via-[#FFFCF0]/12 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_18%,rgba(255,250,218,0.34),transparent_32%),linear-gradient(120deg,rgba(255,255,255,0.16),transparent_40%)] pointer-events-none z-10"></div>
           <div class="absolute top-5 right-5 z-30">
-            <span class="text-sky-700 bg-sky-100 border-sky-200/60 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-sm">
+            <span class="text-sky-700 bg-sky-100 border-sky-200/60 backdrop-blur-xl border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-[0_10px_30px_rgba(37,74,43,0.12)]">
               💧 Полив на 10-й день
             </span>
           </div>
         </div>
-        <div class="flex flex-col flex-1 px-8 pb-8 pt-2 relative z-30">
+        <div class="flex flex-col flex-1 px-8 pb-8 pt-5 relative z-30">
           <div class="mb-4">
-            <h3 class="text-[#092215] font-serif font-bold text-3xl tracking-tight mb-1">Sheldon J. Plankton</h3>
-            <p class="text-xs text-[#6F8074] italic font-serif tracking-wide">Chlorophytum comosum</p>
+            <h3 class="text-[#102B18] font-serif font-bold text-3xl tracking-tight mb-1">Sheldon J. Plankton</h3>
+            <p class="text-xs text-[#72876B] italic font-serif tracking-wide">Chlorophytum comosum</p>
           </div>
-          <div class="text-sm text-[#3B4D3E] font-sans leading-relaxed flex-1 mb-6">
+          <div class="text-sm text-[#334937] font-sans leading-relaxed flex-1 mb-6">
             Додати води за необхідності.
           </div>
-          <div class="mt-auto pt-4 border-t border-[#D6E2D4]">
-            <span class="text-[10px] text-[#6F8074] font-bold flex items-center gap-2 uppercase tracking-widest">
+          <div class="mt-auto pt-4 border-t border-[#DCE8D2]/80">
+            <span class="text-[10px] text-[#6D8267] font-bold flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Етажерка 1
             </span>
           </div>
         </div>
       </article>
-      <article class="group relative flex flex-col bg-[#F1F6F0] rounded-[2.5rem] border border-white/50 shadow-[0_20px_40px_rgba(10,35,15,0.08)] overflow-hidden hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(10,35,15,0.14)] transition-all duration-500">
-        <div class="relative w-full h-64 shrink-0 overflow-hidden">
-          <button type="button" aria-label="Збільшити фото Без імені (Сукулент)" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-105 transition-transform duration-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
-            <img src="./assets/images/Gasteria.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover">
+      <article class="plant-card group relative flex flex-col bg-[#FFFCF0]/88 border border-white/85 shadow-[0_30px_70px_rgba(42,73,42,0.13),inset_0_1px_0_rgba(255,255,255,0.9)] overflow-hidden hover:-translate-y-2 hover:rotate-[0.35deg] hover:shadow-[0_38px_90px_rgba(35,72,42,0.2),inset_0_1px_0_rgba(255,255,255,1)] transition-all duration-700">
+        <div class="relative m-3 mb-0 h-64 shrink-0 overflow-hidden rounded-[2.5rem_1.7rem_3rem_1.9rem] shadow-[inset_0_-40px_80px_rgba(245,238,213,0.22)]">
+          <button type="button" aria-label="Збільшити фото Без імені (Сукулент)" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-[1.035] transition-transform duration-[1200ms] focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
+            <img src="./assets/images/Gasteria.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover saturate-[1.06] contrast-[1.02]">
           </button>
-          <div class="absolute inset-0 bg-gradient-to-t from-[#F1F6F0] via-[#F1F6F0]/20 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#FFFCF0] via-[#FFFCF0]/12 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_18%,rgba(255,250,218,0.34),transparent_32%),linear-gradient(120deg,rgba(255,255,255,0.16),transparent_40%)] pointer-events-none z-10"></div>
           <div class="absolute top-5 right-5 z-30">
-            <span class="text-emerald-700 bg-emerald-100 border-emerald-200/60 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-sm">
+            <span class="text-emerald-700 bg-emerald-100 border-emerald-200/60 backdrop-blur-xl border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-[0_10px_30px_rgba(37,74,43,0.12)]">
               ✅ НЕ поливати
             </span>
           </div>
         </div>
-        <div class="flex flex-col flex-1 px-8 pb-8 pt-2 relative z-30">
+        <div class="flex flex-col flex-1 px-8 pb-8 pt-5 relative z-30">
           <div class="mb-4">
-            <h3 class="text-[#092215] font-serif font-bold text-3xl tracking-tight mb-1">Без імені (Сукулент)</h3>
-            <p class="text-xs text-[#6F8074] italic font-serif tracking-wide">Gasteria carinata</p>
+            <h3 class="text-[#102B18] font-serif font-bold text-3xl tracking-tight mb-1">Без імені (Сукулент)</h3>
+            <p class="text-xs text-[#72876B] italic font-serif tracking-wide">Gasteria carinata</p>
           </div>
-          <div class="text-sm text-[#3B4D3E] font-sans leading-relaxed flex-1 mb-6">
+          <div class="text-sm text-[#334937] font-sans leading-relaxed flex-1 mb-6">
             Нічого не робити. Сукулент — 3 тижні без поливу норма.
           </div>
-          <div class="mt-auto pt-4 border-t border-[#D6E2D4]">
-            <span class="text-[10px] text-[#6F8074] font-bold flex items-center gap-2 uppercase tracking-widest">
+          <div class="mt-auto pt-4 border-t border-[#DCE8D2]/80">
+            <span class="text-[10px] text-[#6D8267] font-bold flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Етажерка 1
             </span>
           </div>
         </div>
       </article>
-      <article class="group relative flex flex-col bg-[#F1F6F0] rounded-[2.5rem] border border-white/50 shadow-[0_20px_40px_rgba(10,35,15,0.08)] overflow-hidden hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(10,35,15,0.14)] transition-all duration-500">
-        <div class="relative w-full h-64 shrink-0 overflow-hidden">
-          <button type="button" aria-label="Збільшити фото Хачік" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-105 transition-transform duration-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
-            <img src="./assets/images/benjamina.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover">
+      <article class="plant-card group relative flex flex-col bg-[#FFFCF0]/88 border border-white/85 shadow-[0_30px_70px_rgba(42,73,42,0.13),inset_0_1px_0_rgba(255,255,255,0.9)] overflow-hidden hover:-translate-y-2 hover:rotate-[0.35deg] hover:shadow-[0_38px_90px_rgba(35,72,42,0.2),inset_0_1px_0_rgba(255,255,255,1)] transition-all duration-700">
+        <div class="relative m-3 mb-0 h-64 shrink-0 overflow-hidden rounded-[2.5rem_1.7rem_3rem_1.9rem] shadow-[inset_0_-40px_80px_rgba(245,238,213,0.22)]">
+          <button type="button" aria-label="Збільшити фото Хачік" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-[1.035] transition-transform duration-[1200ms] focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
+            <img src="./assets/images/benjamina.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover saturate-[1.06] contrast-[1.02]">
           </button>
-          <div class="absolute inset-0 bg-gradient-to-t from-[#F1F6F0] via-[#F1F6F0]/20 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#FFFCF0] via-[#FFFCF0]/12 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_18%,rgba(255,250,218,0.34),transparent_32%),linear-gradient(120deg,rgba(255,255,255,0.16),transparent_40%)] pointer-events-none z-10"></div>
           <div class="absolute top-5 right-5 z-30">
-            <span class="text-sky-700 bg-sky-100 border-sky-200/60 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-sm">
+            <span class="text-sky-700 bg-sky-100 border-sky-200/60 backdrop-blur-xl border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-[0_10px_30px_rgba(37,74,43,0.12)]">
               💧 Полив на 10-й день
             </span>
           </div>
         </div>
-        <div class="flex flex-col flex-1 px-8 pb-8 pt-2 relative z-30">
+        <div class="flex flex-col flex-1 px-8 pb-8 pt-5 relative z-30">
           <div class="mb-4">
-            <h3 class="text-[#092215] font-serif font-bold text-3xl tracking-tight mb-1">Хачік</h3>
-            <p class="text-xs text-[#6F8074] italic font-serif tracking-wide">Ficus benjamina</p>
+            <h3 class="text-[#102B18] font-serif font-bold text-3xl tracking-tight mb-1">Хачік</h3>
+            <p class="text-xs text-[#72876B] italic font-serif tracking-wide">Ficus benjamina</p>
           </div>
-          <div class="text-sm text-[#3B4D3E] font-sans leading-relaxed flex-1 mb-6">
+          <div class="text-sm text-[#334937] font-sans leading-relaxed flex-1 mb-6">
             Фікус скидає листя якщо його перемістити. Стоїть там де стоїть — не чіпати. Полити на 10-й день звичайно.
           </div>
-          <div class="mt-auto pt-4 border-t border-[#D6E2D4]">
-            <span class="text-[10px] text-[#6F8074] font-bold flex items-center gap-2 uppercase tracking-widest">
+          <div class="mt-auto pt-4 border-t border-[#DCE8D2]/80">
+            <span class="text-[10px] text-[#6D8267] font-bold flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Тумбочка
             </span>
           </div>
         </div>
       </article>
-      <article class="group relative flex flex-col bg-[#F1F6F0] rounded-[2.5rem] border border-white/50 shadow-[0_20px_40px_rgba(10,35,15,0.08)] overflow-hidden hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(10,35,15,0.14)] transition-all duration-500">
-        <div class="relative w-full h-64 shrink-0 overflow-hidden">
-          <button type="button" aria-label="Збільшити фото Без імені (Традесканція)" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-105 transition-transform duration-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
-            <img src="./assets/images/Tradescantia.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover">
+      <article class="plant-card group relative flex flex-col bg-[#FFFCF0]/88 border border-white/85 shadow-[0_30px_70px_rgba(42,73,42,0.13),inset_0_1px_0_rgba(255,255,255,0.9)] overflow-hidden hover:-translate-y-2 hover:rotate-[0.35deg] hover:shadow-[0_38px_90px_rgba(35,72,42,0.2),inset_0_1px_0_rgba(255,255,255,1)] transition-all duration-700">
+        <div class="relative m-3 mb-0 h-64 shrink-0 overflow-hidden rounded-[2.5rem_1.7rem_3rem_1.9rem] shadow-[inset_0_-40px_80px_rgba(245,238,213,0.22)]">
+          <button type="button" aria-label="Збільшити фото Без імені (Традесканція)" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-[1.035] transition-transform duration-[1200ms] focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
+            <img src="./assets/images/Tradescantia.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover saturate-[1.06] contrast-[1.02]">
           </button>
-          <div class="absolute inset-0 bg-gradient-to-t from-[#F1F6F0] via-[#F1F6F0]/20 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#FFFCF0] via-[#FFFCF0]/12 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_18%,rgba(255,250,218,0.34),transparent_32%),linear-gradient(120deg,rgba(255,255,255,0.16),transparent_40%)] pointer-events-none z-10"></div>
           <div class="absolute top-5 right-5 z-30">
-            <span class="text-sky-700 bg-sky-100 border-sky-200/60 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-sm">
+            <span class="text-sky-700 bg-sky-100 border-sky-200/60 backdrop-blur-xl border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-[0_10px_30px_rgba(37,74,43,0.12)]">
               💧 Полив на 7-й день
             </span>
           </div>
         </div>
-        <div class="flex flex-col flex-1 px-8 pb-8 pt-2 relative z-30">
+        <div class="flex flex-col flex-1 px-8 pb-8 pt-5 relative z-30">
           <div class="mb-4">
-            <h3 class="text-[#092215] font-serif font-bold text-3xl tracking-tight mb-1">Без імені (Традесканція)</h3>
-            <p class="text-xs text-[#6F8074] italic font-serif tracking-wide">Tradescantia</p>
+            <h3 class="text-[#102B18] font-serif font-bold text-3xl tracking-tight mb-1">Без імені (Традесканція)</h3>
+            <p class="text-xs text-[#72876B] italic font-serif tracking-wide">Tradescantia</p>
           </div>
-          <div class="text-sm text-[#3B4D3E] font-sans leading-relaxed flex-1 mb-6">
+          <div class="text-sm text-[#334937] font-sans leading-relaxed flex-1 mb-6">
             Полити помірно. Якщо листя злегка поникло — це ознака спраги, полий.
           </div>
-          <div class="mt-auto pt-4 border-t border-[#D6E2D4]">
-            <span class="text-[10px] text-[#6F8074] font-bold flex items-center gap-2 uppercase tracking-widest">
+          <div class="mt-auto pt-4 border-t border-[#DCE8D2]/80">
+            <span class="text-[10px] text-[#6D8267] font-bold flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Тумбочка
             </span>
           </div>
         </div>
       </article>
-      <article class="group relative flex flex-col bg-[#F1F6F0] rounded-[2.5rem] border border-white/50 shadow-[0_20px_40px_rgba(10,35,15,0.08)] overflow-hidden hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(10,35,15,0.14)] transition-all duration-500">
-        <div class="relative w-full h-64 shrink-0 overflow-hidden">
-          <button type="button" aria-label="Збільшити фото Зайчик" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-105 transition-transform duration-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
-            <img src="./assets/images/Cleistocactus.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover">
+      <article class="plant-card group relative flex flex-col bg-[#FFFCF0]/88 border border-white/85 shadow-[0_30px_70px_rgba(42,73,42,0.13),inset_0_1px_0_rgba(255,255,255,0.9)] overflow-hidden hover:-translate-y-2 hover:rotate-[0.35deg] hover:shadow-[0_38px_90px_rgba(35,72,42,0.2),inset_0_1px_0_rgba(255,255,255,1)] transition-all duration-700">
+        <div class="relative m-3 mb-0 h-64 shrink-0 overflow-hidden rounded-[2.5rem_1.7rem_3rem_1.9rem] shadow-[inset_0_-40px_80px_rgba(245,238,213,0.22)]">
+          <button type="button" aria-label="Збільшити фото Зайчик" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-[1.035] transition-transform duration-[1200ms] focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
+            <img src="./assets/images/Cleistocactus.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover saturate-[1.06] contrast-[1.02]">
           </button>
-          <div class="absolute inset-0 bg-gradient-to-t from-[#F1F6F0] via-[#F1F6F0]/20 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#FFFCF0] via-[#FFFCF0]/12 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_18%,rgba(255,250,218,0.34),transparent_32%),linear-gradient(120deg,rgba(255,255,255,0.16),transparent_40%)] pointer-events-none z-10"></div>
           <div class="absolute top-5 right-5 z-30">
-            <span class="text-emerald-700 bg-emerald-100 border-emerald-200/60 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-sm">
+            <span class="text-emerald-700 bg-emerald-100 border-emerald-200/60 backdrop-blur-xl border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-[0_10px_30px_rgba(37,74,43,0.12)]">
               ✅ НЕ поливати
             </span>
           </div>
         </div>
-        <div class="flex flex-col flex-1 px-8 pb-8 pt-2 relative z-30">
+        <div class="flex flex-col flex-1 px-8 pb-8 pt-5 relative z-30">
           <div class="mb-4">
-            <h3 class="text-[#092215] font-serif font-bold text-3xl tracking-tight mb-1">Зайчик</h3>
-            <p class="text-xs text-[#6F8074] italic font-serif tracking-wide">Cleistocactus strausii</p>
+            <h3 class="text-[#102B18] font-serif font-bold text-3xl tracking-tight mb-1">Зайчик</h3>
+            <p class="text-xs text-[#72876B] italic font-serif tracking-wide">Cleistocactus strausii</p>
           </div>
-          <div class="text-sm text-[#3B4D3E] font-sans leading-relaxed flex-1 mb-6">
+          <div class="text-sm text-[#334937] font-sans leading-relaxed flex-1 mb-6">
             Нічого не робити. Кактус — 1 місяць без поливу норма.
           </div>
-          <div class="mt-auto pt-4 border-t border-[#D6E2D4]">
-            <span class="text-[10px] text-[#6F8074] font-bold flex items-center gap-2 uppercase tracking-widest">
+          <div class="mt-auto pt-4 border-t border-[#DCE8D2]/80">
+            <span class="text-[10px] text-[#6D8267] font-bold flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Тумбочка
             </span>
           </div>
         </div>
       </article>
-      <article class="group relative flex flex-col bg-[#F1F6F0] rounded-[2.5rem] border border-white/50 shadow-[0_20px_40px_rgba(10,35,15,0.08)] overflow-hidden hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(10,35,15,0.14)] transition-all duration-500">
-        <div class="relative w-full h-64 shrink-0 overflow-hidden">
-          <button type="button" aria-label="Збільшити фото Marusia Bohuslavka" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-105 transition-transform duration-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
-            <img src="./assets/images/Ceropegia.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover">
+      <article class="plant-card group relative flex flex-col bg-[#FFFCF0]/88 border border-white/85 shadow-[0_30px_70px_rgba(42,73,42,0.13),inset_0_1px_0_rgba(255,255,255,0.9)] overflow-hidden hover:-translate-y-2 hover:rotate-[0.35deg] hover:shadow-[0_38px_90px_rgba(35,72,42,0.2),inset_0_1px_0_rgba(255,255,255,1)] transition-all duration-700">
+        <div class="relative m-3 mb-0 h-64 shrink-0 overflow-hidden rounded-[2.5rem_1.7rem_3rem_1.9rem] shadow-[inset_0_-40px_80px_rgba(245,238,213,0.22)]">
+          <button type="button" aria-label="Збільшити фото Marusia Bohuslavka" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-[1.035] transition-transform duration-[1200ms] focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
+            <img src="./assets/images/Ceropegia.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover saturate-[1.06] contrast-[1.02]">
           </button>
-          <div class="absolute inset-0 bg-gradient-to-t from-[#F1F6F0] via-[#F1F6F0]/20 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#FFFCF0] via-[#FFFCF0]/12 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_18%,rgba(255,250,218,0.34),transparent_32%),linear-gradient(120deg,rgba(255,255,255,0.16),transparent_40%)] pointer-events-none z-10"></div>
           <div class="absolute top-5 right-5 z-30">
-            <span class="text-emerald-700 bg-emerald-100 border-emerald-200/60 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-sm">
+            <span class="text-emerald-700 bg-emerald-100 border-emerald-200/60 backdrop-blur-xl border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-[0_10px_30px_rgba(37,74,43,0.12)]">
               ✅ НЕ поливати
             </span>
           </div>
         </div>
-        <div class="flex flex-col flex-1 px-8 pb-8 pt-2 relative z-30">
+        <div class="flex flex-col flex-1 px-8 pb-8 pt-5 relative z-30">
           <div class="mb-4">
-            <h3 class="text-[#092215] font-serif font-bold text-3xl tracking-tight mb-1">Marusia Bohuslavka</h3>
-            <p class="text-xs text-[#6F8074] italic font-serif tracking-wide">Ceropegia woodii</p>
+            <h3 class="text-[#102B18] font-serif font-bold text-3xl tracking-tight mb-1">Marusia Bohuslavka</h3>
+            <p class="text-xs text-[#72876B] italic font-serif tracking-wide">Ceropegia woodii</p>
           </div>
-          <div class="text-sm text-[#3B4D3E] font-sans leading-relaxed flex-1 mb-6">
+          <div class="text-sm text-[#334937] font-sans leading-relaxed flex-1 mb-6">
             Нічого не робити. Витримає без поливу.
           </div>
-          <div class="mt-auto pt-4 border-t border-[#D6E2D4]">
-            <span class="text-[10px] text-[#6F8074] font-bold flex items-center gap-2 uppercase tracking-widest">
+          <div class="mt-auto pt-4 border-t border-[#DCE8D2]/80">
+            <span class="text-[10px] text-[#6D8267] font-bold flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Вікно
             </span>
           </div>
         </div>
       </article>
-      <article class="group relative flex flex-col bg-[#F1F6F0] rounded-[2.5rem] border border-white/50 shadow-[0_20px_40px_rgba(10,35,15,0.08)] overflow-hidden hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(10,35,15,0.14)] transition-all duration-500">
-        <div class="relative w-full h-64 shrink-0 overflow-hidden">
-          <button type="button" aria-label="Збільшити фото Lynch" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-105 transition-transform duration-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
-            <img src="./assets/images/deliciosa.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover">
+      <article class="plant-card group relative flex flex-col bg-[#FFFCF0]/88 border border-white/85 shadow-[0_30px_70px_rgba(42,73,42,0.13),inset_0_1px_0_rgba(255,255,255,0.9)] overflow-hidden hover:-translate-y-2 hover:rotate-[0.35deg] hover:shadow-[0_38px_90px_rgba(35,72,42,0.2),inset_0_1px_0_rgba(255,255,255,1)] transition-all duration-700">
+        <div class="relative m-3 mb-0 h-64 shrink-0 overflow-hidden rounded-[2.5rem_1.7rem_3rem_1.9rem] shadow-[inset_0_-40px_80px_rgba(245,238,213,0.22)]">
+          <button type="button" aria-label="Збільшити фото Lynch" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-[1.035] transition-transform duration-[1200ms] focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
+            <img src="./assets/images/deliciosa.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover saturate-[1.06] contrast-[1.02]">
           </button>
-          <div class="absolute inset-0 bg-gradient-to-t from-[#F1F6F0] via-[#F1F6F0]/20 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#FFFCF0] via-[#FFFCF0]/12 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_18%,rgba(255,250,218,0.34),transparent_32%),linear-gradient(120deg,rgba(255,255,255,0.16),transparent_40%)] pointer-events-none z-10"></div>
           <div class="absolute top-5 right-5 z-30">
-            <span class="text-sky-700 bg-sky-100 border-sky-200/60 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-sm">
+            <span class="text-sky-700 bg-sky-100 border-sky-200/60 backdrop-blur-xl border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-[0_10px_30px_rgba(37,74,43,0.12)]">
               💧 Полив на 10-й день
             </span>
           </div>
         </div>
-        <div class="flex flex-col flex-1 px-8 pb-8 pt-2 relative z-30">
+        <div class="flex flex-col flex-1 px-8 pb-8 pt-5 relative z-30">
           <div class="mb-4">
-            <h3 class="text-[#092215] font-serif font-bold text-3xl tracking-tight mb-1">Lynch</h3>
-            <p class="text-xs text-[#6F8074] italic font-serif tracking-wide">Monstera deliciosa</p>
+            <h3 class="text-[#102B18] font-serif font-bold text-3xl tracking-tight mb-1">Lynch</h3>
+            <p class="text-xs text-[#72876B] italic font-serif tracking-wide">Monstera deliciosa</p>
           </div>
-          <div class="text-sm text-[#3B4D3E] font-sans leading-relaxed flex-1 mb-6">
+          <div class="text-sm text-[#334937] font-sans leading-relaxed flex-1 mb-6">
             Викупати в душі, гарно намочити мох в пластиковій підримці.
           </div>
-          <div class="mt-auto pt-4 border-t border-[#D6E2D4]">
-            <span class="text-[10px] text-[#6F8074] font-bold flex items-center gap-2 uppercase tracking-widest">
+          <div class="mt-auto pt-4 border-t border-[#DCE8D2]/80">
+            <span class="text-[10px] text-[#6D8267] font-bold flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Етажерка 2
             </span>
           </div>
         </div>
       </article>
-      <article class="group relative flex flex-col bg-[#F1F6F0] rounded-[2.5rem] border border-white/50 shadow-[0_20px_40px_rgba(10,35,15,0.08)] overflow-hidden hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(10,35,15,0.14)] transition-all duration-500">
-        <div class="relative w-full h-64 shrink-0 overflow-hidden">
-          <button type="button" aria-label="Збільшити фото Без імені" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-105 transition-transform duration-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
-            <img src="./assets/images/Mammillaria.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover">
+      <article class="plant-card group relative flex flex-col bg-[#FFFCF0]/88 border border-white/85 shadow-[0_30px_70px_rgba(42,73,42,0.13),inset_0_1px_0_rgba(255,255,255,0.9)] overflow-hidden hover:-translate-y-2 hover:rotate-[0.35deg] hover:shadow-[0_38px_90px_rgba(35,72,42,0.2),inset_0_1px_0_rgba(255,255,255,1)] transition-all duration-700">
+        <div class="relative m-3 mb-0 h-64 shrink-0 overflow-hidden rounded-[2.5rem_1.7rem_3rem_1.9rem] shadow-[inset_0_-40px_80px_rgba(245,238,213,0.22)]">
+          <button type="button" aria-label="Збільшити фото Без імені" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-[1.035] transition-transform duration-[1200ms] focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
+            <img src="./assets/images/Mammillaria.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover saturate-[1.06] contrast-[1.02]">
           </button>
-          <div class="absolute inset-0 bg-gradient-to-t from-[#F1F6F0] via-[#F1F6F0]/20 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#FFFCF0] via-[#FFFCF0]/12 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_18%,rgba(255,250,218,0.34),transparent_32%),linear-gradient(120deg,rgba(255,255,255,0.16),transparent_40%)] pointer-events-none z-10"></div>
           <div class="absolute top-5 right-5 z-30">
-            <span class="text-emerald-700 bg-emerald-100 border-emerald-200/60 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-sm">
+            <span class="text-emerald-700 bg-emerald-100 border-emerald-200/60 backdrop-blur-xl border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-[0_10px_30px_rgba(37,74,43,0.12)]">
               ✅ НЕ поливати
             </span>
           </div>
         </div>
-        <div class="flex flex-col flex-1 px-8 pb-8 pt-2 relative z-30">
+        <div class="flex flex-col flex-1 px-8 pb-8 pt-5 relative z-30">
           <div class="mb-4">
-            <h3 class="text-[#092215] font-serif font-bold text-3xl tracking-tight mb-1">Без імені</h3>
-            <p class="text-xs text-[#6F8074] italic font-serif tracking-wide">Mammillaria hahniana</p>
+            <h3 class="text-[#102B18] font-serif font-bold text-3xl tracking-tight mb-1">Без імені</h3>
+            <p class="text-xs text-[#72876B] italic font-serif tracking-wide">Mammillaria hahniana</p>
           </div>
-          <div class="text-sm text-[#3B4D3E] font-sans leading-relaxed flex-1 mb-6">
+          <div class="text-sm text-[#334937] font-sans leading-relaxed flex-1 mb-6">
             Кактус. Нічого не робити.
           </div>
-          <div class="mt-auto pt-4 border-t border-[#D6E2D4]">
-            <span class="text-[10px] text-[#6F8074] font-bold flex items-center gap-2 uppercase tracking-widest">
+          <div class="mt-auto pt-4 border-t border-[#DCE8D2]/80">
+            <span class="text-[10px] text-[#6D8267] font-bold flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Етажерка 2
             </span>
           </div>
         </div>
       </article>
-      <article class="group relative flex flex-col bg-[#F1F6F0] rounded-[2.5rem] border border-white/50 shadow-[0_20px_40px_rgba(10,35,15,0.08)] overflow-hidden hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(10,35,15,0.14)] transition-all duration-500">
-        <div class="relative w-full h-64 shrink-0 overflow-hidden">
-          <button type="button" aria-label="Збільшити фото Без імені" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-105 transition-transform duration-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
-            <img src="./assets/images/adansonii2.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover">
+      <article class="plant-card group relative flex flex-col bg-[#FFFCF0]/88 border border-white/85 shadow-[0_30px_70px_rgba(42,73,42,0.13),inset_0_1px_0_rgba(255,255,255,0.9)] overflow-hidden hover:-translate-y-2 hover:rotate-[0.35deg] hover:shadow-[0_38px_90px_rgba(35,72,42,0.2),inset_0_1px_0_rgba(255,255,255,1)] transition-all duration-700">
+        <div class="relative m-3 mb-0 h-64 shrink-0 overflow-hidden rounded-[2.5rem_1.7rem_3rem_1.9rem] shadow-[inset_0_-40px_80px_rgba(245,238,213,0.22)]">
+          <button type="button" aria-label="Збільшити фото Без імені" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-[1.035] transition-transform duration-[1200ms] focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
+            <img src="./assets/images/adansonii2.jpg" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover saturate-[1.06] contrast-[1.02]">
           </button>
-          <div class="absolute inset-0 bg-gradient-to-t from-[#F1F6F0] via-[#F1F6F0]/20 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#FFFCF0] via-[#FFFCF0]/12 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_18%,rgba(255,250,218,0.34),transparent_32%),linear-gradient(120deg,rgba(255,255,255,0.16),transparent_40%)] pointer-events-none z-10"></div>
           <div class="absolute top-5 right-5 z-30">
-            <span class="text-sky-700 bg-sky-100 border-sky-200/60 backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-sm">
+            <span class="text-sky-700 bg-sky-100 border-sky-200/60 backdrop-blur-xl border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-[0_10px_30px_rgba(37,74,43,0.12)]">
               💧 Полив на 10-й день
             </span>
           </div>
         </div>
-        <div class="flex flex-col flex-1 px-8 pb-8 pt-2 relative z-30">
+        <div class="flex flex-col flex-1 px-8 pb-8 pt-5 relative z-30">
           <div class="mb-4">
-            <h3 class="text-[#092215] font-serif font-bold text-3xl tracking-tight mb-1">Без імені</h3>
-            <p class="text-xs text-[#6F8074] italic font-serif tracking-wide">Monstera adansonii (glass)</p>
+            <h3 class="text-[#102B18] font-serif font-bold text-3xl tracking-tight mb-1">Без імені</h3>
+            <p class="text-xs text-[#72876B] italic font-serif tracking-wide">Monstera adansonii (glass)</p>
           </div>
-          <div class="text-sm text-[#3B4D3E] font-sans leading-relaxed flex-1 mb-6">
+          <div class="text-sm text-[#334937] font-sans leading-relaxed flex-1 mb-6">
             Полити обережно, не заливати водою. Скляний горщик — вода не так швидко іде. Не переливай.
           </div>
-          <div class="mt-auto pt-4 border-t border-[#D6E2D4]">
-            <span class="text-[10px] text-[#6F8074] font-bold flex items-center gap-2 uppercase tracking-widest">
+          <div class="mt-auto pt-4 border-t border-[#DCE8D2]/80">
+            <span class="text-[10px] text-[#6D8267] font-bold flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               Тумбочка біля ліжка
             </span>
@@ -694,7 +838,7 @@
     </div>
     
     <!-- Terrarium Banner -->
-    <div class="mt-24 relative bg-white/60 backdrop-blur-3xl border border-white rounded-[3rem] p-10 lg:p-16 shadow-[0_20px_40px_rgba(20,50,30,0.06)] overflow-hidden">
+    <div class="mt-28 relative bg-white/62 backdrop-blur-3xl border border-white/90 rounded-[4rem_2.6rem_4.6rem_2.9rem] p-10 lg:p-16 shadow-[0_30px_90px_rgba(49,83,51,0.13),inset_0_1px_0_rgba(255,255,255,0.9)] overflow-hidden">
       
       <div class="relative z-10">
         <h2 class="text-4xl font-serif font-bold text-[#092215] mb-8 flex items-center gap-5">
@@ -706,7 +850,7 @@
             <p>У квартирі є <strong class="text-[#092215] font-bold">16 тераріумів</strong> — скляні посудини із закритими або напівзакритими кришками. Всередині живуть мох, папороть, солейролія та інші вологолюбні рослини.</p>
             <p>Вони <strong class="text-[#092215] font-bold">повністю автономні</strong> — всередині є свій мікроклімат і волога.</p>
           </div>
-          <div class="bg-rose-50/80 border border-rose-100 rounded-[2rem] p-8 backdrop-blur-md">
+          <div class="bg-rose-50/78 border border-rose-100/90 rounded-[2.8rem_2rem_3.2rem_2.2rem] p-8 backdrop-blur-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]">
             <p class="text-rose-700 font-serif italic text-2xl mb-4">🚫 НЕ відкривай, НЕ поливай, НЕ переставляй.</p>
             <p class="text-sm text-rose-900/70">Максимум що можна — ненадовго (2–3 хв) відкрити кришку для провітрювання якщо помітиш надмір конденсату на склі зсередини. Потім одразу щільно закрити.</p>
           </div>
@@ -715,7 +859,7 @@
     </div>
   </main>
 
-  <div id="zoomModal" role="dialog" aria-modal="true" aria-label="Збільшене зображення" tabindex="-1" class="fixed inset-0 z-50 flex items-center justify-center bg-[#C8D7C5]/90 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-300">
+  <div id="zoomModal" role="dialog" aria-modal="true" aria-label="Збільшене зображення" tabindex="-1" class="fixed inset-0 z-50 flex items-center justify-center bg-[#F3EACF]/88 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-300">
     <button type="button" id="closeModalBtn" aria-label="Закрити" class="absolute top-6 right-6 text-[#3B4D3E] hover:text-[#092215] bg-white/50 hover:bg-white rounded-full p-3 shadow-sm transition-all focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50">
       <svg class="w-8 h-8 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
     </button>
