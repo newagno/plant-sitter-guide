@@ -637,6 +637,7 @@
   </div>
 
   <script>
+    // Zoom Modal Interaction
     const zoomTriggers = document.querySelectorAll('.zoom-trigger');
     const zoomModal = document.getElementById('zoomModal');
     const zoomImage = document.getElementById('zoomImage');
@@ -660,6 +661,36 @@
         zoomImage.classList.replace('scale-100', 'scale-95');
       });
     });
+
+    // Countdown Timer
+    let timerInterval;
+    function updateCountdown() {
+      const targetDate = new Date('2026-07-26T01:30:00+03:00');
+      const now = new Date();
+      const diff = targetDate - now;
+      const el = document.getElementById('countdown');
+      if (!el) return;
+
+      if (diff <= 0) {
+        el.innerHTML = "Господар повернувся!";
+        el.classList.replace("text-stone-100", "text-emerald-400");
+        clearInterval(timerInterval);
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+      if (days > 0) {
+        el.innerHTML = `${days}д ${hours}г`;
+      } else {
+        el.innerHTML = `${hours}г ${minutes}хв`;
+      }
+    }
+
+    timerInterval = setInterval(updateCountdown, 1000);
+    updateCountdown();
   </script>
 
 </body>
