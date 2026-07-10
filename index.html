@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="uk" class="bg-[#121212]">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Зелений Затишок</title>
+  <link rel="stylesheet" href="./output.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#121212] text-stone-300 font-sans antialiased min-h-screen selection:bg-emerald-500/30 selection:text-emerald-200">
+
+  <!-- Hero Section -->
+  <header class="bg-stone-950 border-b border-stone-800">
+    <div class="container mx-auto px-4 py-12 max-w-screen-xl flex flex-col md:flex-row gap-8 items-center md:items-start justify-between">
+      <div class="text-center md:text-left">
+        <h1 class="text-4xl lg:text-5xl font-bold text-stone-100 tracking-tight mb-4">🌿 Зелений Затишок</h1>
+        <p class="text-emerald-500 font-medium text-lg mb-6">Інструкція з догляду за рослинами</p>
+        <div class="inline-flex items-center gap-3 bg-stone-800/80 border border-stone-700 px-5 py-3 rounded-2xl text-sm text-stone-300 shadow-inner">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)] animate-pulse"></span>
+          <span>Господар повертається: </span>
+          <span id="countdown" class="font-bold text-stone-100 tracking-wide">...</span>
+        </div>
+      </div>
+      
+      <!-- Alerts -->
+      <div class="flex flex-col gap-3 w-full md:w-auto max-w-md">
+        <div class="flex gap-4 bg-red-950/40 border border-red-900/50 p-4 rounded-xl text-red-200 shadow-sm backdrop-blur-sm">
+          <span class="text-2xl shrink-0 leading-none">🚨</span>
+          <div>
+            <div class="font-bold text-sm tracking-wide text-red-400 mb-1">ПОТРЕБУЮТЬ ПОЛИВУ</div>
+            <div class="text-xs text-red-300/80 leading-relaxed">Zibrov, Beneficiary, Emma Stone, Mariposa, Малюк, Розсада + 6 судочків</div>
+          </div>
+        </div>
+        <div class="flex gap-4 bg-amber-950/40 border border-amber-900/50 p-4 rounded-xl text-amber-200 shadow-sm backdrop-blur-sm">
+          <span class="text-2xl shrink-0 leading-none">⚠️</span>
+          <div>
+            <div class="font-bold text-sm tracking-wide text-amber-400 mb-1">ЯК ПОЛИВАТИ</div>
+            <div class="text-xs text-amber-300/80 leading-relaxed">Лий повільно, зачекай поки вийде в піддон, обов'язково злий зайву через 30 хв.</div>
+          </div>
+        </div>
+        <div class="flex gap-4 bg-emerald-950/40 border border-emerald-900/50 p-4 rounded-xl text-emerald-200 shadow-sm backdrop-blur-sm">
+          <span class="text-2xl shrink-0 leading-none">✅</span>
+          <div>
+            <div class="font-bold text-sm tracking-wide text-emerald-400 mb-1">НЕ ПОЛИВАТИ</div>
+            <div class="text-xs text-emerald-300/80 leading-relaxed">Кактуси, Юка, Церопегія (витримають 2–3 тижні автономно).</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-16 max-w-screen-xl">
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+      <article class="bg-[#1e1e1e] rounded-2xl p-4 flex flex-col gap-3">
+        <!-- Header -->
+        <div class="flex justify-between items-start gap-2">
+          <div>
+            <h3 class="text-stone-100 font-bold text-lg leading-tight">Paula</h3>
+            <p class="text-xs text-stone-500 italic mt-0.5">Yucca elephantipes</p>
+          </div>
+          <span class="bg-[#1e6b35] text-white text-[10px] px-2 py-1 rounded-md font-semibold tracking-wide shrink-0">
+            ✅ НЕ поливати
+          </span>
+        </div>
+        <!-- Body -->
+        <div class="flex flex-col-reverse sm:flex-row gap-3 items-center">
+          <div class="text-sm text-stone-300 flex-1 leading-relaxed w-full">
+            Нічого не робити. Юка витримає 3–4 тижні без поливу.
+          </div>
+          <img src="./assets/images/Yucca.jpg" alt="Paula" loading="lazy" decoding="async" class="w-full sm:w-28 h-48 sm:h-28 object-cover rounded-lg shrink-0 cursor-pointer zoom-trigger">
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pt-2 flex items-center">
+          <span class="text-xs text-stone-500 font-medium flex items-center gap-1.5">
+            [O] Підлога
+          </span>
+        </div>
+      </article>
+
+      <article class="bg-[#1e1e1e] rounded-2xl p-4 flex flex-col gap-3">
+        <!-- Header -->
+        <div class="flex justify-between items-start gap-2">
+          <div>
+            <h3 class="text-stone-100 font-bold text-lg leading-tight">Lantimos</h3>
+            <p class="text-xs text-stone-500 italic mt-0.5">Monstera adansonii</p>
+          </div>
+          <span class="bg-[#1e4b6b] text-white text-[10px] px-2 py-1 rounded-md font-semibold tracking-wide shrink-0">
+            💧 Полив на 10-й день
+          </span>
+        </div>
+        <!-- Body -->
+        <div class="flex flex-col-reverse sm:flex-row gap-3 items-center">
+          <div class="text-sm text-stone-300 flex-1 leading-relaxed w-full">
+            Викупати в душі, полити рясно, зачекати поки виллється з піддону, злити зайве.
+          </div>
+          <img src="./assets/images/adansonii1.jpg" alt="Lantimos" loading="lazy" decoding="async" class="w-full sm:w-28 h-48 sm:h-28 object-cover rounded-lg shrink-0 cursor-pointer zoom-trigger">
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pt-2 flex items-center">
+          <span class="text-xs text-stone-500 font-medium flex items-center gap-1.5">
+            [O] Підлога
+          </span>
+        </div>
+      </article>
+
+      <article class="bg-[#1e1e1e] rounded-2xl p-4 flex flex-col gap-3">
+        <!-- Header -->
+        <div class="flex justify-between items-start gap-2">
+          <div>
+            <h3 class="text-stone-100 font-bold text-lg leading-tight">Beneficiary</h3>
+            <p class="text-xs text-stone-500 italic mt-0.5">Platycerium bifurcatum</p>
+          </div>
+          <span class="bg-[#6b1e1e] text-white text-[10px] px-2 py-1 rounded-md font-semibold tracking-wide shrink-0">
+            ❗ Полив на 7-й день
+          </span>
+        </div>
+        <!-- Body -->
+        <div class="flex flex-col-reverse sm:flex-row gap-3 items-center">
+          <div class="text-sm text-stone-300 flex-1 leading-relaxed w-full">
+            Ця рослина висить на корі на стіні. Знімати НЕ потрібно. Полий рясно прямо на мохову подушку за листям (де кора прикріплена) зі спринцівки або кухля — ~300–400 мл. Листя залишай сухим.
+          </div>
+          <img src="./assets/images/Platycerium.jpg" alt="Beneficiary" loading="lazy" decoding="async" class="w-full sm:w-28 h-48 sm:h-28 object-cover rounded-lg shrink-0 cursor-pointer zoom-trigger">
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pt-2 flex items-center">
+          <span class="text-xs text-stone-500 font-medium flex items-center gap-1.5">
+            [O] Стіна
+          </span>
+        </div>
+      </article>
+
+      <article class="bg-[#1e1e1e] rounded-2xl p-4 flex flex-col gap-3">
+        <!-- Header -->
+        <div class="flex justify-between items-start gap-2">
+          <div>
+            <h3 class="text-stone-100 font-bold text-lg leading-tight">Andriy</h3>
+            <p class="text-xs text-stone-500 italic mt-0.5">Epipremnum + Хлорофітум</p>
+          </div>
+          <span class="bg-[#1e4b6b] text-white text-[10px] px-2 py-1 rounded-md font-semibold tracking-wide shrink-0">
+            💧 Полив на 10-й день
+          </span>
+        </div>
+        <!-- Body -->
+        <div class="flex flex-col-reverse sm:flex-row gap-3 items-center">
+          <div class="text-sm text-stone-300 flex-1 leading-relaxed w-full">
+            Полити помірно. Обидві рослини витривалі, переживуть якщо трохи запізнитись.
+          </div>
+          <img src="./assets/images/Epipremnum.jpg" alt="Andriy" loading="lazy" decoding="async" class="w-full sm:w-28 h-48 sm:h-28 object-cover rounded-lg shrink-0 cursor-pointer zoom-trigger">
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pt-2 flex items-center">
+          <span class="text-xs text-stone-500 font-medium flex items-center gap-1.5">
+            [O] Стіна
+          </span>
+        </div>
+      </article>
+
+      <article class="bg-[#1e1e1e] rounded-2xl p-4 flex flex-col gap-3">
+        <!-- Header -->
+        <div class="flex justify-between items-start gap-2">
+          <div>
+            <h3 class="text-stone-100 font-bold text-lg leading-tight">Галя</h3>
+            <p class="text-xs text-stone-500 italic mt-0.5">Philodendron hederaceum</p>
+          </div>
+          <span class="bg-[#1e4b6b] text-white text-[10px] px-2 py-1 rounded-md font-semibold tracking-wide shrink-0">
+            💧 Полив на 10-й день
+          </span>
+        </div>
+        <!-- Body -->
+        <div class="flex flex-col-reverse sm:flex-row gap-3 items-center">
+          <div class="text-sm text-stone-300 flex-1 leading-relaxed w-full">
+            Полити помірно. Якщо листя злегка поникло — нічого страшного, після поливу одразу відновиться.
+          </div>
+          <img src="./assets/images/Philodendron.jpg" alt="Галя" loading="lazy" decoding="async" class="w-full sm:w-28 h-48 sm:h-28 object-cover rounded-lg shrink-0 cursor-pointer zoom-trigger">
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pt-2 flex items-center">
+          <span class="text-xs text-stone-500 font-medium flex items-center gap-1.5">
+            [O] Стіна
+          </span>
+        </div>
+      </article>
+
+      <article class="bg-[#1e1e1e] rounded-2xl p-4 flex flex-col gap-3">
+        <!-- Header -->
+        <div class="flex justify-between items-start gap-2">
+          <div>
+            <h3 class="text-stone-100 font-bold text-lg leading-tight">Radu Jude</h3>
+            <p class="text-xs text-stone-500 italic mt-0.5">Monstera Thai Constellation</p>
+          </div>
+          <span class="bg-[#1e4b6b] text-white text-[10px] px-2 py-1 rounded-md font-semibold tracking-wide shrink-0">
+            💧 Полив на 10-й день
+          </span>
+        </div>
+        <!-- Body -->
+        <div class="flex flex-col-reverse sm:flex-row gap-3 items-center">
+          <div class="text-sm text-stone-300 flex-1 leading-relaxed w-full">
+            Полити рясно але акуратно — переконайся що вода вийшла знизу. Не лий занадто часто. Якщо земля ще волога — пропусти.
+          </div>
+          <img src="./assets/images/Thai_Constellation.jpg" alt="Radu Jude" loading="lazy" decoding="async" class="w-full sm:w-28 h-48 sm:h-28 object-cover rounded-lg shrink-0 cursor-pointer zoom-trigger">
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pt-2 flex items-center">
+          <span class="text-xs text-stone-500 font-medium flex items-center gap-1.5">
+            [O] Етажерка 1
+          </span>
+        </div>
+      </article>
+
+      <article class="bg-[#1e1e1e] rounded-2xl p-4 flex flex-col gap-3">
+        <!-- Header -->
+        <div class="flex justify-between items-start gap-2">
+          <div>
+            <h3 class="text-stone-100 font-bold text-lg leading-tight">Lynch</h3>
+            <p class="text-xs text-stone-500 italic mt-0.5">Monstera deliciosa</p>
+          </div>
+          <span class="bg-[#1e4b6b] text-white text-[10px] px-2 py-1 rounded-md font-semibold tracking-wide shrink-0">
+            💧 Полив на 10-й день
+          </span>
+        </div>
+        <!-- Body -->
+        <div class="flex flex-col-reverse sm:flex-row gap-3 items-center">
+          <div class="text-sm text-stone-300 flex-1 leading-relaxed w-full">
+            Викупати в душі, полити рясно.
+          </div>
+          <img src="./assets/images/deliciosa.jpg" alt="Lynch" loading="lazy" decoding="async" class="w-full sm:w-28 h-48 sm:h-28 object-cover rounded-lg shrink-0 cursor-pointer zoom-trigger">
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pt-2 flex items-center">
+          <span class="text-xs text-stone-500 font-medium flex items-center gap-1.5">
+            [O] Підлога
+          </span>
+        </div>
+      </article>
+
+      <article class="bg-[#1e1e1e] rounded-2xl p-4 flex flex-col gap-3">
+        <!-- Header -->
+        <div class="flex justify-between items-start gap-2">
+          <div>
+            <h3 class="text-stone-100 font-bold text-lg leading-tight">Zibrov</h3>
+            <p class="text-xs text-stone-500 italic mt-0.5">Gardenia jasminoides</p>
+          </div>
+          <span class="bg-[#6b1e1e] text-white text-[10px] px-2 py-1 rounded-md font-semibold tracking-wide shrink-0">
+            ❗ Полив на 7-й день
+          </span>
+        </div>
+        <!-- Body -->
+        <div class="flex flex-col-reverse sm:flex-row gap-3 items-center">
+          <div class="text-sm text-stone-300 flex-1 leading-relaxed w-full">
+            Гарденія дуже вибаглива. Полити рясно на 7-й день. Вода — кімнатна, не холодна. Після поливу злий воду з піддону через 30 хв. НЕ мочи листя і квіти.
+          </div>
+          <img src="./assets/images/Gardenia.jpg" alt="Zibrov" loading="lazy" decoding="async" class="w-full sm:w-28 h-48 sm:h-28 object-cover rounded-lg shrink-0 cursor-pointer zoom-trigger">
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pt-2 flex items-center">
+          <span class="text-xs text-stone-500 font-medium flex items-center gap-1.5">
+            [O] Етажерка 1
+          </span>
+        </div>
+      </article>
+
+      <article class="bg-[#1e1e1e] rounded-2xl p-4 flex flex-col gap-3">
+        <!-- Header -->
+        <div class="flex justify-between items-start gap-2">
+          <div>
+            <h3 class="text-stone-100 font-bold text-lg leading-tight">Emma Stone</h3>
+            <p class="text-xs text-stone-500 italic mt-0.5">Begonia maculata</p>
+          </div>
+          <span class="bg-[#6b1e1e] text-white text-[10px] px-2 py-1 rounded-md font-semibold tracking-wide shrink-0">
+            ❗ Полив на 7-й день
+          </span>
+        </div>
+        <!-- Body -->
+        <div class="flex flex-col-reverse sm:flex-row gap-3 items-center">
+          <div class="text-sm text-stone-300 flex-1 leading-relaxed w-full">
+            Полити рясно але акуратно.
+          </div>
+          <img src="./assets/images/Begonia.jpg" alt="Emma Stone" loading="lazy" decoding="async" class="w-full sm:w-28 h-48 sm:h-28 object-cover rounded-lg shrink-0 cursor-pointer zoom-trigger">
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pt-2 flex items-center">
+          <span class="text-xs text-stone-500 font-medium flex items-center gap-1.5">
+            [O] Етажерка 1
+          </span>
+        </div>
+      </article>
+
+      <article class="bg-[#1e1e1e] rounded-2xl p-4 flex flex-col gap-3">
+        <!-- Header -->
+        <div class="flex justify-between items-start gap-2">
+          <div>
+            <h3 class="text-stone-100 font-bold text-lg leading-tight">Mariposa</h3>
+            <p class="text-xs text-stone-500 italic mt-0.5">Maranta leuconeura</p>
+          </div>
+          <span class="bg-[#6b1e1e] text-white text-[10px] px-2 py-1 rounded-md font-semibold tracking-wide shrink-0">
+            ❗ Полив на 7-й день
+          </span>
+        </div>
+        <!-- Body -->
+        <div class="flex flex-col-reverse sm:flex-row gap-3 items-center">
+          <div class="text-sm text-stone-300 flex-1 leading-relaxed w-full">
+            Полити рівномірно. Дуже любить вологу.
+          </div>
+          <img src="./assets/images/Maranta.jpg" alt="Mariposa" loading="lazy" decoding="async" class="w-full sm:w-28 h-48 sm:h-28 object-cover rounded-lg shrink-0 cursor-pointer zoom-trigger">
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pt-2 flex items-center">
+          <span class="text-xs text-stone-500 font-medium flex items-center gap-1.5">
+            [O] Етажерка 1
+          </span>
+        </div>
+      </article>
+
+      <article class="bg-[#1e1e1e] rounded-2xl p-4 flex flex-col gap-3">
+        <!-- Header -->
+        <div class="flex justify-between items-start gap-2">
+          <div>
+            <h3 class="text-stone-100 font-bold text-lg leading-tight">Малюк</h3>
+            <p class="text-xs text-stone-500 italic mt-0.5">Ficus pumila</p>
+          </div>
+          <span class="bg-[#6b1e1e] text-white text-[10px] px-2 py-1 rounded-md font-semibold tracking-wide shrink-0">
+            ❗ Полив на 7-й день
+          </span>
+        </div>
+        <!-- Body -->
+        <div class="flex flex-col-reverse sm:flex-row gap-3 items-center">
+          <div class="text-sm text-stone-300 flex-1 leading-relaxed w-full">
+            Полити рясно. Земля має бути злегка вологою завжди.
+          </div>
+          <img src="./assets/images/pumila.jpg" alt="Малюк" loading="lazy" decoding="async" class="w-full sm:w-28 h-48 sm:h-28 object-cover rounded-lg shrink-0 cursor-pointer zoom-trigger">
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pt-2 flex items-center">
+          <span class="text-xs text-stone-500 font-medium flex items-center gap-1.5">
+            [O] Етажерка 1
+          </span>
+        </div>
+      </article>
+
+      <article class="bg-[#1e1e1e] rounded-2xl p-4 flex flex-col gap-3">
+        <!-- Header -->
+        <div class="flex justify-between items-start gap-2">
+          <div>
+            <h3 class="text-stone-100 font-bold text-lg leading-tight">Dora</h3>
+            <p class="text-xs text-stone-500 italic mt-0.5">Chamaedorea elegans</p>
+          </div>
+          <span class="bg-[#1e4b6b] text-white text-[10px] px-2 py-1 rounded-md font-semibold tracking-wide shrink-0">
+            💧 Полив на 10-й день
+          </span>
+        </div>
+        <!-- Body -->
+        <div class="flex flex-col-reverse sm:flex-row gap-3 items-center">
+          <div class="text-sm text-stone-300 flex-1 leading-relaxed w-full">
+            Полити помірно. Пальма витривала, не паніку якщо кінчики листя трохи пожовкнуть.
+          </div>
+          <img src="./assets/images/Chamaedorea.jpg" alt="Dora" loading="lazy" decoding="async" class="w-full sm:w-28 h-48 sm:h-28 object-cover rounded-lg shrink-0 cursor-pointer zoom-trigger">
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pt-2 flex items-center">
+          <span class="text-xs text-stone-500 font-medium flex items-center gap-1.5">
+            [O] Етажерка 1
+          </span>
+        </div>
+      </article>
+
+      <article class="bg-[#1e1e1e] rounded-2xl p-4 flex flex-col gap-3">
+        <!-- Header -->
+        <div class="flex justify-between items-start gap-2">
+          <div>
+            <h3 class="text-stone-100 font-bold text-lg leading-tight">Sheldon J. Plankton</h3>
+            <p class="text-xs text-stone-500 italic mt-0.5">Chlorophytum comosum</p>
+          </div>
+          <span class="bg-[#1e4b6b] text-white text-[10px] px-2 py-1 rounded-md font-semibold tracking-wide shrink-0">
+            💧 Полив на 10-й день
+          </span>
+        </div>
+        <!-- Body -->
+        <div class="flex flex-col-reverse sm:flex-row gap-3 items-center">
+          <div class="text-sm text-stone-300 flex-1 leading-relaxed w-full">
+            Полити звичайно. Хлорофітум — дуже живучий.
+          </div>
+          <img src="./assets/images/Chlorophytum.jpg" alt="Sheldon J. Plankton" loading="lazy" decoding="async" class="w-full sm:w-28 h-48 sm:h-28 object-cover rounded-lg shrink-0 cursor-pointer zoom-trigger">
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pt-2 flex items-center">
+          <span class="text-xs text-stone-500 font-medium flex items-center gap-1.5">
+            [O] Етажерка 1
+          </span>
+        </div>
+      </article>
+
+      <article class="bg-[#1e1e1e] rounded-2xl p-4 flex flex-col gap-3">
+        <!-- Header -->
+        <div class="flex justify-between items-start gap-2">
+          <div>
+            <h3 class="text-stone-100 font-bold text-lg leading-tight">Хачік</h3>
+            <p class="text-xs text-stone-500 italic mt-0.5">Ficus benjamina</p>
+          </div>
+          <span class="bg-[#1e4b6b] text-white text-[10px] px-2 py-1 rounded-md font-semibold tracking-wide shrink-0">
+            💧 Полив на 10-й день
+          </span>
+        </div>
+        <!-- Body -->
+        <div class="flex flex-col-reverse sm:flex-row gap-3 items-center">
+          <div class="text-sm text-stone-300 flex-1 leading-relaxed w-full">
+            Фікус скидає листя якщо його перемістити. Стоїть там де стоїть — не чіпай. Полити на 10-й день звичайно.
+          </div>
+          <img src="./assets/images/benjamina.jpg" alt="Хачік" loading="lazy" decoding="async" class="w-full sm:w-28 h-48 sm:h-28 object-cover rounded-lg shrink-0 cursor-pointer zoom-trigger">
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pt-2 flex items-center">
+          <span class="text-xs text-stone-500 font-medium flex items-center gap-1.5">
+            [O] Тумбочка
+          </span>
+        </div>
+      </article>
+
+      <article class="bg-[#1e1e1e] rounded-2xl p-4 flex flex-col gap-3">
+        <!-- Header -->
+        <div class="flex justify-between items-start gap-2">
+          <div>
+            <h3 class="text-stone-100 font-bold text-lg leading-tight">Marusia Bohuslavka</h3>
+            <p class="text-xs text-stone-500 italic mt-0.5">Ceropegia woodii</p>
+          </div>
+          <span class="bg-[#1e6b35] text-white text-[10px] px-2 py-1 rounded-md font-semibold tracking-wide shrink-0">
+            ✅ НЕ поливати
+          </span>
+        </div>
+        <!-- Body -->
+        <div class="flex flex-col-reverse sm:flex-row gap-3 items-center">
+          <div class="text-sm text-stone-300 flex-1 leading-relaxed w-full">
+            Нічого не робити. Витримає без поливу.
+          </div>
+          <img src="./assets/images/Ceropegia.jpg" alt="Marusia Bohuslavka" loading="lazy" decoding="async" class="w-full sm:w-28 h-48 sm:h-28 object-cover rounded-lg shrink-0 cursor-pointer zoom-trigger">
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pt-2 flex items-center">
+          <span class="text-xs text-stone-500 font-medium flex items-center gap-1.5">
+            [O] Вікно
+          </span>
+        </div>
+      </article>
+
+      <article class="bg-[#1e1e1e] rounded-2xl p-4 flex flex-col gap-3">
+        <!-- Header -->
+        <div class="flex justify-between items-start gap-2">
+          <div>
+            <h3 class="text-stone-100 font-bold text-lg leading-tight">Без імені (Сукулент)</h3>
+            <p class="text-xs text-stone-500 italic mt-0.5">Gasteria carinata</p>
+          </div>
+          <span class="bg-[#1e6b35] text-white text-[10px] px-2 py-1 rounded-md font-semibold tracking-wide shrink-0">
+            ✅ НЕ поливати
+          </span>
+        </div>
+        <!-- Body -->
+        <div class="flex flex-col-reverse sm:flex-row gap-3 items-center">
+          <div class="text-sm text-stone-300 flex-1 leading-relaxed w-full">
+            Нічого не робити. Сукулент — 3 тижні без поливу норма.
+          </div>
+          <img src="./assets/images/Gasteria.jpg" alt="Без імені (Сукулент)" loading="lazy" decoding="async" class="w-full sm:w-28 h-48 sm:h-28 object-cover rounded-lg shrink-0 cursor-pointer zoom-trigger">
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pt-2 flex items-center">
+          <span class="text-xs text-stone-500 font-medium flex items-center gap-1.5">
+            [O] Етажерка 1
+          </span>
+        </div>
+      </article>
+
+      <article class="bg-[#1e1e1e] rounded-2xl p-4 flex flex-col gap-3">
+        <!-- Header -->
+        <div class="flex justify-between items-start gap-2">
+          <div>
+            <h3 class="text-stone-100 font-bold text-lg leading-tight">Без імені (Традесканція)</h3>
+            <p class="text-xs text-stone-500 italic mt-0.5">Tradescantia</p>
+          </div>
+          <span class="bg-[#1e4b6b] text-white text-[10px] px-2 py-1 rounded-md font-semibold tracking-wide shrink-0">
+            💧 Полив на 7-й день
+          </span>
+        </div>
+        <!-- Body -->
+        <div class="flex flex-col-reverse sm:flex-row gap-3 items-center">
+          <div class="text-sm text-stone-300 flex-1 leading-relaxed w-full">
+            Полити помірно. Якщо листя злегка поникло — це ознака спраги, полий.
+          </div>
+          <img src="./assets/images/Tradescantia.jpg" alt="Без імені (Традесканція)" loading="lazy" decoding="async" class="w-full sm:w-28 h-48 sm:h-28 object-cover rounded-lg shrink-0 cursor-pointer zoom-trigger">
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pt-2 flex items-center">
+          <span class="text-xs text-stone-500 font-medium flex items-center gap-1.5">
+            [O] Тумбочка
+          </span>
+        </div>
+      </article>
+
+      <article class="bg-[#1e1e1e] rounded-2xl p-4 flex flex-col gap-3">
+        <!-- Header -->
+        <div class="flex justify-between items-start gap-2">
+          <div>
+            <h3 class="text-stone-100 font-bold text-lg leading-tight">Зайчик</h3>
+            <p class="text-xs text-stone-500 italic mt-0.5">Cleistocactus strausii</p>
+          </div>
+          <span class="bg-[#1e6b35] text-white text-[10px] px-2 py-1 rounded-md font-semibold tracking-wide shrink-0">
+            ✅ НЕ поливати
+          </span>
+        </div>
+        <!-- Body -->
+        <div class="flex flex-col-reverse sm:flex-row gap-3 items-center">
+          <div class="text-sm text-stone-300 flex-1 leading-relaxed w-full">
+            Нічого не робити. Кактус — 1 місяць без поливу норма.
+          </div>
+          <img src="./assets/images/Mammillaria.jpg" alt="Зайчик" loading="lazy" decoding="async" class="w-full sm:w-28 h-48 sm:h-28 object-cover rounded-lg shrink-0 cursor-pointer zoom-trigger">
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pt-2 flex items-center">
+          <span class="text-xs text-stone-500 font-medium flex items-center gap-1.5">
+            [O] Тумбочка
+          </span>
+        </div>
+      </article>
+
+      <article class="bg-[#1e1e1e] rounded-2xl p-4 flex flex-col gap-3">
+        <!-- Header -->
+        <div class="flex justify-between items-start gap-2">
+          <div>
+            <h3 class="text-stone-100 font-bold text-lg leading-tight">Розсада + 6 судочків</h3>
+            <p class="text-xs text-stone-500 italic mt-0.5">Сіянці / живці</p>
+          </div>
+          <span class="bg-[#6b1e1e] text-white text-[10px] px-2 py-1 rounded-md font-semibold tracking-wide shrink-0">
+            ❗ Полив кожні 2–3 дні
+          </span>
+        </div>
+        <!-- Body -->
+        <div class="flex flex-col-reverse sm:flex-row gap-3 items-center">
+          <div class="text-sm text-stone-300 flex-1 leading-relaxed w-full">
+            Маленькі молоді рослини — сохнуть швидко. Перевіряй землю: якщо суха на дотик — полий. Трохи, рівномірно. Якщо накриті плівкою — не знімай плівку, просто зволожуй якщо земля суха.
+          </div>
+          <img src="./assets/images/Seedlings.jpg" alt="Розсада + 6 судочків" loading="lazy" decoding="async" class="w-full sm:w-28 h-48 sm:h-28 object-cover rounded-lg shrink-0 cursor-pointer zoom-trigger">
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pt-2 flex items-center">
+          <span class="text-xs text-stone-500 font-medium flex items-center gap-1.5">
+            [O] Підлога
+          </span>
+        </div>
+      </article>
+
+      <article class="bg-[#1e1e1e] rounded-2xl p-4 flex flex-col gap-3">
+        <!-- Header -->
+        <div class="flex justify-between items-start gap-2">
+          <div>
+            <h3 class="text-stone-100 font-bold text-lg leading-tight">Без імені</h3>
+            <p class="text-xs text-stone-500 italic mt-0.5">Mammillaria hahniana</p>
+          </div>
+          <span class="bg-[#1e6b35] text-white text-[10px] px-2 py-1 rounded-md font-semibold tracking-wide shrink-0">
+            ✅ НЕ поливати
+          </span>
+        </div>
+        <!-- Body -->
+        <div class="flex flex-col-reverse sm:flex-row gap-3 items-center">
+          <div class="text-sm text-stone-300 flex-1 leading-relaxed w-full">
+            Кактус. Нічого не робити.
+          </div>
+          <img src="./assets/images/Mammillaria.jpg" alt="Без імені" loading="lazy" decoding="async" class="w-full sm:w-28 h-48 sm:h-28 object-cover rounded-lg shrink-0 cursor-pointer zoom-trigger">
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pt-2 flex items-center">
+          <span class="text-xs text-stone-500 font-medium flex items-center gap-1.5">
+            [O] Етажерка 2
+          </span>
+        </div>
+      </article>
+
+      <article class="bg-[#1e1e1e] rounded-2xl p-4 flex flex-col gap-3">
+        <!-- Header -->
+        <div class="flex justify-between items-start gap-2">
+          <div>
+            <h3 class="text-stone-100 font-bold text-lg leading-tight">Без імені</h3>
+            <p class="text-xs text-stone-500 italic mt-0.5">Monstera adansonii (glass)</p>
+          </div>
+          <span class="bg-[#1e4b6b] text-white text-[10px] px-2 py-1 rounded-md font-semibold tracking-wide shrink-0">
+            💧 Полив на 10-й день
+          </span>
+        </div>
+        <!-- Body -->
+        <div class="flex flex-col-reverse sm:flex-row gap-3 items-center">
+          <div class="text-sm text-stone-300 flex-1 leading-relaxed w-full">
+            Полити помірно. Скляний горщик — вода не так швидко іде. Не переливай.
+          </div>
+          <img src="./assets/images/adansonii2.jpg" alt="Без імені" loading="lazy" decoding="async" class="w-full sm:w-28 h-48 sm:h-28 object-cover rounded-lg shrink-0 cursor-pointer zoom-trigger">
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pt-2 flex items-center">
+          <span class="text-xs text-stone-500 font-medium flex items-center gap-1.5">
+            [O] Тумбочка біля ліжка
+          </span>
+        </div>
+      </article>
+
+      <article class="bg-[#1e1e1e] rounded-2xl p-4 flex flex-col gap-3">
+        <!-- Header -->
+        <div class="flex justify-between items-start gap-2">
+          <div>
+            <h3 class="text-stone-100 font-bold text-lg leading-tight">Без імені</h3>
+            <p class="text-xs text-stone-500 italic mt-0.5">Mammillaria hahniana</p>
+          </div>
+          <span class="bg-[#1e6b35] text-white text-[10px] px-2 py-1 rounded-md font-semibold tracking-wide shrink-0">
+            ✅ НЕ поливати
+          </span>
+        </div>
+        <!-- Body -->
+        <div class="flex flex-col-reverse sm:flex-row gap-3 items-center">
+          <div class="text-sm text-stone-300 flex-1 leading-relaxed w-full">
+            Кактус. Нічого не робити.
+          </div>
+          <img src="./assets/images/Mammillaria.jpg" alt="Без імені" loading="lazy" decoding="async" class="w-full sm:w-28 h-48 sm:h-28 object-cover rounded-lg shrink-0 cursor-pointer zoom-trigger">
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pt-2 flex items-center">
+          <span class="text-xs text-stone-500 font-medium flex items-center gap-1.5">
+            [O] Етажерка 2
+          </span>
+        </div>
+      </article>
+
+      <article class="bg-[#1e1e1e] rounded-2xl p-4 flex flex-col gap-3">
+        <!-- Header -->
+        <div class="flex justify-between items-start gap-2">
+          <div>
+            <h3 class="text-stone-100 font-bold text-lg leading-tight">Без імені</h3>
+            <p class="text-xs text-stone-500 italic mt-0.5">Monstera adansonii (glass)</p>
+          </div>
+          <span class="bg-[#1e4b6b] text-white text-[10px] px-2 py-1 rounded-md font-semibold tracking-wide shrink-0">
+            💧 Полив на 10-й день
+          </span>
+        </div>
+        <!-- Body -->
+        <div class="flex flex-col-reverse sm:flex-row gap-3 items-center">
+          <div class="text-sm text-stone-300 flex-1 leading-relaxed w-full">
+            Полити помірно. Скляний горщик — вода не так швидко іде. Не переливай.
+          </div>
+          <img src="./assets/images/adansonii2.jpg" alt="Без імені" loading="lazy" decoding="async" class="w-full sm:w-28 h-48 sm:h-28 object-cover rounded-lg shrink-0 cursor-pointer zoom-trigger">
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pt-2 flex items-center">
+          <span class="text-xs text-stone-500 font-medium flex items-center gap-1.5">
+            [O] Тумбочка біля ліжка
+          </span>
+        </div>
+      </article>
+    </div>
+    
+<!-- Terrarium Banner -->
+    <div class="mt-16 bg-stone-800/80 backdrop-blur-md border border-stone-700/50 rounded-3xl p-8 lg:p-10 shadow-2xl relative overflow-hidden">
+      <!-- Decorative background blur -->
+      <div class="absolute -top-24 -right-24 w-64 h-64 bg-emerald-900/20 rounded-full blur-3xl pointer-events-none"></div>
+      
+      <div class="relative z-10">
+        <h2 class="text-2xl font-bold text-stone-100 mb-6 flex items-center gap-3">
+          <span class="text-3xl">🫙</span> Тераріуми — окрема категорія
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8 lg:gap-12 text-stone-300 leading-relaxed">
+          <div>
+            <p class="mb-4">У квартирі є <strong class="text-stone-100">16 тераріумів</strong> — скляні посудини із закритими або напівзакритими кришками. Всередині живуть мох, папороть, солейролія та інші вологолюбні рослини.</p>
+            <p>Вони <strong class="text-stone-100">повністю автономні</strong> — всередині є свій мікроклімат і волога.</p>
+          </div>
+          <div class="bg-red-950/20 border border-red-900/30 rounded-2xl p-5">
+            <p class="text-red-400 font-bold text-lg mb-3 tracking-wide">🚫 НЕ відкривай, НЕ поливай, НЕ переставляй.</p>
+            <p class="text-sm text-red-300/80">Максимум що можна — ненадовго (2–3 хв) відкрити кришку для провітрювання якщо помітиш надмір конденсату на склі зсередини. Потім одразу щільно закрити.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </main>
+  <!-- Zoom Modal -->
+  <div id="zoomModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-200">
+    <img id="zoomImage" src="" alt="Zoomed" class="max-w-[90vw] max-h-[90vh] object-contain rounded-xl shadow-2xl scale-95 transition-transform duration-200">
+  </div>
+
+  <script>
+    const zoomTriggers = document.querySelectorAll('.zoom-trigger');
+    const zoomModal = document.getElementById('zoomModal');
+    const zoomImage = document.getElementById('zoomImage');
+    
+    zoomTriggers.forEach(img => {
+      img.addEventListener('pointerdown', (e) => {
+        zoomImage.src = e.target.src;
+        zoomModal.classList.remove('opacity-0', 'pointer-events-none');
+        zoomImage.classList.replace('scale-95', 'scale-100');
+        e.target.setPointerCapture(e.pointerId);
+      });
+      
+      img.addEventListener('pointerup', (e) => {
+        zoomModal.classList.add('opacity-0', 'pointer-events-none');
+        zoomImage.classList.replace('scale-100', 'scale-95');
+        e.target.releasePointerCapture(e.pointerId);
+      });
+      
+      img.addEventListener('pointerleave', (e) => {
+        zoomModal.classList.add('opacity-0', 'pointer-events-none');
+        zoomImage.classList.replace('scale-100', 'scale-95');
+      });
+    });
+  </script>
+
+</body>
+</html>
