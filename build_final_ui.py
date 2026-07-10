@@ -1,56 +1,56 @@
 import sys
 
 plants = [
-    {"name": "Paula", "latin": "Yucca elephantipes", "loc": "Підлога", "img": "Yucca.jpg", "badge": "✅ НЕ поливати", "b_color": "text-stone-300 bg-stone-500/10 border-stone-500/20", "text": "Нічого не робити. Юка витримає 3–4 тижні без поливу."},
-    {"name": "Lantimos", "latin": "Monstera adansonii", "loc": "Підлога", "img": "adansonii1.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-300 bg-sky-500/10 border-sky-500/20", "text": "Викупати в душі, полити рясно."},
-    {"name": "Розсада + 6 судочків", "latin": "Сіянці / живці", "loc": "Підлога", "img": "Seedlings.jpg", "badge": "❗ Полив кожні 2–3 дні", "b_color": "text-rose-300 bg-rose-500/10 border-rose-500/20", "text": "Маленькі молоді рослини — сохнуть швидко. Перевіряй землю: якщо суха на дотик — полий. Трохи, рівномірно. Якщо накриті плівкою — не знімай плівку, просто зволожуй якщо земля суха."},
-    {"name": "Beneficiary", "latin": "Platycerium bifurcatum", "loc": "Стіна", "img": "Platycerium.jpg", "badge": "❗ Полив на 7-й день", "b_color": "text-rose-300 bg-rose-500/10 border-rose-500/20", "text": "Я заматаю основу у плівку, щоб довше зберігав вологу в корінні, перевірити, якшо під плівкою буде з'являтися пліснява, зняти її і замочити рослину у відрі. Оприскати листя якшо не треба буде купати."},
-    {"name": "Andriy", "latin": "Epipremnum + Хлорофітум", "loc": "Стіна", "img": "Epipremnum.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-300 bg-sky-500/10 border-sky-500/20", "text": "Полити помірно. Обидві рослини витривалі, переживуть якщо трохи запізнитись. Обережно може политись через край вода."},
-    {"name": "Галя", "latin": "Philodendron hederaceum", "loc": "Стіна", "img": "Philodendron.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-300 bg-sky-500/10 border-sky-500/20", "text": "Полити помірно, можна скупати в душі. Якщо листя злегка поникло — нічого страшного, після поливу одразу відновиться."},
-    {"name": "Radu Jude", "latin": "Monstera Thai Constellation", "loc": "Етажерка 1", "img": "Thai_Constellation.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-300 bg-sky-500/10 border-sky-500/20", "text": "Викупати в душі, гарно намочити мох в пластиковій підримці."},
-    {"name": "Zibrov", "latin": "Gardenia jasminoides", "loc": "Етажерка 1", "img": "Gardenia.jpg", "badge": "❗ Полив на 7-й день", "b_color": "text-rose-300 bg-rose-500/10 border-rose-500/20", "text": "Гарденія дуже вибаглива. Полити рясно на 7-й день. Вода — кімнатна, не холодна. Після поливу злий воду з піддону через 30 хв. НЕ мочи листя і квіти."},
-    {"name": "Emma Stone", "latin": "Begonia maculata", "loc": "Етажерка 1", "img": "Begonia.jpg", "badge": "❗ Полив на 7-й день", "b_color": "text-rose-300 bg-rose-500/10 border-rose-500/20", "text": "Полити рясно але акуратно, на ній немає листків."},
-    {"name": "Mariposa", "latin": "Maranta leuconeura", "loc": "Етажерка 1", "img": "Maranta.jpg", "badge": "❗ Полив на 7-й день", "b_color": "text-rose-300 bg-rose-500/10 border-rose-500/20", "text": "Полити рівномірно. Дуже любить вологу."},
-    {"name": "Малюк", "latin": "Ficus pumila", "loc": "Етажерка 1", "img": "pumila.jpg", "badge": "❗ Полив на 7-й день", "b_color": "text-rose-300 bg-rose-500/10 border-rose-500/20", "text": "Полити рясно. Земля має бути злегка вологою завжди."},
-    {"name": "Dora", "latin": "Chamaedorea elegans", "loc": "Етажерка 1", "img": "Chamaedorea.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-300 bg-sky-500/10 border-sky-500/20", "text": "Полити помірно. Пальма витривала, не паніку якщо кінчики листя трохи пожовкнуть."},
-    {"name": "Sheldon J. Plankton", "latin": "Chlorophytum comosum", "loc": "Етажерка 1", "img": "Chlorophytum.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-300 bg-sky-500/10 border-sky-500/20", "text": "Додати води за необхідності."},
-    {"name": "Без імені (Сукулент)", "latin": "Gasteria carinata", "loc": "Етажерка 1", "img": "Gasteria.jpg", "badge": "✅ НЕ поливати", "b_color": "text-stone-300 bg-stone-500/10 border-stone-500/20", "text": "Нічого не робити. Сукулент — 3 тижні без поливу норма."},
-    {"name": "Хачік", "latin": "Ficus benjamina", "loc": "Тумбочка", "img": "benjamina.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-300 bg-sky-500/10 border-sky-500/20", "text": "Фікус скидає листя якщо його перемістити. Стоїть там де стоїть — не чіпати. Полити на 10-й день звичайно."},
-    {"name": "Без імені (Традесканція)", "latin": "Tradescantia", "loc": "Тумбочка", "img": "Tradescantia.jpg", "badge": "💧 Полив на 7-й день", "b_color": "text-sky-300 bg-sky-500/10 border-sky-500/20", "text": "Полити помірно. Якщо листя злегка поникло — це ознака спраги, полий."},
-    {"name": "Зайчик", "latin": "Cleistocactus strausii", "loc": "Тумбочка", "img": "Cleistocactus.jpg", "badge": "✅ НЕ поливати", "b_color": "text-stone-300 bg-stone-500/10 border-stone-500/20", "text": "Нічого не робити. Кактус — 1 місяць без поливу норма."},
-    {"name": "Marusia Bohuslavka", "latin": "Ceropegia woodii", "loc": "Вікно", "img": "Ceropegia.jpg", "badge": "✅ НЕ поливати", "b_color": "text-stone-300 bg-stone-500/10 border-stone-500/20", "text": "Нічого не робити. Витримає без поливу."},
-    {"name": "Lynch", "latin": "Monstera deliciosa", "loc": "Етажерка 2", "img": "deliciosa.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-300 bg-sky-500/10 border-sky-500/20", "text": "Викупати в душі, гарно намочити мох в пластиковій підримці."},
-    {"name": "Без імені", "latin": "Mammillaria hahniana", "loc": "Етажерка 2", "img": "Mammillaria.jpg", "badge": "✅ НЕ поливати", "b_color": "text-stone-300 bg-stone-500/10 border-stone-500/20", "text": "Кактус. Нічого не робити."},
-    {"name": "Без імені", "latin": "Monstera adansonii (glass)", "loc": "Тумбочка біля ліжка", "img": "adansonii2.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-300 bg-sky-500/10 border-sky-500/20", "text": "Полити обережно, не заливати водою. Скляний горщик — вода не так швидко іде. Не переливай."},
+    {"name": "Paula", "latin": "Yucca elephantipes", "loc": "Підлога", "img": "Yucca.jpg", "badge": "✅ НЕ поливати", "b_color": "text-emerald-700 bg-emerald-100 border-emerald-200/60", "text": "Нічого не робити. Юка витримає 3–4 тижні без поливу."},
+    {"name": "Lantimos", "latin": "Monstera adansonii", "loc": "Підлога", "img": "adansonii1.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-700 bg-sky-100 border-sky-200/60", "text": "Викупати в душі, політи рясно."},
+    {"name": "Розсада + 6 судочків", "latin": "Сіянці / живці", "loc": "Підлога", "img": "Seedlings.jpg", "badge": "❗ Полив кожні 2–3 дні", "b_color": "text-rose-700 bg-rose-100 border-rose-200/60", "text": "Маленькі молоді рослини — сохнуть швидко. Перевіряй землю: якщо суха на дотик — полий. Трохи, рівномірно. Якщо накриті плівкою — не знімай плівку, просто зволожуй якщо земля суха."},
+    {"name": "Beneficiary", "latin": "Platycerium bifurcatum", "loc": "Стіна", "img": "Platycerium.jpg", "badge": "❗ Полив на 7-й день", "b_color": "text-rose-700 bg-rose-100 border-rose-200/60", "text": "Я заматаю основу у плівку, щоб довше зберігав вологу в корінні, перевірити, якшо під плівкою буде з'являтися пліснява, зняти її і замочити рослину у відрі. Оприскати листя якшо не треба буде купати."},
+    {"name": "Andriy", "latin": "Epipremnum + Хлорофітум", "loc": "Стіна", "img": "Epipremnum.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-700 bg-sky-100 border-sky-200/60", "text": "Полити помірно. Обидві рослини витривалі, переживуть якщо трохи запізнитись. Обережно може політись через край вода."},
+    {"name": "Галя", "latin": "Philodendron hederaceum", "loc": "Стіна", "img": "Philodendron.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-700 bg-sky-100 border-sky-200/60", "text": "Полити помірно, можна скупати в душі. Якщо листя злегка поникло — нічого страшного, після поливу одразу відновиться."},
+    {"name": "Radu Jude", "latin": "Monstera Thai Constellation", "loc": "Етажерка 1", "img": "Thai_Constellation.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-700 bg-sky-100 border-sky-200/60", "text": "Викупати в душі, гарно намочити мох в пластиковій підримці."},
+    {"name": "Zibrov", "latin": "Gardenia jasminoides", "loc": "Етажерка 1", "img": "Gardenia.jpg", "badge": "❗ Полив на 7-й день", "b_color": "text-rose-700 bg-rose-100 border-rose-200/60", "text": "Гарденія дуже вибаглива. Полити рясно на 7-й день. Вода — кімнатна, не холодна. Після поливу злий воду з піддону через 30 хв. НЕ мочи листя і квіти."},
+    {"name": "Emma Stone", "latin": "Begonia maculata", "loc": "Етажерка 1", "img": "Begonia.jpg", "badge": "❗ Полив на 7-й день", "b_color": "text-rose-700 bg-rose-100 border-rose-200/60", "text": "Полити рясно але акуратно, на ній немає листків."},
+    {"name": "Mariposa", "latin": "Maranta leuconeura", "loc": "Етажерка 1", "img": "Maranta.jpg", "badge": "❗ Полив на 7-й день", "b_color": "text-rose-700 bg-rose-100 border-rose-200/60", "text": "Полити рівномірно. Дуже любить вологу."},
+    {"name": "Малюк", "latin": "Ficus pumila", "loc": "Етажерка 1", "img": "pumila.jpg", "badge": "❗ Полив на 7-й день", "b_color": "text-rose-700 bg-rose-100 border-rose-200/60", "text": "Полити рясно. Земля має бути злегка вологою завжди."},
+    {"name": "Dora", "latin": "Chamaedorea elegans", "loc": "Етажерка 1", "img": "Chamaedorea.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-700 bg-sky-100 border-sky-200/60", "text": "Полити помірно. Пальма витривала, не паніку якщо кінчики листя трохи пожовкнуть."},
+    {"name": "Sheldon J. Plankton", "latin": "Chlorophytum comosum", "loc": "Етажерка 1", "img": "Chlorophytum.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-700 bg-sky-100 border-sky-200/60", "text": "Додати води за необхідності."},
+    {"name": "Без імені (Сукулент)", "latin": "Gasteria carinata", "loc": "Етажерка 1", "img": "Gasteria.jpg", "badge": "✅ НЕ поливати", "b_color": "text-emerald-700 bg-emerald-100 border-emerald-200/60", "text": "Нічого не робити. Сукулент — 3 тижні без поливу норма."},
+    {"name": "Хачік", "latin": "Ficus benjamina", "loc": "Тумбочка", "img": "benjamina.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-700 bg-sky-100 border-sky-200/60", "text": "Фікус скидає листя якщо його перемістити. Стоїть там де стоїть — не чіпати. Полити на 10-й день звичайно."},
+    {"name": "Без імені (Традесканція)", "latin": "Tradescantia", "loc": "Тумбочка", "img": "Tradescantia.jpg", "badge": "💧 Полив на 7-й день", "b_color": "text-sky-700 bg-sky-100 border-sky-200/60", "text": "Полити помірно. Якщо листя злегка поникло — це ознака спраги, полий."},
+    {"name": "Зайчик", "latin": "Cleistocactus strausii", "loc": "Тумбочка", "img": "Cleistocactus.jpg", "badge": "✅ НЕ поливати", "b_color": "text-emerald-700 bg-emerald-100 border-emerald-200/60", "text": "Нічого не робити. Кактус — 1 місяць без поливу норма."},
+    {"name": "Marusia Bohuslavka", "latin": "Ceropegia woodii", "loc": "Вікно", "img": "Ceropegia.jpg", "badge": "✅ НЕ поливати", "b_color": "text-emerald-700 bg-emerald-100 border-emerald-200/60", "text": "Нічого не робити. Витримає без поливу."},
+    {"name": "Lynch", "latin": "Monstera deliciosa", "loc": "Етажерка 2", "img": "deliciosa.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-700 bg-sky-100 border-sky-200/60", "text": "Викупати в душі, гарно намочити мох в пластиковій підримці."},
+    {"name": "Без імені", "latin": "Mammillaria hahniana", "loc": "Етажерка 2", "img": "Mammillaria.jpg", "badge": "✅ НЕ поливати", "b_color": "text-emerald-700 bg-emerald-100 border-emerald-200/60", "text": "Кактус. Нічого не робити."},
+    {"name": "Без імені", "latin": "Monstera adansonii (glass)", "loc": "Тумбочка біля ліжка", "img": "adansonii2.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-700 bg-sky-100 border-sky-200/60", "text": "Полити обережно, не заливати водою. Скляний горщик — вода не так швидко іде. Не переливай."},
 ]
 
 cards_html = ""
 for p in plants:
     cards_html += f"""
-      <article class="group relative flex flex-col bg-white/5 backdrop-blur-2xl rounded-[2.5rem] border border-white/5 shadow-2xl overflow-hidden hover:-translate-y-2 hover:bg-white/10 transition-all duration-500">
+      <article class="group relative flex flex-col bg-[#FAFAF8] rounded-[2.5rem] border border-white/50 shadow-[0_20px_40px_rgba(20,50,30,0.06)] overflow-hidden hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(20,50,30,0.12)] transition-all duration-500">
         <div class="relative w-full h-64 shrink-0 overflow-hidden">
-          <button type="button" aria-label="Збільшити фото {p['name']}" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-105 transition-transform duration-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
-            <img src="./assets/images/{p['img']}" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover">
+          <button type="button" aria-label="Збільшити фото {{p['name']}}" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-105 transition-transform duration-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
+            <img src="./assets/images/{{p['img']}}" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover">
           </button>
-          <div class="absolute inset-0 bg-gradient-to-t from-[#0b130e] via-[#0b130e]/40 to-transparent pointer-events-none"></div>
-          <div class="absolute top-5 right-5 z-10">
-            <span class="{p['b_color']} backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-medium tracking-wider uppercase shadow-xl">
-              {p['badge']}
+          <div class="absolute inset-0 bg-gradient-to-t from-[#FAFAF8] via-[#FAFAF8]/20 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute top-5 right-5 z-30">
+            <span class="{{p['b_color']}} backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-sm">
+              {{p['badge']}}
             </span>
           </div>
         </div>
-        <div class="flex flex-col flex-1 p-7 pt-2 relative z-10">
+        <div class="flex flex-col flex-1 px-8 pb-8 pt-2 relative z-30">
           <div class="mb-4">
-            <h3 class="text-stone-100 font-serif font-bold text-2xl tracking-tight mb-1">{p['name']}</h3>
-            <p class="text-xs text-stone-500 italic font-serif tracking-wide">{p['latin']}</p>
+            <h3 class="text-[#1A2421] font-serif font-bold text-3xl tracking-tight mb-1">{{p['name']}}</h3>
+            <p class="text-xs text-[#6F8074] italic font-serif tracking-wide">{{p['latin']}}</p>
           </div>
-          <div class="text-sm text-stone-400 font-sans leading-relaxed flex-1 mb-6">
-            {p['text']}
+          <div class="text-sm text-[#4A5D4E] font-sans leading-relaxed flex-1 mb-6">
+            {{p['text']}}
           </div>
-          <div class="mt-auto pt-4 border-t border-white/5">
-            <span class="text-[10px] text-stone-500 font-medium flex items-center gap-2 uppercase tracking-widest">
+          <div class="mt-auto pt-4 border-t border-[#E3E8E1]">
+            <span class="text-[10px] text-[#6F8074] font-bold flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-              {p['loc']}
+              {{p['loc']}}
             </span>
           </div>
         </div>
@@ -61,113 +61,129 @@ html_content = f"""<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plant Sitter Guide | Midnight Greenhouse</title>
+  <title>Plant Sitter Guide | Urban Jungle</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50,10 C50,10 20,40 20,70 C20,86.5 33.5,100 50,100 C66.5,100 80,86.5 80,70 C80,40 50,10 50,10 Z' fill='%234ade80'/></svg>">
-  <link href="./output.css?v=5" rel="stylesheet">
+  <link href="./output.css?v=6" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    .font-serif {{
+      font-family: 'Cormorant Garamond', serif;
+    }}
+  </style>
 </head>
-<body class="bg-[#0b130e] text-stone-300 font-sans min-h-screen antialiased selection:bg-emerald-900/50 relative">
+<body class="bg-[#E9EDE7] text-[#4A5D4E] font-sans min-h-screen antialiased selection:bg-emerald-200 relative">
 
-  <!-- Ambient Glow -->
-  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-emerald-900/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+  <!-- Sunlit Rainbow Prisms -->
+  <div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden mix-blend-color-burn opacity-40">
+    <div class="absolute top-[-10%] left-[10%] w-[150%] h-[200px] bg-gradient-to-r from-rose-400 via-amber-300 via-emerald-300 to-indigo-300 blur-[90px] -rotate-45 transform origin-top-left"></div>
+    <div class="absolute top-[40%] left-[-20%] w-[120%] h-[150px] bg-gradient-to-r from-red-300 via-yellow-200 via-green-300 to-purple-300 blur-[120px] -rotate-[35deg] transform origin-top-left opacity-70"></div>
+    <div class="absolute top-[70%] right-[-10%] w-[100%] h-[120px] bg-gradient-to-r from-pink-300 via-orange-200 via-cyan-300 to-blue-300 blur-[100px] -rotate-45 transform origin-top-right opacity-60"></div>
+  </div>
 
-  <header class="container mx-auto px-6 pt-20 pb-12 max-w-screen-2xl">
+  <header class="container mx-auto px-6 pt-20 pb-12 max-w-screen-2xl relative z-10">
     <div class="flex flex-col lg:flex-row justify-between items-start gap-12">
       
       <div class="space-y-8">
         <div>
-          <h1 class="text-5xl md:text-6xl font-serif font-bold text-stone-100 tracking-tight mb-3">Plant Sitter Guide</h1>
-          <p class="text-stone-500 font-serif italic text-xl">Зелений куточок, що потребує твоєї уваги</p>
+          <h1 class="text-6xl md:text-7xl font-serif font-bold text-[#1A2421] tracking-tight mb-4">Plant Sitter Guide</h1>
+          <p class="text-[#4A5D4E] font-serif italic text-2xl">Зелений куточок, що потребує твоєї уваги</p>
         </div>
         
-        <div class="inline-flex items-center gap-4 bg-white/5 backdrop-blur-xl border border-white/10 px-6 py-3 rounded-full shadow-2xl">
-          <div class="w-10 h-10 rounded-full bg-emerald-900/30 border border-emerald-500/20 flex items-center justify-center">
-            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <div class="inline-flex items-center gap-5 bg-white/70 backdrop-blur-xl border border-white/80 px-6 py-4 rounded-full shadow-lg">
+          <div class="w-12 h-12 rounded-full bg-emerald-100 border border-emerald-200 flex items-center justify-center">
+            <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </div>
           <div>
-            <div class="text-[10px] text-stone-500 font-medium tracking-widest uppercase mb-0.5">До повернення</div>
-            <div id="countdown" class="text-lg font-bold text-stone-200 font-serif tracking-wide" aria-live="polite">…</div>
+            <div class="text-[10px] text-[#6F8074] font-bold tracking-widest uppercase mb-0.5">До повернення</div>
+            <div id="countdown" class="text-xl font-bold text-[#1A2421] font-serif tracking-wide" aria-live="polite">…</div>
           </div>
         </div>
       </div>
       
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full lg:w-3/5">
-        <div class="flex gap-4 bg-white/5 border border-rose-500/20 p-5 rounded-3xl shadow-xl backdrop-blur-2xl">
+        <div class="flex gap-4 bg-white/70 border border-white p-5 rounded-[2rem] shadow-sm backdrop-blur-xl hover:shadow-md transition-shadow">
           <div class="shrink-0 mt-1">
-            <svg class="w-5 h-5 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            <div class="bg-rose-100 p-2 rounded-full">
+              <svg class="w-5 h-5 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            </div>
           </div>
           <div>
-            <div class="font-bold text-xs tracking-widest text-rose-400 mb-1.5 font-serif uppercase">Потребують поливу</div>
-            <div class="text-xs text-stone-400 leading-relaxed font-sans">Zibrov, Beneficiary, Emma Stone, Mariposa, Малюк</div>
+            <div class="font-bold text-xs tracking-widest text-rose-700 mb-1.5 font-serif uppercase">Потребують поливу</div>
+            <div class="text-xs text-[#4A5D4E] leading-relaxed font-sans">Zibrov, Beneficiary, Emma Stone, Mariposa, Малюк</div>
           </div>
         </div>
         
-        <div class="flex gap-4 bg-white/5 border border-sky-500/20 p-5 rounded-3xl shadow-xl backdrop-blur-2xl">
+        <div class="flex gap-4 bg-white/70 border border-white p-5 rounded-[2rem] shadow-sm backdrop-blur-xl hover:shadow-md transition-shadow">
           <div class="shrink-0 mt-1">
-            <svg class="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <div class="bg-sky-100 p-2 rounded-full">
+              <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
           </div>
           <div>
-            <div class="font-bold text-xs tracking-widest text-sky-400 mb-1.5 font-serif uppercase">Як поливати</div>
-            <div class="text-xs text-stone-400 leading-relaxed font-sans">Лий повільно, зачекай поки вийде в піддон, злий зайву через 30 хв.</div>
+            <div class="font-bold text-xs tracking-widest text-sky-700 mb-1.5 font-serif uppercase">Як поливати</div>
+            <div class="text-xs text-[#4A5D4E] leading-relaxed font-sans">Лий повільно, зачекай поки вийде в піддон, злий зайву через 30 хв.</div>
           </div>
         </div>
         
-        <div class="flex gap-4 bg-white/5 border border-stone-500/20 p-5 rounded-3xl shadow-xl backdrop-blur-2xl">
+        <div class="flex gap-4 bg-white/70 border border-white p-5 rounded-[2rem] shadow-sm backdrop-blur-xl hover:shadow-md transition-shadow">
           <div class="shrink-0 mt-1">
-            <svg class="w-5 h-5 text-stone-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <div class="bg-emerald-100 p-2 rounded-full">
+              <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
           </div>
           <div>
-            <div class="font-bold text-xs tracking-widest text-stone-400 mb-1.5 font-serif uppercase">Не поливати</div>
-            <div class="text-xs text-stone-400 leading-relaxed font-sans">Кактуси, Юка, Церопегія.</div>
+            <div class="font-bold text-xs tracking-widest text-emerald-700 mb-1.5 font-serif uppercase">Не поливати</div>
+            <div class="text-xs text-[#4A5D4E] leading-relaxed font-sans">Кактуси, Юка, Церопегія.</div>
           </div>
         </div>
 
-        <div class="flex gap-4 bg-white/5 border border-emerald-500/20 p-5 rounded-3xl shadow-xl backdrop-blur-2xl">
+        <div class="flex gap-4 bg-white/70 border border-white p-5 rounded-[2rem] shadow-sm backdrop-blur-xl hover:shadow-md transition-shadow">
           <div class="shrink-0 mt-1">
-            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+            <div class="bg-indigo-100 p-2 rounded-full">
+              <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+            </div>
           </div>
           <div>
-            <div class="font-bold text-xs tracking-widest text-emerald-400 mb-1.5 font-serif uppercase">Головне правило</div>
-            <div class="text-xs text-stone-400 leading-relaxed font-sans">Перед виходом зробити кожній рослині «утю-тю»!</div>
+            <div class="font-bold text-xs tracking-widest text-indigo-700 mb-1.5 font-serif uppercase">Головне правило</div>
+            <div class="text-xs text-[#4A5D4E] leading-relaxed font-sans">Перед виходом зробити кожній рослині «утю-тю»!</div>
           </div>
         </div>
       </div>
     </div>
   </header>
 
-  <main class="container mx-auto px-6 py-12 max-w-screen-2xl">
+  <main class="container mx-auto px-6 py-12 max-w-screen-2xl relative z-10">
     
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
 {cards_html}
     </div>
     
     <!-- Terrarium Banner -->
-    <div class="mt-24 relative bg-white/5 backdrop-blur-3xl border border-white/5 rounded-[3rem] p-10 lg:p-16 shadow-2xl shadow-black/50 overflow-hidden">
-      <div class="absolute -top-32 -right-32 w-[500px] h-[500px] bg-emerald-900/20 rounded-full blur-[80px] pointer-events-none"></div>
+    <div class="mt-24 relative bg-white/60 backdrop-blur-3xl border border-white rounded-[3rem] p-10 lg:p-16 shadow-[0_20px_40px_rgba(20,50,30,0.06)] overflow-hidden">
       
       <div class="relative z-10">
-        <h2 class="text-4xl font-serif font-bold text-stone-100 mb-8 flex items-center gap-5">
-          <svg class="w-10 h-10 text-emerald-500/80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+        <h2 class="text-4xl font-serif font-bold text-[#1A2421] mb-8 flex items-center gap-5">
+          <svg class="w-10 h-10 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
           Тераріуми — окрема категорія
         </h2>
-        <div class="grid md:grid-cols-2 gap-10 lg:gap-16 text-stone-400 font-sans leading-relaxed">
+        <div class="grid md:grid-cols-2 gap-10 lg:gap-16 text-[#4A5D4E] font-sans leading-relaxed">
           <div class="space-y-4 text-base">
-            <p>У квартирі є <strong class="text-stone-200 font-medium">16 тераріумів</strong> — скляні посудини із закритими або напівзакритими кришками. Всередині живуть мох, папороть, солейролія та інші вологолюбні рослини.</p>
-            <p>Вони <strong class="text-stone-200 font-medium">повністю автономні</strong> — всередині є свій мікроклімат і волога.</p>
+            <p>У квартирі є <strong class="text-[#1A2421] font-bold">16 тераріумів</strong> — скляні посудини із закритими або напівзакритими кришками. Всередині живуть мох, папороть, солейролія та інші вологолюбні рослини.</p>
+            <p>Вони <strong class="text-[#1A2421] font-bold">повністю автономні</strong> — всередині є свій мікроклімат і волога.</p>
           </div>
-          <div class="bg-rose-950/20 border border-rose-900/30 rounded-[2rem] p-8 backdrop-blur-md">
-            <p class="text-rose-400 font-serif italic text-2xl mb-4">🚫 НЕ відкривай, НЕ поливай, НЕ переставляй.</p>
-            <p class="text-sm text-stone-400">Максимум що можна — ненадовго (2–3 хв) відкрити кришку для провітрювання якщо помітиш надмір конденсату на склі зсередини. Потім одразу щільно закрити.</p>
+          <div class="bg-rose-50/80 border border-rose-100 rounded-[2rem] p-8 backdrop-blur-md">
+            <p class="text-rose-700 font-serif italic text-2xl mb-4">🚫 НЕ відкривай, НЕ поливай, НЕ переставляй.</p>
+            <p class="text-sm text-rose-900/70">Максимум що можна — ненадовго (2–3 хв) відкрити кришку для провітрювання якщо помітиш надмір конденсату на склі зсередини. Потім одразу щільно закрити.</p>
           </div>
         </div>
       </div>
     </div>
   </main>
 
-  <div id="zoomModal" role="dialog" aria-modal="true" aria-label="Збільшене зображення" tabindex="-1" class="fixed inset-0 z-50 flex items-center justify-center bg-[#0b130e]/95 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-300">
-    <button type="button" id="closeModalBtn" aria-label="Закрити" class="absolute top-6 right-6 text-stone-400 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded-full p-2">
+  <div id="zoomModal" role="dialog" aria-modal="true" aria-label="Збільшене зображення" tabindex="-1" class="fixed inset-0 z-50 flex items-center justify-center bg-[#E9EDE7]/90 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-300">
+    <button type="button" id="closeModalBtn" aria-label="Закрити" class="absolute top-6 right-6 text-[#4A5D4E] hover:text-[#1A2421] bg-white/50 hover:bg-white rounded-full p-3 shadow-sm transition-all focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50">
       <svg class="w-8 h-8 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
     </button>
     <img id="zoomImage" src="" alt="" width="1200" height="800" class="max-w-[90vw] max-h-[90vh] object-contain rounded-3xl shadow-2xl scale-95 transition-transform duration-300">
@@ -224,7 +240,7 @@ html_content = f"""<!DOCTYPE html>
 
       if (diff <= 0) {{
         el.innerHTML = "Господар повернувся!";
-        el.classList.replace("text-stone-200", "text-emerald-400");
+        el.classList.replace("text-[#1A2421]", "text-emerald-600");
         clearInterval(timerInterval);
         return;
       }}
@@ -248,5 +264,3 @@ html_content = f"""<!DOCTYPE html>
 
 with open("index.html", "w", encoding="utf-8") as f:
     f.write(html_content)
-
-print("Prestige UI built perfectly.")
