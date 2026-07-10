@@ -3,7 +3,7 @@ import sys
 plants = [
     {"name": "Paula", "latin": "Yucca elephantipes", "loc": "Підлога", "img": "Yucca.jpg", "badge": "✅ НЕ поливати", "b_color": "text-emerald-700 bg-emerald-100 border-emerald-200/60", "text": "Нічого не робити. Юка витримає 3–4 тижні без поливу."},
     {"name": "Lantimos", "latin": "Monstera adansonii", "loc": "Підлога", "img": "adansonii1.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-700 bg-sky-100 border-sky-200/60", "text": "Викупати в душі, політи рясно."},
-    {"name": "Розсада + 6 судочків", "latin": "Сіянці / живці", "loc": "Підлога", "img": "Seedlings.jpg", "badge": "❗ Полив кожні 2–3 дні", "b_color": "text-rose-700 bg-rose-100 border-rose-200/60", "text": "Маленькі молоді рослини — сохнуть швидко. Перевіряй землю: якщо суха на дотик — полий. Трохи, рівномірно. Якщо накриті плівкою — не знімай плівку, просто зволожуй якщо земля суха."},
+    {"name": "Розсада + 6 судочків", "latin": "Сіянці / живці", "loc": "Підлога", "img": "Seedlings.jpg", "badge": "✅ НЕ поливати", "b_color": "text-emerald-700 bg-emerald-100 border-emerald-200/60", "text": "Не чіпати їх."},
     {"name": "Beneficiary", "latin": "Platycerium bifurcatum", "loc": "Стіна", "img": "Platycerium.jpg", "badge": "❗ Полив на 7-й день", "b_color": "text-rose-700 bg-rose-100 border-rose-200/60", "text": "Я заматаю основу у плівку, щоб довше зберігав вологу в корінні, перевірити, якшо під плівкою буде з'являтися пліснява, зняти її і замочити рослину у відрі. Оприскати листя якшо не треба буде купати."},
     {"name": "Andriy", "latin": "Epipremnum + Хлорофітум", "loc": "Стіна", "img": "Epipremnum.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-700 bg-sky-100 border-sky-200/60", "text": "Полити помірно. Обидві рослини витривалі, переживуть якщо трохи запізнитись. Обережно може політись через край вода."},
     {"name": "Галя", "latin": "Philodendron hederaceum", "loc": "Стіна", "img": "Philodendron.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-700 bg-sky-100 border-sky-200/60", "text": "Полити помірно, можна скупати в душі. Якщо листя злегка поникло — нічого страшного, після поливу одразу відновиться."},
@@ -27,12 +27,12 @@ plants = [
 cards_html = ""
 for p in plants:
     cards_html += f"""
-      <article class="group relative flex flex-col bg-[#FAFAF8] rounded-[2.5rem] border border-white/50 shadow-[0_20px_40px_rgba(20,50,30,0.06)] overflow-hidden hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(20,50,30,0.12)] transition-all duration-500">
+      <article class="group relative flex flex-col bg-[#F1F6F0] rounded-[2.5rem] border border-white/50 shadow-[0_20px_40px_rgba(10,35,15,0.08)] overflow-hidden hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(10,35,15,0.14)] transition-all duration-500">
         <div class="relative w-full h-64 shrink-0 overflow-hidden">
           <button type="button" aria-label="Збільшити фото {p['name']}" class="zoom-trigger block w-full h-full p-0 m-0 border-none bg-transparent cursor-zoom-in group-hover:scale-105 transition-transform duration-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50 z-20 relative">
             <img src="./assets/images/{p['img']}" alt="" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover">
           </button>
-          <div class="absolute inset-0 bg-gradient-to-t from-[#FAFAF8] via-[#FAFAF8]/20 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#F1F6F0] via-[#F1F6F0]/20 to-transparent pointer-events-none z-10"></div>
           <div class="absolute top-5 right-5 z-30">
             <span class="{p['b_color']} backdrop-blur-md border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-sm">
               {p['badge']}
@@ -41,13 +41,13 @@ for p in plants:
         </div>
         <div class="flex flex-col flex-1 px-8 pb-8 pt-2 relative z-30">
           <div class="mb-4">
-            <h3 class="text-[#1A2421] font-serif font-bold text-3xl tracking-tight mb-1">{p['name']}</h3>
+            <h3 class="text-[#092215] font-serif font-bold text-3xl tracking-tight mb-1">{p['name']}</h3>
             <p class="text-xs text-[#6F8074] italic font-serif tracking-wide">{p['latin']}</p>
           </div>
-          <div class="text-sm text-[#4A5D4E] font-sans leading-relaxed flex-1 mb-6">
+          <div class="text-sm text-[#3B4D3E] font-sans leading-relaxed flex-1 mb-6">
             {p['text']}
           </div>
-          <div class="mt-auto pt-4 border-t border-[#E3E8E1]">
+          <div class="mt-auto pt-4 border-t border-[#D6E2D4]">
             <span class="text-[10px] text-[#6F8074] font-bold flex items-center gap-2 uppercase tracking-widest">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               {p['loc']}
@@ -66,20 +66,20 @@ html_content = f"""<!DOCTYPE html>
   <link href="./output.css?v=6" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     .font-serif {{
       font-family: 'Cormorant Garamond', serif;
     }}
     .font-sans {{
-      font-family: 'Inter', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
     }}
   </style>
 </head>
-<body class="bg-[#E9EDE7] text-[#4A5D4E] font-sans min-h-screen antialiased selection:bg-emerald-200 relative">
+<body class="bg-[#C8D7C5] text-[#3B4D3E] font-sans min-h-screen antialiased selection:bg-emerald-200 relative">
 
   <!-- Sunlit Rainbow Prisms -->
-  <div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden mix-blend-color-burn opacity-40">
+  <div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden mix-blend-color-burn opacity-45">
     <div class="absolute top-[-10%] left-[10%] w-[150%] h-[200px] bg-gradient-to-r from-rose-400 via-amber-300 via-emerald-300 to-indigo-300 blur-[90px] -rotate-45 transform origin-top-left"></div>
     <div class="absolute top-[40%] left-[-20%] w-[120%] h-[150px] bg-gradient-to-r from-red-300 via-yellow-200 via-green-300 to-purple-300 blur-[120px] -rotate-[35deg] transform origin-top-left opacity-70"></div>
     <div class="absolute top-[70%] right-[-10%] w-[100%] h-[120px] bg-gradient-to-r from-pink-300 via-orange-200 via-cyan-300 to-blue-300 blur-[100px] -rotate-45 transform origin-top-right opacity-60"></div>
@@ -90,8 +90,8 @@ html_content = f"""<!DOCTYPE html>
       
       <div class="space-y-8">
         <div>
-          <h1 class="text-6xl md:text-7xl font-serif font-bold text-[#1A2421] tracking-tight mb-4">Plant Sitter Guide</h1>
-          <p class="text-[#4A5D4E] font-serif italic text-2xl">Зелений куточок, що потребує твоєї уваги</p>
+          <h1 class="text-6xl md:text-7xl font-serif font-bold text-[#092215] tracking-tight mb-4">Plant Sitter Guide</h1>
+          <p class="text-[#3B4D3E] font-serif italic text-2xl">Зелений куточок, що потребує твоєї уваги</p>
         </div>
         
         <div class="inline-flex items-center gap-5 bg-white/70 backdrop-blur-xl border border-white/80 px-6 py-4 rounded-full shadow-lg">
@@ -100,7 +100,7 @@ html_content = f"""<!DOCTYPE html>
           </div>
           <div>
             <div class="text-[10px] text-[#6F8074] font-bold tracking-widest uppercase mb-0.5">До повернення</div>
-            <div id="countdown" class="text-xl font-bold text-[#1A2421] font-serif tracking-wide" aria-live="polite">…</div>
+            <div id="countdown" class="text-xl font-bold text-[#092215] font-serif tracking-wide" aria-live="polite">…</div>
           </div>
         </div>
       </div>
@@ -167,14 +167,14 @@ html_content = f"""<!DOCTYPE html>
     <div class="mt-24 relative bg-white/60 backdrop-blur-3xl border border-white rounded-[3rem] p-10 lg:p-16 shadow-[0_20px_40px_rgba(20,50,30,0.06)] overflow-hidden">
       
       <div class="relative z-10">
-        <h2 class="text-4xl font-serif font-bold text-[#1A2421] mb-8 flex items-center gap-5">
+        <h2 class="text-4xl font-serif font-bold text-[#092215] mb-8 flex items-center gap-5">
           <svg class="w-10 h-10 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
           Тераріуми — окрема категорія
         </h2>
-        <div class="grid md:grid-cols-2 gap-10 lg:gap-16 text-[#4A5D4E] font-sans leading-relaxed">
+        <div class="grid md:grid-cols-2 gap-10 lg:gap-16 text-[#3B4D3E] font-sans leading-relaxed">
           <div class="space-y-4 text-base">
-            <p>У квартирі є <strong class="text-[#1A2421] font-bold">16 тераріумів</strong> — скляні посудини із закритими або напівзакритими кришками. Всередині живуть мох, папороть, солейролія та інші вологолюбні рослини.</p>
-            <p>Вони <strong class="text-[#1A2421] font-bold">повністю автономні</strong> — всередині є свій мікроклімат і волога.</p>
+            <p>У квартирі є <strong class="text-[#092215] font-bold">16 тераріумів</strong> — скляні посудини із закритими або напівзакритими кришками. Всередині живуть мох, папороть, солейролія та інші вологолюбні рослини.</p>
+            <p>Вони <strong class="text-[#092215] font-bold">повністю автономні</strong> — всередині є свій мікроклімат і волога.</p>
           </div>
           <div class="bg-rose-50/80 border border-rose-100 rounded-[2rem] p-8 backdrop-blur-md">
             <p class="text-rose-700 font-serif italic text-2xl mb-4">🚫 НЕ відкривай, НЕ поливай, НЕ переставляй.</p>
@@ -185,8 +185,8 @@ html_content = f"""<!DOCTYPE html>
     </div>
   </main>
 
-  <div id="zoomModal" role="dialog" aria-modal="true" aria-label="Збільшене зображення" tabindex="-1" class="fixed inset-0 z-50 flex items-center justify-center bg-[#E9EDE7]/90 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-300">
-    <button type="button" id="closeModalBtn" aria-label="Закрити" class="absolute top-6 right-6 text-[#4A5D4E] hover:text-[#1A2421] bg-white/50 hover:bg-white rounded-full p-3 shadow-sm transition-all focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50">
+  <div id="zoomModal" role="dialog" aria-modal="true" aria-label="Збільшене зображення" tabindex="-1" class="fixed inset-0 z-50 flex items-center justify-center bg-[#C8D7C5]/90 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-300">
+    <button type="button" id="closeModalBtn" aria-label="Закрити" class="absolute top-6 right-6 text-[#3B4D3E] hover:text-[#092215] bg-white/50 hover:bg-white rounded-full p-3 shadow-sm transition-all focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/50">
       <svg class="w-8 h-8 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
     </button>
     <img id="zoomImage" src="" alt="" width="1200" height="800" class="max-w-[90vw] max-h-[90vh] object-contain rounded-3xl shadow-2xl scale-95 transition-transform duration-300">
