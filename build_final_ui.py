@@ -71,6 +71,9 @@ html_content = f"""<!DOCTYPE html>
     .font-serif {{
       font-family: 'Cormorant Garamond', serif;
     }}
+    .font-sans {{
+      font-family: 'Inter', sans-serif;
+    }}
   </style>
 </head>
 <body class="bg-[#E9EDE7] text-[#4A5D4E] font-sans min-h-screen antialiased selection:bg-emerald-200 relative">
