@@ -1,28 +1,28 @@
 import sys
 
 plants = [
-    {"name": "Paula", "latin": "Yucca elephantipes", "loc": "Кут", "img": "Yucca.jpg", "badge": "✅ НЕ поливати", "b_color": "text-emerald-700 bg-emerald-100 border-emerald-200/60", "text": "Полив рясний, але виключно після повного (на 70-100%) просихання ґрунту в горщику."},
-    {"name": "Lantimos", "latin": "Monstera adansonii", "loc": "Підлога", "img": "adansonii1.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-700 bg-sky-100 border-sky-200/60", "text": "Класичний полив лійкою під корінь після просихання верхнього шару. Душ 🚿 використовувати не частіше 1 разу на 1–2 місяці виключно для гігієни (змивання пилу)"},
-    {"name": "Розсада + 6 судочків", "latin": "Сіянці / живці", "loc": "Підлога", "img": "Seedlings.jpg", "badge": "✅ НЕ поливати", "b_color": "text-emerald-700 bg-emerald-100 border-emerald-200/60", "text": "🟢 Не поливати, провітрити якшо багато конденсату"},
-    {"name": "Beneficiary", "latin": "Platycerium bifurcatum", "loc": "Стіна", "img": "Platycerium.jpg", "badge": "❗ Полив на 7-й день", "b_color": "text-rose-700 bg-rose-100 border-rose-200/60", "text": "замочування на 20хв, обприскування"},
-    {"name": "Andriy", "latin": "Epipremnum + Хлорофітум", "loc": "Стіна", "img": "Epipremnum.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-700 bg-sky-100 border-sky-200/60", "text": "Полити помірно, якщо верхній шар сухий на 2–3 см"},
-    {"name": "Галя", "latin": "Philodendron hederaceum", "loc": "Вікно Кухні", "img": "Philodendron.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-700 bg-sky-100 border-sky-200/60", "text": "Класичний полив лійкою під корінь після просихання верхнього шару. Душ 🚿 використовувати не частіше 1 разу на 1–2 місяці виключно для гігієни (змивання пилу)"},
-    {"name": "Radu Jude", "latin": "Monstera Thai Constellation", "loc": "Тумбочка", "img": "Thai_Constellation.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-700 bg-sky-100 border-sky-200/60", "text": "Полив виключно під корінь після просихання ґрунту на 50–70% глибини горщика, також зволоження moss pole"},
-    {"name": "Zibrov", "latin": "Gardenia jasminoides", "loc": "Тумбочка", "img": "Gardenia.jpg", "badge": "❗ Полив на 7-й день", "b_color": "text-rose-700 bg-rose-100 border-rose-200/60", "text": "Коли верхній шар сухий на 2–3 см , полив виключно відстояною, м'якою або фільтрованою водою, 1 раз на місяць додавати підкислювач 🍋"},
-    {"name": "Emma Stone", "latin": "Begonia maculata", "loc": "Тумбочка", "img": "Begonia.jpg", "badge": "❗ Полив на 7-й день", "b_color": "text-rose-700 bg-rose-100 border-rose-200/60", "text": "Коли верхній шар сухий на 2–3 см, суворий полив під корінь або через піддон (нижній полив)"},
-    {"name": "Mariposa", "latin": "Maranta leuconeura", "loc": "Кухня", "img": "Maranta.jpg", "badge": "❗ Полив на 7-й день", "b_color": "text-rose-700 bg-rose-100 border-rose-200/60", "text": "Коли верхній шар сухий на 2–3 см, полив виключно відстояною, м'якою або фільтрованою водою"},
-    {"name": "Малюк", "latin": "Ficus pumila", "loc": "Стіна", "img": "pumila.jpg", "badge": "❗ Полив на 7-й день", "b_color": "text-rose-700 bg-rose-100 border-rose-200/60", "text": "Класичний полив лійкою під корінь після просихання верхнього шару. Душ 🚿 використовувати не частіше 1 разу на 1–2 місяці виключно для гігієни (змивання пилу)"},
-    {"name": "Dora", "latin": "Chamaedorea elegans", "loc": "Кухня", "img": "Chamaedorea.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-700 bg-sky-100 border-sky-200/60", "text": "Полити помірно, якщо верхній шар сухий на 2–3 см"},
-    {"name": "Sheldon J. Plankton", "latin": "Chlorophytum comosum", "loc": "Етажерка", "img": "Chlorophytum.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-700 bg-sky-100 border-sky-200/60", "text": "Додати води у банку"},
-    {"name": "Без імені (Сукулент)", "latin": "Gasteria carinata", "loc": "Етажерка", "img": "Gasteria.jpg", "badge": "✅ НЕ поливати", "b_color": "text-emerald-700 bg-emerald-100 border-emerald-200/60", "text": "Полив виключно після 100% просихання субстрату"},
-    {"name": "Хачік", "latin": "Ficus benjamina", "loc": "Етажерка", "img": "benjamina.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-700 bg-sky-100 border-sky-200/60", "text": "Полити помірно, якщо верхній шар сухий на 2–3 см"},
-    {"name": "Без імені (Традесканція)", "latin": "Tradescantia", "loc": "Етажерка", "img": "Tradescantia.jpg", "badge": "💧 Полив на 7-й день", "b_color": "text-sky-700 bg-sky-100 border-sky-200/60", "text": "Полити помірно, якщо верхній шар сухий на 2–3 см"},
-    {"name": "Зайчик", "latin": "Cleistocactus strausii", "loc": "Етажерка", "img": "Cleistocactus.jpg", "badge": "✅ НЕ поливати", "b_color": "text-emerald-700 bg-emerald-100 border-emerald-200/60", "text": "Полив виключно після 100% просихання субстрату"},
-    {"name": "Marusia Bohuslavka", "latin": "Ceropegia woodii", "loc": "Стіна", "img": "Ceropegia.jpg", "badge": "✅ НЕ поливати", "b_color": "text-emerald-700 bg-emerald-100 border-emerald-200/60", "text": "Поливати після повного просихання ґрунту, коли листя починає втрачати тургор"},
-    {"name": "Lynch", "latin": "Monstera deliciosa", "loc": "Кухня", "img": "deliciosa.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-700 bg-sky-100 border-sky-200/60", "text": "Класичний полив лійкою під корінь після просихання верхнього шару. Душ 🚿 використовувати не частіше 1 разу на 1–2 місяці виключно для гігієни (змивання пилу)"},
-    {"name": "Без імені (КАКТУС)", "latin": "Mammillaria hahniana", "loc": "Етажерка", "img": "Mammillaria.jpg", "badge": "✅ НЕ поливати", "b_color": "text-emerald-700 bg-emerald-100 border-emerald-200/60", "text": "Полив виключно після 100% просихання субстрату"},
-    {"name": "Без імені (Monstera adansonii glass)", "latin": "Monstera adansonii (glass)", "loc": "Тумбочка", "img": "adansonii2.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-700 bg-sky-100 border-sky-200/60", "text": "обережно, об'єм води зменшити вдвічі — без дренажу"},
-    {"name": "Кокодама", "latin": "Asparagus Plumosus", "loc": "Кухня", "img": "kokodama.jpg", "badge": "💧 Полив на 10-й день", "b_color": "text-sky-700 bg-sky-100 border-sky-200/60", "text": "замочування на 20хв, обприскування"}
+    {"name": "Paula", "latin": "Yucca elephantipes", "loc": "Кут", "img": "Yucca.jpg", "text": "Полив рясний, але виключно після повного (на 70-100%) просихання ґрунту в горщику."},
+    {"name": "Lantimos", "latin": "Monstera adansonii", "loc": "Підлога", "img": "adansonii1.jpg", "text": "Класичний полив лійкою під корінь після просихання верхнього шару. Душ 🚿 використовувати не частіше 1 разу на 1–2 місяці виключно для гігієни (змивання пилу)"},
+    {"name": "Розсада + 6 судочків", "latin": "Сіянці / живці", "loc": "Підлога", "img": "Seedlings.jpg", "text": "🟢 Не поливати, провітрити якшо багато конденсату"},
+    {"name": "Beneficiary", "latin": "Platycerium bifurcatum", "loc": "Стіна", "img": "Platycerium.jpg", "text": "замочування на 20хв, обприскування"},
+    {"name": "Andriy", "latin": "Epipremnum + Хлорофітум", "loc": "Стіна", "img": "Epipremnum.jpg", "text": "Полити помірно, якщо верхній шар сухий на 2–3 см"},
+    {"name": "Галя", "latin": "Philodendron hederaceum", "loc": "Вікно Кухні", "img": "Philodendron.jpg", "text": "Класичний полив лійкою під корінь після просихання верхнього шару. Душ 🚿 використовувати не частіше 1 разу на 1–2 місяці виключно для гігієни (змивання пилу)"},
+    {"name": "Radu Jude", "latin": "Monstera Thai Constellation", "loc": "Тумбочка", "img": "Thai_Constellation.jpg", "text": "Полив виключно під корінь після просихання ґрунту на 50–70% глибини горщика, також зволоження moss pole"},
+    {"name": "Zibrov", "latin": "Gardenia jasminoides", "loc": "Тумбочка", "img": "Gardenia.jpg", "text": "Коли верхній шар сухий на 2–3 см , полив виключно відстояною, м'якою або фільтрованою водою, 1 раз на місяць додавати підкислювач 🍋"},
+    {"name": "Emma Stone", "latin": "Begonia maculata", "loc": "Тумбочка", "img": "Begonia.jpg", "text": "Коли верхній шар сухий на 2–3 см, суворий полив під корінь або через піддон (нижній полив)"},
+    {"name": "Mariposa", "latin": "Maranta leuconeura", "loc": "Кухня", "img": "Maranta.jpg", "text": "Коли верхній шар сухий на 2–3 см, полив виключно відстояною, м'якою або фільтрованою водою"},
+    {"name": "Малюк", "latin": "Ficus pumila", "loc": "Стіна", "img": "pumila.jpg", "text": "Класичний полив лійкою під корінь після просихання верхнього шару. Душ 🚿 використовувати не частіше 1 разу на 1–2 місяці виключно для гігієни (змивання пилу)"},
+    {"name": "Dora", "latin": "Chamaedorea elegans", "loc": "Кухня", "img": "Chamaedorea.jpg", "text": "Полити помірно, якщо верхній шар сухий на 2–3 см"},
+    {"name": "Sheldon J. Plankton", "latin": "Chlorophytum comosum", "loc": "Етажерка", "img": "Chlorophytum.jpg", "text": "Додати води у банку"},
+    {"name": "Без імені (Сукулент)", "latin": "Gasteria carinata", "loc": "Етажерка", "img": "Gasteria.jpg", "text": "Полив виключно після 100% просихання субстрату"},
+    {"name": "Хачік", "latin": "Ficus benjamina", "loc": "Етажерка", "img": "benjamina.jpg", "text": "Полити помірно, якщо верхній шар сухий на 2–3 см"},
+    {"name": "Без імені (Традесканція)", "latin": "Tradescantia", "loc": "Етажерка", "img": "Tradescantia.jpg", "text": "Полити помірно, якщо верхній шар сухий на 2–3 см"},
+    {"name": "Зайчик", "latin": "Cleistocactus strausii", "loc": "Етажерка", "img": "Cleistocactus.jpg", "text": "Полив виключно після 100% просихання субстрату"},
+    {"name": "Marusia Bohuslavka", "latin": "Ceropegia woodii", "loc": "Стіна", "img": "Ceropegia.jpg", "text": "Поливати після повного просихання ґрунту, коли листя починає втрачати тургор"},
+    {"name": "Lynch", "latin": "Monstera deliciosa", "loc": "Кухня", "img": "deliciosa.jpg", "text": "Класичний полив лійкою під корінь після просихання верхнього шару. Душ 🚿 використовувати не частіше 1 разу на 1–2 місяці виключно для гігієни (змивання пилу)"},
+    {"name": "Без імені (КАКТУС)", "latin": "Mammillaria hahniana", "loc": "Етажерка", "img": "Mammillaria.jpg", "text": "Полив виключно після 100% просихання субстрату"},
+    {"name": "Без імені (Monstera adansonii glass)", "latin": "Monstera adansonii (glass)", "loc": "Тумбочка", "img": "adansonii2.jpg", "text": "обережно, об'єм води зменшити вдвічі — без дренажу"},
+    {"name": "Кокодама", "latin": "Asparagus Plumosus", "loc": "Кухня", "img": "Kokodama.jpg", "text": "замочування на 20хв, обприскування"}
 ]
 
 cards_html = ""
@@ -35,11 +35,6 @@ for p in plants:
           </button>
           <div class="absolute inset-0 bg-gradient-to-t from-[#FFFCF0] via-[#FFFCF0]/12 to-transparent pointer-events-none z-10"></div>
           <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_18%,rgba(255,250,218,0.34),transparent_32%),linear-gradient(120deg,rgba(255,255,255,0.16),transparent_40%)] pointer-events-none z-10"></div>
-          <div class="absolute top-5 right-5 z-30">
-            <span class="{p['b_color']} backdrop-blur-xl border text-[10px] px-3 py-1.5 rounded-full font-bold tracking-wider uppercase shadow-[0_10px_30px_rgba(37,74,43,0.12)]">
-              {p['badge']}
-            </span>
-          </div>
         </div>
         <div class="flex flex-col flex-1 px-8 pb-8 pt-5 relative z-30">
           <div class="mb-4">
@@ -233,28 +228,40 @@ html_content = f"""<!DOCTYPE html>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full lg:w-3/5">
         <div class="care-note flex gap-4 bg-white/72 border border-white/85 p-5 backdrop-blur-2xl hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(51,83,49,0.15)] transition-all duration-500">
           <div class="shrink-0 mt-1">
-            <div class="bg-rose-100 p-2 rounded-full">
-              <svg class="w-5 h-5 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            <div class="bg-sky-100 p-2 rounded-full">
+              <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
             </div>
           </div>
           <div>
-            <div class="font-bold text-xs tracking-widest text-rose-700 mb-1.5 font-serif uppercase">Потребують поливу</div>
-            <div class="text-xs text-[#4A5D4E] leading-relaxed font-sans">Zibrov, Beneficiary, Emma Stone, Mariposa, Малюк</div>
+            <div class="font-bold text-xs tracking-widest text-sky-700 mb-1.5 font-serif uppercase">Верхній шар сухий (2-3 см)</div>
+            <div class="text-xs text-[#4A5D4E] leading-relaxed font-sans">Lantimos, Andriy, Галя, Radu Jude, Zibrov, Emma Stone, Mariposa, Малюк, Dora, Хачік, Традесканція, Lynch.</div>
           </div>
         </div>
         
         <div class="care-note flex gap-4 bg-white/72 border border-white/85 p-5 backdrop-blur-2xl hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(51,83,49,0.15)] transition-all duration-500">
           <div class="shrink-0 mt-1">
-            <div class="bg-sky-100 p-2 rounded-full">
-              <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <div class="bg-rose-100 p-2 rounded-full">
+              <svg class="w-5 h-5 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
           </div>
           <div>
-            <div class="font-bold text-xs tracking-widest text-sky-700 mb-1.5 font-serif uppercase">Як поливати</div>
-            <div class="text-xs text-[#4A5D4E] leading-relaxed font-sans">Лий повільно, зачекай поки вийде в піддон, злий зайву через 30 хв.</div>
+            <div class="font-bold text-xs tracking-widest text-rose-700 mb-1.5 font-serif uppercase">Після 100% просихання</div>
+            <div class="text-xs text-[#4A5D4E] leading-relaxed font-sans">Paula, Сукулент, Зайчик, Marusia Bohuslavka, Кактус.</div>
           </div>
         </div>
         
+        <div class="care-note flex gap-4 bg-white/72 border border-white/85 p-5 backdrop-blur-2xl hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(51,83,49,0.15)] transition-all duration-500">
+          <div class="shrink-0 mt-1">
+            <div class="bg-indigo-100 p-2 rounded-full">
+              <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+            </div>
+          </div>
+          <div>
+            <div class="font-bold text-xs tracking-widest text-indigo-700 mb-1.5 font-serif uppercase">Особливі умови</div>
+            <div class="text-xs text-[#4A5D4E] leading-relaxed font-sans">Beneficiary, Кокодама (замочування 20хв). Sheldon (у банку). Monstera glass (без дренажу).</div>
+          </div>
+        </div>
+
         <div class="care-note flex gap-4 bg-white/72 border border-white/85 p-5 backdrop-blur-2xl hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(51,83,49,0.15)] transition-all duration-500">
           <div class="shrink-0 mt-1">
             <div class="bg-emerald-100 p-2 rounded-full">
@@ -262,20 +269,8 @@ html_content = f"""<!DOCTYPE html>
             </div>
           </div>
           <div>
-            <div class="font-bold text-xs tracking-widest text-emerald-700 mb-1.5 font-serif uppercase">Не поливати</div>
-            <div class="text-xs text-[#4A5D4E] leading-relaxed font-sans">Кактуси, Юка, Церопегія.</div>
-          </div>
-        </div>
-
-        <div class="care-note flex gap-4 bg-white/72 border border-white/85 p-5 backdrop-blur-2xl hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(51,83,49,0.15)] transition-all duration-500">
-          <div class="shrink-0 mt-1">
-            <div class="bg-indigo-100 p-2 rounded-full">
-              <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
-            </div>
-          </div>
-          <div>
-            <div class="font-bold text-xs tracking-widest text-indigo-700 mb-1.5 font-serif uppercase">Головне правило</div>
-            <div class="text-xs text-[#4A5D4E] leading-relaxed font-sans">Перед виходом зробити кожній рослині «утю-тю»!</div>
+            <div class="font-bold text-xs tracking-widest text-emerald-700 mb-1.5 font-serif uppercase">🟢 Не поливати</div>
+            <div class="text-xs text-[#4A5D4E] leading-relaxed font-sans">Розсада + 6 судочків (провітрювати конденсат). Та 16 автономних тераріумів.</div>
           </div>
         </div>
       </div>
