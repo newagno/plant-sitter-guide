@@ -121,9 +121,9 @@ html_content = f"""<!DOCTYPE html>
       filter: blur(22px);
       mix-blend-mode: multiply;
     }}
-    .rainbow-beam.one {{ top: 9rem; opacity: .95; }}
-    .rainbow-beam.two {{ top: 34rem; left: -18vw; transform: rotate(-17deg); opacity: .58; }}
-    .rainbow-beam.three {{ top: 62rem; transform: rotate(-29deg); opacity: .42; }}
+    .rainbow-beam.one {{ top: 9rem; opacity: .35; }}
+    .rainbow-beam.two {{ top: 34rem; left: -18vw; transform: rotate(-17deg); opacity: .25; }}
+    .rainbow-beam.three {{ top: 62rem; transform: rotate(-29deg); opacity: .15; }}
     .crystal {{
       position: absolute;
       top: 1.75rem;
@@ -149,11 +149,11 @@ html_content = f"""<!DOCTYPE html>
     .leaf-haze {{
       position: absolute;
       border-radius: 53% 47% 64% 36% / 42% 58% 39% 61%;
-      background: radial-gradient(circle at 35% 30%, rgba(73,132,77,.28), rgba(73,132,77,0) 68%);
-      filter: blur(18px);
+      background: radial-gradient(circle at 35% 30%, rgba(73,132,77,.18), rgba(73,132,77,0) 68%);
+      filter: blur(24px);
     }}
-    .leaf-haze.left {{ width: 24rem; height: 34rem; left: -9rem; top: 12rem; transform: rotate(-18deg); }}
-    .leaf-haze.right {{ width: 28rem; height: 28rem; right: -12rem; top: 42rem; transform: rotate(24deg); opacity: .68; }}
+    .leaf-haze.left {{ width: 24rem; height: 34rem; left: -9rem; top: 12rem; transform: rotate(-18deg); opacity: .4; }}
+    .leaf-haze.right {{ width: 28rem; height: 28rem; right: -12rem; top: 42rem; transform: rotate(24deg); opacity: .3; }}
     .plant-card {{
       border-radius: 3.8rem 2.4rem 4.3rem 2.7rem;
       backdrop-filter: blur(24px);
@@ -175,22 +175,19 @@ html_content = f"""<!DOCTYPE html>
       box-shadow: 0 18px 48px rgba(47,78,48,.11), inset 0 1px 0 rgba(255,255,255,.86);
     }}
     .care-note:nth-child(even) {{ border-radius: 3rem 2.1rem 3.4rem 2.3rem; }}
-    @media (prefers-reduced-motion: no-preference) {{
-      .plant-card {{ animation: breathe 7s ease-in-out infinite; }}
-      .plant-card:nth-child(even) {{ animation-delay: -2.6s; }}
-      .crystal {{ animation: glint 5.8s ease-in-out infinite; }}
-      @keyframes breathe {{
-        0%, 100% {{ transform: translateY(0); }}
-        50% {{ transform: translateY(-3px); }}
-      }}
-      @keyframes glint {{
-        0%, 100% {{ filter: brightness(1); }}
-        45% {{ filter: brightness(1.24); }}
-      }}
-    }}
+    .crystal {{ transition: filter 0.8s ease; }}
+    .crystal:hover {{ filter: brightness(1.24); }}
   </style>
 </head>
 <body class="bg-[#F7F0DE] text-[#334937] font-sans min-h-screen antialiased selection:bg-emerald-200/70 relative overflow-x-hidden">
+
+  <!-- Status Bar -->
+  <div class="bg-[#EBF2E8]/80 border-b border-[#DCE8D2] py-2.5 px-6 flex justify-center items-center text-[10px] sm:text-xs font-bold text-[#4A5D4E] uppercase tracking-widest backdrop-blur-xl relative z-50">
+    <div class="flex gap-8">
+      <span>🪴 22 Рослини</span>
+      <span>🌱 16 Тераріумів</span>
+    </div>
+  </div>
 
   <!-- Sunlit Conservatory Atmosphere -->
   <div class="sun-room" aria-hidden="true">
@@ -205,15 +202,16 @@ html_content = f"""<!DOCTYPE html>
     <div class="leaf-haze right"></div>
   </div>
 
-  <header class="container mx-auto px-6 pt-24 pb-16 max-w-screen-2xl relative z-10">
+  <header class="container mx-auto px-6 pt-16 pb-12 max-w-screen-2xl relative z-10">
     <div class="flex flex-col lg:flex-row justify-between items-start gap-12">
       
       <div class="space-y-8">
         <div>
-          <h1 class="text-6xl md:text-7xl font-serif font-bold text-[#092215] tracking-tight mb-4">Plant Sitter Guide</h1>
+          <h1 class="text-4xl md:text-7xl font-serif font-bold text-[#092215] tracking-tight mb-4">Plant Sitter Guide</h1>
           <p class="text-[#3B4D3E] font-serif italic text-2xl">Зелений куточок, що потребує твоєї уваги</p>
         </div>
         
+        <!--
         <div class="inline-flex items-center gap-5 bg-white/72 backdrop-blur-2xl border border-white/90 px-6 py-4 rounded-full shadow-[0_20px_60px_rgba(58,88,52,0.14)]">
           <div class="w-12 h-12 rounded-full bg-emerald-100 border border-emerald-200 flex items-center justify-center">
             <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -223,6 +221,7 @@ html_content = f"""<!DOCTYPE html>
             <div id="countdown" class="text-xl font-bold text-[#092215] font-serif tracking-wide" aria-live="polite">…</div>
           </div>
         </div>
+        -->
       </div>
       
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full lg:w-3/5">
@@ -353,6 +352,7 @@ html_content = f"""<!DOCTYPE html>
       }}
     }});
 
+    /*
     let timerInterval;
     function updateCountdown() {{
       const targetDate = new Date('2026-07-26T01:30:00+03:00');
@@ -381,6 +381,7 @@ html_content = f"""<!DOCTYPE html>
 
     timerInterval = setInterval(updateCountdown, 1000);
     updateCountdown();
+    */
   </script>
 </body>
 </html>"""
