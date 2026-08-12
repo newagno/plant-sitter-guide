@@ -191,6 +191,11 @@ html = """<!DOCTYPE html>
     :root { color-scheme: light; }
 
     /* ── Background ── */
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
+    }
     body {
       background-color: #F2EAD3;
       background-image:
@@ -330,7 +335,7 @@ html = """<!DOCTYPE html>
   </div>
 
   <!-- ── Header ── -->
-  <header id="site-header" class="container mx-auto px-6 pt-14 pb-10 max-w-screen-2xl">
+  <header id="site-header" class="container mx-auto px-4 sm:px-6 pt-14 pb-10 w-full max-w-full lg:max-w-screen-2xl">
     <div class="flex flex-col lg:flex-row justify-between items-start gap-10">
 
       <div class="space-y-6 shrink-0">
@@ -396,10 +401,10 @@ html = """<!DOCTYPE html>
   </header>
 
   <!-- ── Main ── -->
-  <main id="site-main" class="container mx-auto px-6 pb-16 max-w-screen-2xl">
+  <main id="site-main" class="container mx-auto px-4 sm:px-6 pb-16 w-full max-w-full lg:max-w-screen-2xl">
 
     <!-- Filter bar — populated by JS -->
-    <div id="filter-bar" class="flex flex-wrap gap-2 mb-8" role="group" aria-label="Фільтр за місцем"></div>
+    <div id="filter-bar" class="flex gap-2 mb-8" style="flex-wrap: wrap;" role="group" aria-label="Фільтр за місцем"></div>
 
     <!-- Plant grid — populated by JS -->
     <div id="plant-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" aria-live="polite" aria-label="Картки рослин"></div>
