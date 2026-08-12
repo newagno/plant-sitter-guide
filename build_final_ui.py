@@ -345,58 +345,7 @@ html = """<!DOCTYPE html>
         </div>
       </div>
 
-      <!-- Summary care notes -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full lg:w-3/5" aria-label="Зведення по догляду">
 
-        <div class="care-note flex gap-4 p-4">
-          <div class="shrink-0 mt-0.5">
-            <div class="bg-sky-100 p-2 rounded-full">
-              <svg class="w-4 h-4 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-            </div>
-          </div>
-          <div>
-            <div class="font-bold text-xs tracking-widest text-sky-700 mb-1 font-serif uppercase">Верхній шар сухий (2–3 см)</div>
-            <div class="text-xs text-[#4A5D4E] leading-relaxed font-sans">Lantimos, Andriy, Галя, Radu Jude, Zibrov, Emma Stone, Mariposa, Малюк, Dora, Хачік, Традесканція, Lynch.</div>
-          </div>
-        </div>
-
-        <div class="care-note flex gap-4 p-4">
-          <div class="shrink-0 mt-0.5">
-            <div class="bg-amber-100 p-2 rounded-full">
-              <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            </div>
-          </div>
-          <div>
-            <div class="font-bold text-xs tracking-widest text-amber-700 mb-1 font-serif uppercase">Після 100% просихання</div>
-            <div class="text-xs text-[#4A5D4E] leading-relaxed font-sans">Paula, Сукулент, Зайчик, Marusia Bohuslavka, Кактус.</div>
-          </div>
-        </div>
-
-        <div class="care-note flex gap-4 p-4">
-          <div class="shrink-0 mt-0.5">
-            <div class="bg-indigo-100 p-2 rounded-full">
-              <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-            </div>
-          </div>
-          <div>
-            <div class="font-bold text-xs tracking-widest text-indigo-700 mb-1 font-serif uppercase">Особливі умови</div>
-            <div class="text-xs text-[#4A5D4E] leading-relaxed font-sans">Beneficiary, Кокодама (замочування 20 хв). Sheldon (у банку). Monstera glass (без дренажу).</div>
-          </div>
-        </div>
-
-        <div class="care-note flex gap-4 p-4">
-          <div class="shrink-0 mt-0.5">
-            <div class="bg-emerald-100 p-2 rounded-full">
-              <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            </div>
-          </div>
-          <div>
-            <div class="font-bold text-xs tracking-widest text-emerald-700 mb-1 font-serif uppercase">🟢 Не поливати</div>
-            <div class="text-xs text-[#4A5D4E] leading-relaxed font-sans">Розсада + 6 судочків (провітрювати конденсат). 16 автономних тераріумів.</div>
-          </div>
-        </div>
-
-      </div>
     </div>
   </header>
 
@@ -408,6 +357,57 @@ html = """<!DOCTYPE html>
 
     <!-- Plant grid — populated by JS -->
     <div id="plant-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" aria-live="polite" aria-label="Картки рослин"></div>
+
+    <!-- Summary care notes (Moved to bottom) -->
+    <div class="mt-16 mb-8 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 w-full" aria-label="Зведення по догляду">
+      <div class="care-note flex gap-4 p-5">
+        <div class="shrink-0 mt-0.5">
+          <div class="bg-sky-100 p-2 rounded-full">
+            <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+          </div>
+        </div>
+        <div>
+          <div class="font-bold text-[0.8rem] tracking-widest text-sky-700 mb-1.5 font-serif uppercase">Верхній шар сухий <span class="lowercase">(2–3 см)</span></div>
+          <div class="text-sm text-[#4A5D4E] leading-relaxed font-sans">Lantimos, Andriy, Галя, Radu Jude, Zibrov, Emma Stone, Mariposa, Малюк, Dora, Хачік, Традесканція, Lynch.</div>
+        </div>
+      </div>
+
+      <div class="care-note flex gap-4 p-5">
+        <div class="shrink-0 mt-0.5">
+          <div class="bg-amber-100 p-2 rounded-full">
+            <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+        </div>
+        <div>
+          <div class="font-bold text-[0.8rem] tracking-widest text-amber-700 mb-1.5 font-serif uppercase">Після 100% просихання</div>
+          <div class="text-sm text-[#4A5D4E] leading-relaxed font-sans">Paula, Сукулент, Зайчик, Marusia Bohuslavka, Кактус.</div>
+        </div>
+      </div>
+
+      <div class="care-note flex gap-4 p-5">
+        <div class="shrink-0 mt-0.5">
+          <div class="bg-indigo-100 p-2 rounded-full">
+            <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+          </div>
+        </div>
+        <div>
+          <div class="font-bold text-[0.8rem] tracking-widest text-indigo-700 mb-1.5 font-serif uppercase">Особливі умови</div>
+          <div class="text-sm text-[#4A5D4E] leading-relaxed font-sans">Beneficiary, Кокодама (замочування 20 хв). Sheldon (у банку). Monstera glass (без дренажу).</div>
+        </div>
+      </div>
+
+      <div class="care-note flex gap-4 p-5">
+        <div class="shrink-0 mt-0.5">
+          <div class="bg-emerald-100 p-2 rounded-full">
+            <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+        </div>
+        <div>
+          <div class="font-bold text-[0.8rem] tracking-widest text-emerald-700 mb-1.5 font-serif uppercase">🟢 Не поливати</div>
+          <div class="text-sm text-[#4A5D4E] leading-relaxed font-sans">Розсада + 6 судочків (провітрювати конденсат). 16 автономних тераріумів.</div>
+        </div>
+      </div>
+    </div>
 
     <!-- ── Terrarium Banner ── -->
     <div class="mt-20 bg-white/70 border border-[#DCE8D2] rounded-3xl p-8 lg:p-12 shadow-sm">
